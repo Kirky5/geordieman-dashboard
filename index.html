@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training Insights Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg-primary: #08090d;
+    --bg-card: rgba(255,255,255,0.025);
+    --bg-card-hover: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.06);
+    --text-primary: #f0f0f2;
+    --text-secondary: #8a8a9a;
+    --text-muted: #55556a;
+    --accent-run: #ff5a3a;
+    --accent-cycle: #3a8ff0;
+    --accent-hiit: #f0b83a;
+    --accent-swim: #3af0c7;
+    --accent-walk: #a87cf0;
+    --accent-vo2: #00e676;
+    --accent-danger: #ff4060;
+    --accent-sleep: #7c6cf0;
+    --accent-race: #f0a03a;
+    --glow-run: rgba(255,90,58,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(255,90,58,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(58,143,240,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0,230,118,0.02) 0%, transparent 40%);
+    z-index:-1;pointer-events:none;
+  }
+  .container { max-width:1100px; margin:0 auto; padding:32px 24px 80px; }
+
+  /* Header */
+  .header { margin-bottom:36px; }
+  .header-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+  .header h1 { font-size:clamp(28px,5vw,42px); font-weight:800; letter-spacing:-1.5px; line-height:1.1; background:linear-gradient(135deg,#fff 0%,#bbb 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .header-sub { font-size:14px; color:var(--text-secondary); margin-top:10px; line-height:1.5; }
+  .header-sub span { color:var(--accent-vo2); font-weight:600; }
+
+  /* Tabs */
+  .tabs { display:flex; gap:3px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:5px; margin-bottom:32px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .tab-btn { flex:1; padding:11px 6px; border:none; border-radius:10px; cursor:pointer; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; transition:all 0.25s; background:transparent; color:var(--text-muted); white-space:nowrap; min-width:80px; }
+  .tab-btn.active { background:var(--glow-run); color:var(--accent-run); }
+  .tab-btn:hover:not(.active) { color:var(--text-secondary); }
+
+  .tab-content { display:none; animation:fadeIn 0.35s ease; }
+  .tab-content.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+  /* Cards */
+  .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-bottom:28px; }
+  .stat-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px 24px; transition:background 0.2s; }
+  .stat-card:hover { background:var(--bg-card-hover); }
+  .stat-label { font-size:11px; text-transform:uppercase; letter-spacing:1.8px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:10px; }
+  .stat-value { font-size:32px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1.1; letter-spacing:-1px; }
+  .stat-sub { font-size:13px; color:var(--text-secondary); margin-top:6px; }
+
+  .section-title { font-size:18px; font-weight:700; margin:36px 0 16px; letter-spacing:-0.3px; }
+
+  .chart-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
+  .chart-card .chart-title { font-size:13px; color:var(--text-secondary); margin-bottom:16px; font-weight:500; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+
+  /* VO2 Hero */
+  .vo2-hero { background:linear-gradient(135deg,rgba(0,230,118,0.06),rgba(0,230,118,0.02),transparent); border:1px solid rgba(0,230,118,0.12); border-radius:20px; padding:32px; margin-bottom:24px; position:relative; overflow:hidden; }
+  .vo2-hero::after { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,230,118,0.08),transparent);border-radius:50%;pointer-events:none; }
+  .vo2-hero-row { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+  .vo2-number { font-family:'JetBrains Mono',monospace; font-size:72px; font-weight:700; color:var(--accent-vo2); line-height:1; letter-spacing:-3px; }
+  .vo2-unit { font-size:16px; color:var(--text-secondary); letter-spacing:0; }
+  .vo2-info { flex:1; min-width:240px; }
+  .vo2-info h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
+  .vo2-badge { display:inline-block; padding:4px 14px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; background:rgba(0,230,118,0.15); color:var(--accent-vo2); }
+  .vo2-info p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+
+  .vo2-gauge { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
+  .gauge-bar-outer { width:100%; height:32px; background:rgba(255,255,255,0.04); border-radius:16px; position:relative; overflow:visible; margin:20px 0 12px; }
+  .gauge-segment { position:absolute; top:0; height:100%; }
+  .gauge-marker { position:absolute; top:-6px; width:4px; height:44px; background:#fff; border-radius:2px; box-shadow:0 0 12px rgba(255,255,255,0.5); z-index:10; }
+  .gauge-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; }
+  .gauge-target { position:absolute; top:-6px; height:44px; border-left:2px dashed rgba(255,255,255,0.3); z-index:5; }
+  .gauge-target-label { position:absolute; top:-22px; left:-16px; font-size:10px; color:var(--text-secondary); font-family:'JetBrains Mono',monospace; white-space:nowrap; }
+
+  /* Insight/Rec cards */
+  .insight-card { background:var(--bg-card); border:1px solid var(--border); border-radius:4px 16px 16px 4px; padding:20px 24px; margin-bottom:12px; transition:background 0.2s; }
+  .insight-card:hover { background:var(--bg-card-hover); }
+  .insight-card h4 { font-size:16px; font-weight:700; margin-bottom:6px; }
+  .insight-card p { font-size:14px; color:var(--text-secondary); line-height:1.65; }
+  .rec-card { background:rgba(255,90,58,0.03); border:1px solid rgba(255,90,58,0.08); border-radius:12px; padding:18px 22px; margin-bottom:10px; }
+  .rec-card h4 { font-size:14px; font-weight:700; color:var(--accent-run); margin-bottom:6px; }
+  .rec-card p { font-size:13px; color:var(--text-secondary); line-height:1.6; }
+
+  /* Garmin cards */
+  .garmin-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:20px; }
+  .garmin-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px; }
+  .garmin-card h4 { font-size:14px; font-weight:600; margin-bottom:10px; }
+  .garmin-card p { font-size:13px; color:var(--text-secondary); line-height:1.6; }
+
+  /* Tables */
+  .data-table-wrap { overflow-x:auto; background:var(--bg-card); border:1px solid var(--border); border-radius:16px; }
+  .data-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .data-table th { padding:14px 16px; text-align:left; color:var(--text-muted); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid var(--border); font-family:'JetBrains Mono',monospace; }
+  .data-table td { padding:12px 16px; border-bottom:1px solid rgba(255,255,255,0.025); color:var(--text-secondary); }
+  .data-table tr:last-child td { border-bottom:none; }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:12px; }
+  .highlight { color:var(--text-primary); font-weight:600; }
+  .te-badge { display:inline-block; padding:2px 10px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; }
+
+  /* HR zone bars */
+  .hr-zone-row { margin-bottom:12px; }
+  .hr-zone-header { display:flex; justify-content:space-between; margin-bottom:5px; }
+  .hr-zone-name { font-size:13px; color:var(--text-secondary); }
+  .hr-zone-count { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; }
+  .hr-zone-bar { height:8px; background:rgba(255,255,255,0.04); border-radius:4px; overflow:hidden; }
+  .hr-zone-fill { height:100%; border-radius:4px; transition:width 0.8s ease; }
+  .hr-note { font-size:12px; color:var(--text-muted); margin-top:14px; line-height:1.5; }
+
+  /* Sleep hero */
+  .sleep-hero { background:linear-gradient(135deg,rgba(124,108,240,0.07),rgba(124,108,240,0.02),transparent); border:1px solid rgba(124,108,240,0.12); border-radius:20px; padding:32px; margin-bottom:24px; position:relative; overflow:hidden; }
+  .sleep-hero::after { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(124,108,240,0.08),transparent);border-radius:50%;pointer-events:none; }
+  .sleep-hero-row { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+  .sleep-number { font-family:'JetBrains Mono',monospace; font-size:72px; font-weight:700; color:var(--accent-sleep); line-height:1; letter-spacing:-3px; }
+  .sleep-unit { font-size:16px; color:var(--text-secondary); letter-spacing:0; }
+
+  /* Race hero */
+  .race-hero { background:linear-gradient(135deg,rgba(240,160,58,0.07),rgba(240,160,58,0.02),transparent); border:1px solid rgba(240,160,58,0.12); border-radius:20px; padding:32px; margin-bottom:24px; }
+  .race-hero-row { display:flex; align-items:stretch; gap:16px; flex-wrap:wrap; }
+  .race-card { flex:1; min-width:140px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:18px 20px; text-align:center; }
+  .race-dist { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--text-muted); margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+  .race-time { font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; line-height:1.1; }
+  .race-sub { font-size:12px; color:var(--text-secondary); margin-top:6px; }
+
+  .scroll-top { position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,90,58,0.2); border:1px solid rgba(255,90,58,0.3); color:var(--accent-run); font-size:20px; cursor:pointer; display:none; align-items:center; justify-content:center; z-index:999; }
+  .scroll-top:hover { background:rgba(255,90,58,0.35); }
+
+  /* Geordieman */
+  .geordie-hero {
+    background: linear-gradient(135deg, rgba(240,160,58,0.08), rgba(255,90,58,0.04), rgba(58,143,240,0.04), transparent);
+    border: 1px solid rgba(240,160,58,0.15);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .geordie-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(240,160,58,0.1), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .geordie-hero h2 { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
+  .geordie-hero .event-meta { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-top: 12px; }
+  .geordie-hero .event-meta strong { color: var(--text-primary); }
+
+  .countdown-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+  .countdown-item { text-align: center; background: rgba(0,0,0,0.3); border-radius: 14px; padding: 18px 10px; border: 1px solid var(--border); }
+  .countdown-num { font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 700; color: var(--accent-race); line-height: 1; }
+  .countdown-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 6px; }
+
+  .phase-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+  }
+  .phase-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .phase-dates { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 10px; }
+  .phase-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+  .phase-card ul { list-style: none; padding: 0; margin: 10px 0 0; }
+  .phase-card ul li { font-size: 13px; color: var(--text-secondary); padding: 4px 0; padding-left: 18px; position: relative; line-height: 1.5; }
+  .phase-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent-race); }
+
+  .discipline-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .discipline-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .discipline-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .discipline-target { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .discipline-card .sub-stat { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+  .readiness-bar { height: 10px; background: rgba(255,255,255,0.04); border-radius: 5px; margin: 8px 0; overflow: hidden; }
+  .readiness-fill { height: 100%; border-radius: 5px; transition: width 1s ease; }
+  .readiness-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  @media(max-width:600px){ .countdown-row{grid-template-columns:repeat(2,1fr)} .countdown-num{font-size:28px} }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-label">Garmin Connect · Training Analysis</div>
+    <h1>Training Insights</h1>
+    <div class="header-sub">
+      Oct 2025 – Mar 2026 · 20 recent activities · South Ayrshire &amp; surrounding areas<br>
+      Current VO₂ Max: <span>54 ml/kg/min</span> · Goal: Superior (54+) for age 32
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="vo2">VO₂ Max</button>
+    <button class="tab-btn" data-tab="running">Running</button>
+    <button class="tab-btn" data-tab="cycling">Cycling</button>
+    <button class="tab-btn" data-tab="sleep">Sleep</button>
+    <button class="tab-btn" data-tab="race">Race Predictor</button>
+    <button class="tab-btn" data-tab="geordieman">🏊🚴🏃 Geordieman</button>
+    <button class="tab-btn" data-tab="insights">Insights</button>
+  </div>
+
+  <!-- ========== OVERVIEW ========== -->
+  <div id="tab-overview" class="tab-content active">
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value" style="color:var(--accent-run)">20</div><div class="stat-sub">in 18 days</div></div>
+      <div class="stat-card"><div class="stat-label">Total Time</div><div class="stat-value">15.7<span style="font-size:18px;color:var(--text-muted)">h</span></div><div class="stat-sub">avg 47 min/session</div></div>
+      <div class="stat-card"><div class="stat-label">Calories</div><div class="stat-value">12,399</div><div class="stat-sub">620 avg/session</div></div>
+      <div class="stat-card"><div class="stat-label">VO₂ Max</div><div class="stat-value" style="color:var(--accent-vo2)">54</div><div class="stat-sub">Excellent → Superior</div></div>
+    </div>
+    <div class="two-col">
+      <div class="chart-card"><div class="chart-title">Sessions by Activity Type</div><div style="height:220px"><canvas id="pieChart"></canvas></div></div>
+      <div class="chart-card"><div class="chart-title">Time by Activity Type (minutes)</div><div style="height:220px"><canvas id="timeBarChart"></canvas></div></div>
+    </div>
+    <div class="section-title">Weekly Training Volume</div>
+    <div class="chart-card"><div style="height:260px"><canvas id="weeklyChart"></canvas></div></div>
+    <div class="section-title">Heart Rate Zone Distribution</div>
+    <div class="chart-card">
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z1 Recovery (&lt;110)</span><span class="hr-zone-count" style="color:#6B7280">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:5%;background:#6B7280"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z2 Endurance (110-130)</span><span class="hr-zone-count" style="color:var(--accent-swim)">5</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:25%;background:var(--accent-swim)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z3 Tempo (130-150)</span><span class="hr-zone-count" style="color:var(--accent-hiit)">8</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:40%;background:var(--accent-hiit)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z4 Threshold (150-165)</span><span class="hr-zone-count" style="color:var(--accent-run)">5</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:25%;background:var(--accent-run)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z5 VO₂ Max (165+)</span><span class="hr-zone-count" style="color:var(--accent-danger)">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:5%;background:var(--accent-danger)"></div></div></div>
+      <div class="hr-note">Based on avg HR per session. Z3 dominates — see Insights for recommendations on polarising.</div>
+    </div>
+    <div class="section-title">Daily Calorie Burn</div>
+    <div class="chart-card"><div style="height:220px"><canvas id="timelineChart"></canvas></div></div>
+  </div>
+
+  <!-- ========== VO2 MAX ========== -->
+  <div id="tab-vo2" class="tab-content">
+    <div class="vo2-hero">
+      <div class="vo2-hero-row">
+        <div><div class="vo2-number">54<span class="vo2-unit"> ml/kg/min</span></div></div>
+        <div class="vo2-info">
+          <div class="vo2-badge">EXCELLENT — 95th Percentile Threshold</div>
+          <h3>You're at the Superior Doorstep</h3>
+          <p>For males aged 30-39, Garmin (Cooper Institute) classifies <strong>54+</strong> as Superior (95th percentile). You're exactly at the boundary. Push to 55-56 over the next 8-12 weeks for a solid buffer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="vo2-gauge">
+      <div class="chart-title">Garmin VO₂ Max Classification — Males 30-39</div>
+      <div class="gauge-bar-outer">
+        <div class="gauge-segment" style="left:0%;width:27%;background:#ef4444;border-radius:16px 0 0 16px;opacity:0.6"></div>
+        <div class="gauge-segment" style="left:27%;width:13%;background:#f59e0b;opacity:0.6"></div>
+        <div class="gauge-segment" style="left:40%;width:15%;background:#eab308;opacity:0.6"></div>
+        <div class="gauge-segment" style="left:55%;width:20%;background:#22c55e;opacity:0.6"></div>
+        <div class="gauge-segment" style="left:75%;width:25%;background:#00e676;border-radius:0 16px 16px 0;opacity:0.7"></div>
+        <div class="gauge-marker" style="left:75%"></div>
+        <div class="gauge-target" style="left:75%"><div class="gauge-target-label">YOU: 54</div></div>
+      </div>
+      <div class="gauge-labels"><span>Poor &lt;40.5</span><span>Fair</span><span>Good</span><span>Excellent</span><span>Superior 54+</span></div>
+    </div>
+    <div class="section-title">VO₂ Max Trend (6 Months)</div>
+    <div class="chart-card"><div style="height:260px"><canvas id="vo2TrendChart"></canvas></div>
+      <div class="hr-note">Running VO₂ (green) dipped mid-winter then surged to 54 through Feb. Cycling VO₂ (blue) tracks ~50-52.</div>
+    </div>
+    <div class="section-title">Garmin Training Status Analysis</div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>📊 Training Status</h4><p>Predominantly <strong style="color:var(--accent-vo2)">Productive</strong> (green) since mid-Jan. Brief overreaching phase around late December. Strong 6+ week productive block heading into March.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-swim)"><h4>💚 HRV Status</h4><p>Baseline ~60-70ms, mostly <strong>balanced</strong> with occasional unbalanced dips. Body is generally coping well, though orange patches indicate accumulated stress periods.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)"><h4>📈 Acute Training Load</h4><p>Climbed from ~350 (Oct) to <strong>~1050 currently</strong> — a well-managed 3× increase over 5 months, sitting within the optimal range.</p></div>
+    </div>
+    <div class="section-title">Path to Sustained Superior</div>
+    <div class="rec-card"><h4>1. Lock in 54+ with a buffer</h4><p>Aim for 55-56 over 8-12 weeks. Garmin estimates fluctuate — a 2-point buffer keeps you firmly in Superior territory even on off days.</p></div>
+    <div class="rec-card"><h4>2. VO₂ max intervals 2× per week</h4><p>Your VO₂ max builder (Feb 23, max HR 180, TE 3.8) is ideal. Add another session: 4-6 × 3-5 min at 90-95% max HR. Longer intervals (800m-1600m) are the gold standard.</p></div>
+    <div class="rec-card"><h4>3. Genuine Zone 2 running</h4><p>Many "easy" runs at HR 137-141 are actually Z3. True Z2 = HR 120-135. Build mitochondrial density with 80% of volume at this lower intensity.</p></div>
+    <div class="rec-card"><h4>4. Recovery weeks every 3-4 weeks</h4><p>Reduce volume 30-40% while keeping some intensity. Your 3× load increase since Oct needs deliberate recovery to trigger supercompensation.</p></div>
+  </div>
+
+  <!-- ========== RUNNING ========== -->
+  <div id="tab-running" class="tab-content">
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value" style="color:var(--accent-run)">9</div><div class="stat-sub">82.2 km total</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Pace</div><div class="stat-value">5:01<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">across all runs</div></div>
+      <div class="stat-card"><div class="stat-label">Best Pace</div><div class="stat-value" style="color:var(--accent-hiit)">3:12<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">10×400m repeats</div></div>
+      <div class="stat-card"><div class="stat-label">Avg HR</div><div class="stat-value">149<span style="font-size:16px;color:var(--text-muted)">bpm</span></div><div class="stat-sub">across all runs</div></div>
+    </div>
+    <div class="section-title">Pace Trend</div>
+    <div class="chart-card"><div style="height:260px"><canvas id="paceChart"></canvas></div><div class="hr-note">Lower = faster. Mix of easy long runs and faster interval/tempo sessions.</div></div>
+    <div class="section-title">Cadence &amp; Stride Length</div>
+    <div class="chart-card"><div style="height:220px"><canvas id="cadenceChart"></canvas></div></div>
+    <div class="section-title">All Runs</div>
+    <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Title</th><th>Dist</th><th>Pace</th><th>HR</th><th>TE</th></tr></thead><tbody id="runTable"></tbody></table></div>
+  </div>
+
+  <!-- ========== CYCLING ========== -->
+  <div id="tab-cycling" class="tab-content">
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-label">Total Rides</div><div class="stat-value" style="color:var(--accent-cycle)">5</div><div class="stat-sub">148.8 km on Zwift</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Power</div><div class="stat-value">185<span style="font-size:16px;color:var(--text-muted)">W</span></div><div class="stat-sub">weighted avg</div></div>
+      <div class="stat-card"><div class="stat-label">Best NP</div><div class="stat-value" style="color:var(--accent-hiit)">220<span style="font-size:16px;color:var(--text-muted)">W</span></div><div class="stat-sub">Kaze Kicker race</div></div>
+      <div class="stat-card"><div class="stat-label">Max Power</div><div class="stat-value">909<span style="font-size:16px;color:var(--text-muted)">W</span></div><div class="stat-sub">peak sprint</div></div>
+    </div>
+    <div class="section-title">Power Trend</div>
+    <div class="chart-card"><div style="height:260px"><canvas id="powerChart"></canvas></div></div>
+    <div class="section-title">All Rides</div>
+    <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Title</th><th>Dist</th><th>Avg W</th><th>NP</th><th>HR</th><th>TE</th></tr></thead><tbody id="cycleTable"></tbody></table></div>
+  </div>
+
+  <!-- ========== SLEEP ========== -->
+  <div id="tab-sleep" class="tab-content">
+    <div class="sleep-hero">
+      <div class="sleep-hero-row">
+        <div><div class="sleep-number">80<span class="sleep-unit"> avg score</span></div></div>
+        <div class="vo2-info">
+          <div class="vo2-badge" style="background:rgba(124,108,240,0.15);color:var(--accent-sleep)">GOOD — 51 WEEKS OF DATA</div>
+          <h3>Sleep is a Strength — With Room to Optimise</h3>
+          <p>Your average sleep score across the full year is 80 (Good). Duration averages ~7h 52min. Recent weeks show improvement — your last two weeks score 80-83 with 8h+ duration. This matters hugely for VO₂ Max recovery and adaptation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-label">Avg Score</div><div class="stat-value" style="color:var(--accent-sleep)">80</div><div class="stat-sub">across 51 weeks</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Duration</div><div class="stat-value">7:52</div><div class="stat-sub">hours per night</div></div>
+      <div class="stat-card"><div class="stat-label">Best Week</div><div class="stat-value" style="color:var(--accent-vo2)">89</div><div class="stat-sub">Jul 16-22, 2025</div></div>
+      <div class="stat-card"><div class="stat-label">Worst Week</div><div class="stat-value" style="color:var(--accent-danger)">63</div><div class="stat-sub">Sep 10-16, 2025</div></div>
+    </div>
+
+    <div class="section-title">Sleep Score Trend (12 Months)</div>
+    <div class="chart-card"><div style="height:280px"><canvas id="sleepScoreChart"></canvas></div></div>
+
+    <div class="section-title">Sleep Duration Trend</div>
+    <div class="chart-card"><div style="height:260px"><canvas id="sleepDurationChart"></canvas></div></div>
+
+    <div class="section-title">Bedtime Consistency</div>
+    <div class="chart-card"><div style="height:240px"><canvas id="bedtimeChart"></canvas></div>
+      <div class="hr-note">Earlier, consistent bedtimes correlate with higher sleep scores. Your best scores align with bedtimes before 11:30 PM.</div>
+    </div>
+
+    <div class="section-title">Sleep &amp; Training Insights</div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-sleep)">
+        <h4>🌙 Late Nights Impact Quality</h4>
+        <p>Weeks where your bedtime drifts past midnight (Nov 5-11: 12:03 AM, score 73; Jan 7-13: 12:16 AM, score 73) consistently score in the Fair range. Your best scores come when bedtime is before 11:30 PM. Even 30 minutes matters.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
+        <h4>📈 Recent Improvement</h4>
+        <p>Your last 4 weeks average an 80.5 sleep score, up from 74.5 in the Nov-Jan period. This aligns with your VO₂ Max climbing from 50 → 54 over the same timeframe. Better sleep = better adaptation to training load.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)">
+        <h4>⏰ Duration Sweet Spot</h4>
+        <p>Your data shows a clear pattern: weeks with 8h+ sleep average a score of 83, while sub-7.5h weeks average 76. You've been hitting 8h+ more consistently since February — keep this up for VO₂ Max gains.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== RACE PREDICTOR ========== -->
+  <div id="tab-race" class="tab-content">
+    <div class="race-hero">
+      <div style="margin-bottom:20px">
+        <div class="vo2-badge" style="background:rgba(240,160,58,0.15);color:var(--accent-race)">GARMIN RACE PREDICTOR — CURRENT ESTIMATES</div>
+        <h3 style="font-size:20px;font-weight:700;margin-top:8px">Predicted Race Times (March 2026)</h3>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:6px">Based on your current VO₂ Max of 54 and recent training data</p>
+      </div>
+      <div class="race-hero-row">
+        <div class="race-card"><div class="race-dist">5K</div><div class="race-time" style="color:var(--accent-cycle)">~20:00</div><div class="race-sub">4:00/km pace</div></div>
+        <div class="race-card"><div class="race-dist">10K</div><div class="race-time" style="color:var(--accent-vo2)">~41:50</div><div class="race-sub">4:11/km pace</div></div>
+        <div class="race-card"><div class="race-dist">Half Marathon</div><div class="race-time" style="color:var(--accent-race)">~1:33:00</div><div class="race-sub">4:25/km pace</div></div>
+        <div class="race-card"><div class="race-dist">Marathon</div><div class="race-time" style="color:var(--accent-run)">~3:20:00</div><div class="race-sub">4:44/km pace</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Race Prediction Trend (6 Months)</div>
+    <div class="chart-card"><div style="height:300px"><canvas id="raceTrendChart"></canvas></div>
+      <div class="hr-note">All four distances show improvement since mid-Jan, correlating with your VO₂ Max increase from 50 → 54. The biggest gains have come in your 5K and 10K predictions.</div>
+    </div>
+
+    <div class="section-title">Race Prediction Analysis</div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-cycle)">
+        <h4>🏁 5K: Sub-20 is Within Reach</h4>
+        <p>Your predicted 5K has been hovering around 4:00-4:05/km for months, with the current prediction near <strong>20:00</strong>. Your actual best pace of 3:12/km (400m repeats) and 3:20/km (VO₂ intervals) shows you have the top-end speed. A focused 5K block with race-pace tempo work could push you comfortably sub-20.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
+        <h4>🏁 10K: Strong Aerobic Endurance</h4>
+        <p>Your 10K prediction (~41:50) has been fairly stable at 4:10-4:20/km. This distance suits your current fitness profile well — you regularly run 8-11 km at similar efforts. The dip through Dec-Jan tracked your VO₂ dip, and it's now recovered to near your best.</p>
+      </div>
+    </div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-race)">
+        <h4>🏁 Half Marathon: Room to Improve</h4>
+        <p>Predicted at ~1:33 (4:25/km). This is the distance where more genuine Z2 easy running would have the biggest payoff. Your current long runs top out at 11 km — extending to 16-18 km once a fortnight would significantly improve your half prediction and endurance base.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-run)">
+        <h4>🏁 Marathon: Long-Term Project</h4>
+        <p>Predicted ~3:20 (4:44/km). Marathon predictions improved notably from ~5:15/km in November to ~4:44/km now. However, marathon fitness requires sustained high-volume weeks (60+ km/week) that aren't reflected in your current training. This is a good aspirational target if you ever choose to train specifically for one.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== GEORDIEMAN 70.3 ========== -->
+  <div id="tab-geordieman" class="tab-content">
+
+    <!-- Hero -->
+    <div class="geordie-hero">
+      <div class="vo2-badge" style="background:rgba(240,160,58,0.15);color:var(--accent-race)">FIRST TRIATHLON · GOAL EVENT 2026</div>
+      <h2>THE GEORDIEMAN 70.3</h2>
+      <div class="event-meta">
+        <strong>23 August 2026</strong> · Druridge Bay Country Park, Northumberland<br>
+        <strong>1.2 mile Swim</strong> (Ladyburn Lake) · <strong>56 mile Cycle</strong> (Coastal roads) · <strong>13.1 mile Run</strong> (Flat lake/trails)<br>
+        Start: <strong>7:00 AM</strong> · Course: Flat &amp; fast · Hosted by Wild Deer Events
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown-row" id="countdownRow"></div>
+    </div>
+
+    <!-- Target Times -->
+    <div class="section-title">Target Race Day Splits</div>
+    <div class="discipline-row">
+      <div class="discipline-card" style="border-top:3px solid var(--accent-swim)">
+        <h4>🏊 Swim — 1.2 miles (1,930m)</h4>
+        <div class="discipline-target" style="color:var(--accent-swim)">~42:00</div>
+        <div class="sub-stat">Pace: ~2:10/100m · Open water, Ladyburn Lake</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Your current pool SWOLF is 39-42 and you're swimming 1,575-2,275m per session. The distance is achievable, but open water adds ~10-15% to pool pace due to sighting, currents, and wetsuit adjustment. You need to build to consistent 2,000m+ sessions and get open water practice.</p>
+        <div style="margin-top:14px">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px">RACE READINESS</div>
+          <div class="readiness-bar"><div class="readiness-fill" style="width:45%;background:var(--accent-swim)"></div></div>
+          <div class="readiness-label"><span>Current: 45%</span><span>Need: consistent 2km+ OW swims</span></div>
+        </div>
+      </div>
+      <div class="discipline-card" style="border-top:3px solid var(--accent-cycle)">
+        <h4>🚴 Cycle — 56 miles (90km)</h4>
+        <div class="discipline-target" style="color:var(--accent-cycle)">~2:50:00</div>
+        <div class="sub-stat">Pace: ~31.7 km/h · Flat coastal roads</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Your Zwift data shows NP 177-220W and you're comfortable at 48km rides. The flat Northumberland coast suits your profile. Key gap: you haven't done the full 90km distance yet, and Zwift power doesn't always translate 1:1 to outdoor riding. Need outdoor road rides building to 90km+.</p>
+        <div style="margin-top:14px">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px">RACE READINESS</div>
+          <div class="readiness-bar"><div class="readiness-fill" style="width:55%;background:var(--accent-cycle)"></div></div>
+          <div class="readiness-label"><span>Current: 55%</span><span>Need: outdoor 90km+ rides</span></div>
+        </div>
+      </div>
+      <div class="discipline-card" style="border-top:3px solid var(--accent-run)">
+        <h4>🏃 Run — 13.1 miles (21.1km)</h4>
+        <div class="discipline-target" style="color:var(--accent-run)">~1:40:00</div>
+        <div class="sub-stat">Pace: ~4:45/km · Flat paths, lake circuit</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">This is your strongest discipline. Garmin predicts ~1:33 for a standalone half marathon. After swimming and cycling 57 miles, expect ~5-10% pace loss. Your current longest run is 11km — you need to build to 18-21km long runs. Running off the bike ("brick" sessions) will be crucial training.</p>
+        <div style="margin-top:14px">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px">RACE READINESS</div>
+          <div class="readiness-bar"><div class="readiness-fill" style="width:60%;background:var(--accent-run)"></div></div>
+          <div class="readiness-label"><span>Current: 60%</span><span>Need: 18km+ long runs, brick sessions</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estimated Total -->
+    <div class="stat-row">
+      <div class="stat-card" style="border-top:2px solid var(--accent-race)">
+        <div class="stat-label">Target Total</div>
+        <div class="stat-value" style="color:var(--accent-race)">~5:30</div>
+        <div class="stat-sub">Swim 42 + T1 5 + Bike 2:50 + T2 3 + Run 1:40 + buffer</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Transitions</div>
+        <div class="stat-value">~8<span style="font-size:16px;color:var(--text-muted)">min</span></div>
+        <div class="stat-sub">T1 + T2 combined · Practice these!</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Overall Readiness</div>
+        <div class="stat-value" style="color:var(--accent-hiit)">53%</div>
+        <div class="stat-sub">Strong base — focused training needed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Weeks to Race</div>
+        <div class="stat-value" id="weeksToRace" style="color:var(--accent-vo2)">--</div>
+        <div class="stat-sub">every week counts</div>
+      </div>
+    </div>
+
+    <!-- Training Plan Phases -->
+    <div class="section-title">24-Week Training Plan Overview</div>
+    <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px;line-height:1.6">With race day on August 23rd, a structured 24-week plan starts early March — which is now. Here's how to periodise your training across 6 phases to arrive race-ready.</p>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-swim)">
+      <h4>Phase 1: Foundation &amp; Open Water Introduction</h4>
+      <div class="phase-dates">Weeks 1-4 · Mar 3 – Mar 30</div>
+      <p>Build volume in all three disciplines. Priority: get comfortable in open water and start outdoor cycling as the weather improves.</p>
+      <ul>
+        <li><strong>Swim:</strong> 3× per week. Build to 2,000m continuous. Start open water sessions when possible (wetsuit essential — Scottish waters!)</li>
+        <li><strong>Bike:</strong> 2-3× per week. Mix Zwift (intensity) with outdoor rides (bike handling, nutrition). Build to 60km</li>
+        <li><strong>Run:</strong> 3× per week. 1 long run building to 14km, 1 easy run, 1 interval session. Keep easy runs at HR &lt;130</li>
+        <li><strong>Strength:</strong> Continue HIIT 1-2× per week, shifting focus to tri-specific movements (core, hip stability)</li>
+        <li><strong>Weekly volume:</strong> ~8-10 hours</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-cycle)">
+      <h4>Phase 2: Endurance Building</h4>
+      <div class="phase-dates">Weeks 5-8 · Mar 31 – Apr 27</div>
+      <p>Push distances towards race requirements. Introduce brick sessions (bike→run back-to-back).</p>
+      <ul>
+        <li><strong>Swim:</strong> Build to 2,500m continuous. Practice sighting drills. Work on bilateral breathing</li>
+        <li><strong>Bike:</strong> Build outdoor rides to 75km. Include 1 hilly ride per week for leg strength</li>
+        <li><strong>Run:</strong> Long run to 16km. First brick session: 60min bike → 20min run (expect dead legs!)</li>
+        <li><strong>Key session:</strong> Weekend brick — Saturday long bike, Sunday long run (or combined)</li>
+        <li><strong>Weekly volume:</strong> ~10-12 hours</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-run)">
+      <h4>Phase 3: Race-Specific Training</h4>
+      <div class="phase-dates">Weeks 9-12 · Apr 28 – May 25</div>
+      <p>Hit race distances in training. Practice nutrition strategy. Open water should be regular now.</p>
+      <ul>
+        <li><strong>Swim:</strong> Regular open water sessions (fortnightly minimum). Build to race distance (1,930m) comfortably</li>
+        <li><strong>Bike:</strong> First 90km ride. Practice eating/drinking on the bike — you'll need 60-90g carbs/hour on race day</li>
+        <li><strong>Run:</strong> Long run to 18km. Brick sessions every 10-14 days: 90min bike → 30-40min run</li>
+        <li><strong>Nutrition:</strong> Test race-day fuelling in training. Identify what your stomach tolerates at effort</li>
+        <li><strong>Weekly volume:</strong> ~11-13 hours</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-hiit)">
+      <h4>Phase 4: Peak Training Block</h4>
+      <div class="phase-dates">Weeks 13-18 · May 26 – Jul 5</div>
+      <p>Highest training volume. This is where fitness is built. Continue VO₂ Max intervals to maintain top-end.</p>
+      <ul>
+        <li><strong>Swim:</strong> 3× per week including 1 open water. Refine pacing — don't go out too hard on race day</li>
+        <li><strong>Bike:</strong> Regular 80-90km rides. Include race-pace efforts (hold NP ~170-180W for 2+ hours)</li>
+        <li><strong>Run:</strong> Long run hits 20-21km. Maintain 1 speed session per week (VO₂ intervals or tempo)</li>
+        <li><strong>Full brick rehearsal:</strong> Swim → Bike → short Run to practice all transitions</li>
+        <li><strong>Weekly volume:</strong> ~12-14 hours (peak weeks)</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-vo2)">
+      <h4>Phase 5: Race Simulation &amp; Sharpening</h4>
+      <div class="phase-dates">Weeks 19-22 · Jul 6 – Aug 2</div>
+      <p>Reduce volume slightly. Increase intensity of key sessions. Full race rehearsals.</p>
+      <ul>
+        <li><strong>Race rehearsal weekend:</strong> Full swim distance → 60-70km bike → 8-10km run. Test everything: kit, nutrition, pacing</li>
+        <li><strong>Transition practice:</strong> Set up a mock transition area. Practice wetsuit removal, shoe changes, helmet on/off</li>
+        <li><strong>Mental preparation:</strong> Visualise race day. Know the course. Plan your nutrition timing</li>
+        <li><strong>Consider a sprint triathlon:</strong> Racing a shorter event in July would give invaluable race experience</li>
+        <li><strong>Weekly volume:</strong> ~10-12 hours (controlled reduction)</li>
+      </ul>
+    </div>
+
+    <div class="phase-card" style="border-left:4px solid var(--accent-race)">
+      <h4>Phase 6: Taper &amp; Race Week</h4>
+      <div class="phase-dates">Weeks 23-24 · Aug 3 – Aug 23</div>
+      <p>Trust the training. Reduce volume by 40-50%. Keep a few short, sharp sessions. Prioritise sleep and nutrition.</p>
+      <ul>
+        <li><strong>Week -3:</strong> 70% normal volume. Include some race-pace efforts but keep them short</li>
+        <li><strong>Week -2:</strong> 50% volume. Short swim, easy ride, easy run. Focus on sleep (your 8h+ target is crucial here)</li>
+        <li><strong>Race week:</strong> Very light sessions Mon-Thu. 15min swim, 20min easy spin, 15min jog. Rest Fri-Sat</li>
+        <li><strong>Pre-race:</strong> Carb-load Thu-Sat. Lay out all kit Saturday. Arrive early Sunday for a calm setup</li>
+        <li><strong>Race morning:</strong> Light breakfast 3h before start. Arrive 90min early. Walk the transition area</li>
+      </ul>
+    </div>
+
+    <!-- Current Gaps Analysis -->
+    <div class="section-title">Where You Stand vs. What You Need</div>
+    <div class="chart-card">
+      <div style="height:300px"><canvas id="readinessRadar"></canvas></div>
+    </div>
+
+    <div class="section-title">Critical Focus Areas</div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-danger)">
+        <h4>🚨 Open Water Swimming</h4>
+        <p>This is your biggest unknown. Pool swimming and open water are very different — sighting, drafting, cold water, no walls to push off. Start open water sessions as soon as possible (May onwards in Scotland). Consider a guided open water swim clinic. A wetsuit will help with buoyancy and warmth. <strong>This should be your #1 priority for the next 3 months.</strong></p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)">
+        <h4>⚠️ Brick Sessions (Bike→Run)</h4>
+        <p>Running off the bike feels completely different to fresh running — your legs will feel like concrete for the first 1-2km. You <em>must</em> practice this regularly. Start with short bricks (45min bike → 15min run) and build. By July you should be doing 90min bike → 40min run bricks fortnightly.</p>
+      </div>
+    </div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-race)">
+        <h4>⚠️ Race-Day Nutrition</h4>
+        <p>A 70.3 lasting 5+ hours requires serious fuelling — you'll burn ~4,000-5,000 calories. Plan: light breakfast 3h before, gel/drink during swim exit, 60-90g carbs/hour on the bike (gels, bars, electrolyte drink), gels/cola on the run. <strong>Never try anything new on race day.</strong> Test everything in training first.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-cycle)">
+        <h4>⚠️ Outdoor Cycling Distance</h4>
+        <p>Your Zwift rides top out at 48km — race distance is 90km. Spring/summer is perfect for building outdoor distance on the roads around South Ayrshire. The Geordieman bike course is flat (Northumberland coast), which suits your profile, but you need time in the saddle outdoors to adapt to real-world conditions: wind, road surface, group dynamics.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Your Strengths Going In</div>
+    <div class="garmin-row">
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
+        <h4>✅ Aerobic Fitness (VO₂ Max 54)</h4>
+        <p>Your VO₂ Max puts you in the top 5% for your age. This is an enormous advantage for a first-time triathlete — your cardiovascular engine is already strong. Many first-timers lack this base and struggle with the sheer aerobic demand. You won't have that problem.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
+        <h4>✅ Running Endurance</h4>
+        <p>With a predicted half marathon of 1:33, even with 5-10% pace degradation off the bike you're looking at a ~1:40-1:45 run split. That's competitive for an age-group 70.3. Your run will likely be where you overtake people in the final miles.</p>
+      </div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
+        <h4>✅ Multi-Sport Background</h4>
+        <p>You're already swimming, cycling, running, and doing HIIT — most first-time triathletes come from a single sport. You understand training load management (your Garmin data shows this), and your body is adapted to varied movement patterns. This is a huge head start.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Week-by-Week Volume Projection</div>
+    <div class="chart-card"><div style="height:280px"><canvas id="volumeProjection"></canvas></div>
+      <div class="hr-note">Projected weekly training hours across the 24-week build. Note the taper in weeks 22-24 before race day.</div>
+    </div>
+
+    <div class="section-title">Essential Kit Checklist</div>
+    <div class="garmin-row">
+      <div class="garmin-card">
+        <h4>🏊 Swim</h4>
+        <p>Wetsuit (hire first to check fit), goggles (tinted for lake glare), tri-suit (wear under wetsuit), swim cap (provided), anti-chafe lube (neck/arms), earplugs (optional for cold water)</p>
+      </div>
+      <div class="garmin-card">
+        <h4>🚴 Bike</h4>
+        <p>Road bike (serviced 2 weeks before), helmet (mandatory), cycling shoes, spare tubes × 2, mini pump or CO2, nutrition on frame (gels/bars), hydration bottles × 2, sunglasses</p>
+      </div>
+      <div class="garmin-card">
+        <h4>🏃 Run</h4>
+        <p>Race-tested running shoes (not new!), race belt with number, visor/cap, gels if needed, anti-chafe for post-swim/bike irritation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== INSIGHTS ========== -->
+  <div id="tab-insights" class="tab-content">
+    <div class="section-title">Key Observations</div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 Strong, Structured Running</h4><p>9 runs averaging 9.1 km — genuine long runs (10-11 km easy), VO₂ max intervals (max HR 180), structured 10×400m repeats (3:12/km), and steady tempo work. Excellent variety for building aerobic base and speed simultaneously.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-hiit)"><h4>⚡ High Training Frequency</h4><p>20 sessions in 18 days with several double-days. Acute load has tripled since October to ~1050, sitting in the optimal zone. Sustainable for now — but HRV shows early stress signals to monitor.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-cycle)"><h4>🚴 Zwift Racing Power</h4><p>Normalised power 177-220W across rides, with 909W peak sprint. Good variability index showing ability to surge and recover during races. Cycling VO₂ at 50-52 tracking slightly below running (typical for multi-sport athletes).</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-danger)"><h4>❤️ The Grey Zone Problem</h4><p>40% of sessions average in Z3. Too hard for recovery, not hard enough for VO₂ stimulus. This is the single biggest change available: slow easy runs to HR &lt;130, push hard sessions harder. The 80/20 rule would accelerate VO₂ gains.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-sleep)"><h4>🌙 Sleep Supports Recovery</h4><p>Your sleep has improved significantly since January — averaging 80+ scores with 8h+ duration. This correlates directly with your VO₂ Max surge from 50→54. The data is clear: keep bedtime before 11:30 PM and aim for 8h+ to maximise training adaptation.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-swim)"><h4>🏊 Cross-Training Breadth</h4><p>Swimming (SWOLF 39-42), HIIT (3 sessions), hill walking (217m ascent) — excellent variety that builds conditioning without running impact. Supports your high run volume by spreading the stress across modalities.</p></div>
+
+    <div class="section-title">Priority Recommendations</div>
+    <div class="rec-card"><h4>1. Polarise Training Intensity (Biggest Win)</h4><p>Move from 25/40/35% (easy/moderate/hard) to 80/0/20%. Make easy runs truly easy (HR &lt;130) and keep hard sessions at current intensity. Research consistently shows this approach maximises VO₂ Max gains.</p></div>
+    <div class="rec-card"><h4>2. VO₂ Max Intervals 2× per Week</h4><p>Your VO₂ max builder was perfect. Add 4-6 × 3-5 min at 90-95% max HR plus one shorter session (400-800m repeats). These are the sessions that'll push 54 → 56+.</p></div>
+    <div class="rec-card"><h4>3. Protect Sleep Quality</h4><p>Your data shows bedtimes before 11:30 PM = score 83+ vs after midnight = score 73. That 10-point gap directly impacts recovery and adaptation. Treat bedtime as part of your training plan.</p></div>
+    <div class="rec-card"><h4>4. Recovery Weeks Every 3-4 Weeks</h4><p>Your training load has tripled since Oct. Build in planned recovery (reduce volume 30-40%, maintain some intensity). HRV's orange readings are your body asking for this.</p></div>
+    <div class="rec-card"><h4>5. Extend Long Runs for Half Marathon Gains</h4><p>Current max run is 11 km. Adding a fortnightly 16-18 km long run at genuine Z2 effort would significantly improve your half marathon prediction and build the aerobic engine that supports everything else.</p></div>
+    <div class="rec-card"><h4>6. Increase Swim Frequency</h4><p>Move from 2/fortnight to 2-3/week. Low-impact aerobic volume. Target SWOLF &lt;35 through technique drills. Supports overall aerobic base without running impact stress.</p></div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').style.display=window.scrollY>400?'flex':'none'});
+
+// Chart defaults
+Chart.defaults.color='#8a8a9a';Chart.defaults.borderColor='rgba(255,255,255,0.04)';Chart.defaults.font.family="'Outfit',sans-serif";Chart.defaults.font.size=12;
+const RUN='#ff5a3a',CYCLE='#3a8ff0',HIIT='#f0b83a',SWIM='#3af0c7',WALK='#a87cf0',SLEEP='#7c6cf0',VO2='#00e676',RACE='#f0a03a';
+
+// PIE
+new Chart(document.getElementById('pieChart'),{type:'doughnut',data:{labels:['Running (9)','Cycling (5)','HIIT (3)','Swim (2)','Walking (1)'],datasets:[{data:[9,5,3,2,1],backgroundColor:[RUN,CYCLE,HIIT,SWIM,WALK],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:12,padding:12,font:{size:12}}}}}});
+
+// TIME BAR
+new Chart(document.getElementById('timeBarChart'),{type:'bar',data:{labels:['Running','Cycling','HIIT','Swim','Walking'],datasets:[{data:[336,281,171,104,102],backgroundColor:[RUN,CYCLE,HIIT,SWIM,WALK],borderRadius:6,barThickness:28}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' min'}}},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}});
+
+// WEEKLY
+new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['Feb 10','Feb 17','Feb 24','Mar 01'],datasets:[{label:'Sessions',data:[5,8,5,2],backgroundColor:RUN,borderRadius:4,barPercentage:0.5},{label:'Minutes',data:[205,397,294,98],backgroundColor:CYCLE,borderRadius:4,barPercentage:0.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{x:{grid:{display:false}},y:{beginAtZero:true}}}});
+
+// TIMELINE
+const tlL=['02-12','02-13','02-14','02-16','02-17','02-18','02-19','02-20','02-22','02-23','02-24','02-25','02-26','02-27','02-28','03-01','03-02'];
+const tlC=[607,660,385,1279,1019,857,686,544,781,640,1043,578,830,471,653,915,466];
+new Chart(document.getElementById('timelineChart'),{type:'bar',data:{labels:tlL,datasets:[{label:'Calories',data:tlC,backgroundColor:tlC.map(c=>c>900?RUN:c>600?HIIT:CYCLE),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45}},y:{beginAtZero:true}}}});
+
+// VO2 TREND
+new Chart(document.getElementById('vo2TrendChart'),{type:'line',data:{labels:['Oct 1','Oct 15','Nov 1','Nov 15','Dec 1','Dec 15','Jan 1','Jan 15','Feb 1','Feb 15','Mar 1'],datasets:[{label:'Running VO₂',data:[52,52,51.5,51,51,50.5,50,50.5,51,53,54],borderColor:VO2,backgroundColor:'rgba(0,230,118,0.08)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:VO2,borderWidth:2},{label:'Cycling VO₂',data:[null,null,null,null,null,null,50,50,50.5,51,52],borderColor:CYCLE,borderDash:[5,5],tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:46,max:58,ticks:{stepSize:2}},x:{grid:{display:false}}}}});
+
+// PACE
+const runs=[{d:'02-13',p:339,dist:8.06,t:'South Ayrshire',hr:139},{d:'02-14',p:248,dist:5.02,t:'South Ayrshire',hr:163},{d:'02-16',p:315,dist:7.83,t:'10×400m repeats',hr:141},{d:'02-18',p:328,dist:10.98,t:'South Ayrshire',hr:137},{d:'02-22',p:276,dist:10.01,t:'South Ayrshire',hr:158},{d:'02-23',p:305,dist:7.49,t:'VO2 max builder',hr:152},{d:'02-25',p:332,dist:7.32,t:'East Renfrewshire',hr:137},{d:'02-26',p:327,dist:10.46,t:'South Ayrshire',hr:141},{d:'03-02',p:270,dist:6.01,t:'South Ayrshire',hr:157}];
+new Chart(document.getElementById('paceChart'),{type:'line',data:{labels:runs.map(r=>r.d),datasets:[{label:'Avg Pace (sec/km)',data:runs.map(r=>r.p),borderColor:RUN,backgroundColor:'rgba(255,90,58,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:RUN,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>runs[c[0].dataIndex].t,label:c=>{const r=runs[c.dataIndex];const m=Math.floor(r.p/60),s=String(r.p%60).padStart(2,'0');return[`Pace: ${m}:${s}/km`,`Distance: ${r.dist} km`,`HR: ${r.hr} bpm`]}}}},scales:{y:{reverse:true,ticks:{callback:v=>Math.floor(v/60)+':'+String(v%60).padStart(2,'0')}},x:{grid:{display:false}}}}});
+
+// CADENCE
+const cadD=[{d:'02-13',c:160,s:1.10},{d:'02-14',c:164,s:1.47},{d:'02-16',c:151,s:1.22},{d:'02-18',c:160,s:1.14},{d:'02-22',c:162,s:1.34},{d:'02-23',c:153,s:1.25},{d:'02-25',c:161,s:1.12},{d:'02-26',c:163,s:1.13},{d:'03-02',c:161,s:1.38}];
+new Chart(document.getElementById('cadenceChart'),{type:'line',data:{labels:cadD.map(c=>c.d),datasets:[{label:'Cadence (spm)',data:cadD.map(c=>c.c),borderColor:HIIT,borderWidth:2,tension:0.3,pointRadius:4,pointBackgroundColor:HIIT,yAxisID:'y'},{label:'Stride (m)',data:cadD.map(c=>c.s),borderColor:SWIM,borderWidth:2,tension:0.3,pointRadius:4,pointBackgroundColor:SWIM,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:145,max:170,position:'left',ticks:{stepSize:5}},y1:{min:1.0,max:1.55,position:'right',grid:{drawOnChartArea:false}},x:{grid:{display:false}}}}});
+
+// POWER
+const cyc=[{d:'02-16',ap:175,np:191,mp:909,hr:106,dist:34.95,t:'GXY ORBIT'},{d:'02-17',ap:206,np:220,mp:819,hr:144,dist:17.47,t:'Kaze Kicker'},{d:'02-20',ap:177,np:188,mp:779,hr:135,dist:27.74,t:'Canopies & Coastlines'},{d:'02-27',ap:198,np:213,mp:742,hr:124,dist:20.44,t:'Hudson Hustle'},{d:'03-01',ap:170,np:177,mp:715,hr:131,dist:48.19,t:'Sunday Bumble'}];
+new Chart(document.getElementById('powerChart'),{type:'line',data:{labels:cyc.map(c=>c.d),datasets:[{label:'Avg Power (W)',data:cyc.map(c=>c.ap),borderColor:CYCLE,backgroundColor:'rgba(58,143,240,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:CYCLE,borderWidth:2},{label:'NP (W)',data:cyc.map(c=>c.np),borderColor:'#7cb8f0',borderDash:[5,5],tension:0.3,pointRadius:5,pointBackgroundColor:'#7cb8f0',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:c=>cyc[c[0].dataIndex].t,label:c=>{const d=cyc[c.dataIndex];return[`Avg: ${d.ap}W | NP: ${d.np}W`,`Max: ${d.mp}W`,`Dist: ${d.dist}km | HR: ${d.hr}`]}}}},scales:{y:{min:150},x:{grid:{display:false}}}}});
+
+// ===== SLEEP CHARTS =====
+const sleepData=[
+  {w:'Mar 5-11 \'25',s:83,d:462},{w:'Mar 12-18',s:83,d:467},{w:'Mar 19-25',s:78,d:502},{w:'Mar 26-Apr 1',s:77,d:503},
+  {w:'Apr 2-8',s:80,d:464},{w:'Apr 9-15',s:83,d:484},{w:'Apr 16-22',s:77,d:453},{w:'Apr 23-29',s:82,d:492},
+  {w:'Apr 30-May 6',s:78,d:473},{w:'May 7-13',s:83,d:484},{w:'May 14-20',s:82,d:463},{w:'May 21-27',s:76,d:476},
+  {w:'May 28-Jun 3',s:86,d:511},{w:'Jun 4-10',s:81,d:463},{w:'Jun 11-17',s:80,d:497},{w:'Jun 18-24',s:81,d:454},
+  {w:'Jun 25-Jul 1',s:83,d:496},{w:'Jul 2-8',s:86,d:473},{w:'Jul 9-15',s:85,d:465},{w:'Jul 16-22',s:89,d:482},
+  {w:'Jul 23-29',s:87,d:448},{w:'Jul 30-Aug 5',s:80,d:431},{w:'Aug 6-12',s:81,d:436},{w:'Aug 13-19',s:86,d:466},
+  {w:'Aug 20-26',s:86,d:457},{w:'Aug 27-Sep 2',s:86,d:477},{w:'Sep 3-9',s:83,d:447},{w:'Sep 10-16',s:63,d:402},
+  {w:'Sep 17-23',s:82,d:480},{w:'Sep 24-30',s:81,d:469},{w:'Oct 1-7',s:77,d:462},{w:'Oct 8-14',s:83,d:457},
+  {w:'Oct 15-21',s:77,d:474},{w:'Oct 22-28',s:83,d:454},{w:'Oct 29-Nov 4',s:76,d:490},{w:'Nov 5-11',s:73,d:413},
+  {w:'Nov 12-18',s:73,d:390},{w:'Nov 19-25',s:78,d:474},{w:'Nov 26-Dec 2',s:72,d:482},{w:'Dec 3-9',s:83,d:513},
+  {w:'Dec 10-16',s:86,d:521},{w:'Dec 17-23',s:86,d:486},{w:'Dec 24-30',s:70,d:494},{w:'Dec 31-Jan 6',s:77,d:476},
+  {w:'Jan 7-13',s:73,d:459},{w:'Jan 14-20',s:83,d:486},{w:'Jan 21-27',s:81,d:541},{w:'Jan 28-Feb 3',s:77,d:481},
+  {w:'Feb 4-10',s:85,d:496},{w:'Feb 11-17',s:74,d:464},{w:'Feb 18-24',s:80,d:494},{w:'Feb 25-Mar 3',s:83,d:504}
+];
+const sLabels=sleepData.map((_,i)=>i%4===0?sleepData[i].w.split(',')[0]:'');
+
+// Sleep score
+new Chart(document.getElementById('sleepScoreChart'),{type:'line',data:{labels:sLabels,datasets:[{label:'Sleep Score',data:sleepData.map(d=>d.s),borderColor:SLEEP,backgroundColor:'rgba(124,108,240,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:sleepData.map(d=>d.s>=80?SLEEP:'#ff4060'),borderWidth:2},{label:'Good Threshold (80)',data:sleepData.map(()=>80),borderColor:'rgba(124,108,240,0.3)',borderDash:[5,5],borderWidth:1,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:(c)=>sleepData[c[0].dataIndex].w,label:c=>'Score: '+c.raw}}},scales:{y:{min:55,max:95,ticks:{stepSize:5}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
+
+// Sleep duration
+new Chart(document.getElementById('sleepDurationChart'),{type:'bar',data:{labels:sLabels,datasets:[{label:'Duration (min)',data:sleepData.map(d=>d.d),backgroundColor:sleepData.map(d=>d.d>=480?'rgba(0,230,118,0.4)':d.d>=450?'rgba(240,184,58,0.4)':'rgba(255,64,96,0.4)'),borderRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>sleepData[c[0].dataIndex].w,label:c=>{const m=c.raw;return Math.floor(m/60)+'h '+m%60+'min'}}}},scales:{y:{min:360,max:560,ticks:{callback:v=>Math.floor(v/60)+'h'}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
+
+// Bedtime
+const bedtimes=[
+  -56,-18,-12,-11,-23,-54,-16,-17,-5,-22,-12,-25,
+  -1,-22,-10,-17,-15,-26,-28,-20,-14,34,2,-21,
+  -13,-24,1,62,-11,-19,2,-4,-19,9,-58,3,
+  12,-28,0,16,44,-32,-8,0,15,-14,10,-28,
+  -26,11,-30,-16
+]; // minutes from midnight, negative = before midnight
+new Chart(document.getElementById('bedtimeChart'),{type:'line',data:{labels:sLabels,datasets:[{label:'Bedtime (mins from midnight)',data:bedtimes,borderColor:SLEEP,backgroundColor:'rgba(124,108,240,0.06)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:bedtimes.map(b=>b<=0?VO2:RACE),borderWidth:2},{label:'11:30 PM Target',data:bedtimes.map(()=>-30),borderColor:'rgba(0,230,118,0.3)',borderDash:[5,5],borderWidth:1,pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:c=>sleepData[c[0].dataIndex].w,label:c=>{const v=c.raw;if(v<0)return Math.abs(v)+' min before midnight';if(v===0)return'Midnight';return v+' min after midnight'}}}},scales:{y:{reverse:true,ticks:{callback:v=>{if(v<=-60)return'11:00 PM';if(v===-30)return'11:30 PM';if(v===0)return'12:00 AM';if(v===30)return'12:30 AM';if(v>=60)return'1:00 AM';return''}}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
+
+// ===== RACE PREDICTOR CHART =====
+const raceLabels=['Oct 1','Oct 31','Nov 30','Dec 31','Jan 31','Feb 28','Mar 3'];
+// Converting from the screenshot: pace values in seconds per km, then total time in seconds
+// 5K paces: ~3:57, 4:04, 4:08, 4:10, 4:13, 4:01, 4:00
+const r5k=[237,244,248,250,253,241,240];
+// 10K paces: ~4:10, 4:20, 4:18, 4:22, 4:15, 4:13, 4:11
+const r10k=[250,260,258,262,255,253,251];
+// Half paces: ~4:30, 4:42, 4:48, 4:50, 4:48, 4:35, 4:25
+const rHalf=[270,282,288,290,288,275,265];
+// Marathon paces: ~5:08, 5:15, 5:18, 5:20, 5:12, 5:05, 4:44
+const rMar=[308,315,318,320,312,305,284];
+
+new Chart(document.getElementById('raceTrendChart'),{type:'line',data:{labels:raceLabels,datasets:[
+  {label:'5K pace',data:r5k,borderColor:CYCLE,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:CYCLE},
+  {label:'10K pace',data:r10k,borderColor:VO2,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:VO2},
+  {label:'Half pace',data:rHalf,borderColor:RACE,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:RACE},
+  {label:'Marathon pace',data:rMar,borderColor:RUN,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:RUN}
+]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{label:c=>{const v=c.raw;const m=Math.floor(v/60),s=String(v%60).padStart(2,'0');const dist=c.dataset.label.split(' ')[0];const times={'5K':v*5,'10K':v*10,'Half':v*21.1,'Marathon':v*42.2};const t=times[dist];const th=Math.floor(t/3600),tm=Math.floor((t%3600)/60),ts=Math.floor(t%60);return`${dist}: ${m}:${s}/km → ${th?th+'h ':''}${tm}m ${ts}s`}}}},scales:{y:{reverse:true,ticks:{callback:v=>Math.floor(v/60)+':'+String(v%60).padStart(2,'0')+'/km'}},x:{grid:{display:false}}}}});
+
+// TABLES
+const runRows=[['03-02','South Ayrshire Running','6.01 km','4:30',157,3.4],['02-26','South Ayrshire Running','10.46 km','5:27',141,3.1],['02-25','East Renfrewshire Running','7.32 km','5:32',137,2.8],['02-23','VO2 max builder','7.49 km','5:05',152,3.8],['02-22','South Ayrshire Running','10.01 km','4:36',158,4.0],['02-18','South Ayrshire Running','10.98 km','5:28',137,3.2],['02-16','10 × 400m repeats','7.83 km','5:15',141,3.5],['02-14','South Ayrshire Running','5.02 km','4:08',163,3.5],['02-13','South Ayrshire Running','8.06 km','5:39',139,3.0]];
+const rTb=document.getElementById('runTable');
+runRows.forEach(r=>{const tc=r[5]>=3.5?'background:rgba(255,90,58,0.15);color:#ff5a3a':'background:rgba(255,255,255,0.05);color:#8a8a9a';rTb.innerHTML+=`<tr><td class="mono">${r[0]}</td><td style="color:var(--text-primary);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r[1]}</td><td class="mono highlight" style="color:var(--accent-run)">${r[2]}</td><td class="mono highlight">${r[3]}</td><td class="mono" style="color:${r[4]>=155?'var(--accent-run)':'var(--text-secondary)'}">${r[4]}</td><td><span class="te-badge" style="${tc}">${r[5]}</span></td></tr>`});
+
+const cycleRows=[['03-01','Sunday Bumble','48.19 km',170,177,131,3.3],['02-27','Hudson Hustle','20.44 km',198,213,124,3.1],['02-20','Canopies & Coastlines','27.74 km',177,188,135,3.1],['02-17','Kaze Kicker','17.47 km',206,220,144,3.2],['02-16','GXY ORBIT','34.95 km',175,191,106,3.1]];
+const cTb=document.getElementById('cycleTable');
+cycleRows.forEach(r=>{cTb.innerHTML+=`<tr><td class="mono">${r[0]}</td><td style="color:var(--text-primary);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r[1]}</td><td class="mono highlight" style="color:var(--accent-cycle)">${r[2]}</td><td class="mono">${r[3]}W</td><td class="mono highlight" style="color:#7cb8f0">${r[4]}W</td><td class="mono">${r[5]}</td><td><span class="te-badge" style="background:rgba(58,143,240,0.15);color:var(--accent-cycle)">${r[6]}</span></td></tr>`});
+
+// ===== GEORDIEMAN COUNTDOWN =====
+function updateCountdown() {
+  const race = new Date('2026-08-23T07:00:00');
+  const now = new Date();
+  const diff = race - now;
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const weeks = Math.floor(days / 7);
+  const remainDays = days % 7;
+  const months = Math.floor(days / 30.44);
+
+  const el = document.getElementById('countdownRow');
+  if(el) el.innerHTML = `
+    <div class="countdown-item"><div class="countdown-num">${months}</div><div class="countdown-label">Months</div></div>
+    <div class="countdown-item"><div class="countdown-num">${weeks}</div><div class="countdown-label">Weeks</div></div>
+    <div class="countdown-item"><div class="countdown-num">${days}</div><div class="countdown-label">Days</div></div>
+    <div class="countdown-item"><div class="countdown-num">${hours}</div><div class="countdown-label">Hours</div></div>
+  `;
+  const wEl = document.getElementById('weeksToRace');
+  if(wEl) wEl.textContent = weeks;
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// ===== READINESS RADAR =====
+new Chart(document.getElementById('readinessRadar'),{
+  type:'radar',
+  data:{
+    labels:['Swim Distance','Swim Open Water','Bike Distance','Bike Outdoor','Run Distance','Run Off-Bike','Nutrition Plan','Transitions','Aerobic Base','Recovery/Sleep'],
+    datasets:[
+      {label:'Current Readiness',data:[55,15,50,20,55,10,15,10,85,80],borderColor:RACE,backgroundColor:'rgba(240,160,58,0.12)',borderWidth:2,pointRadius:4,pointBackgroundColor:RACE},
+      {label:'Race Ready (Target)',data:[90,85,90,85,90,80,85,75,90,85],borderColor:VO2,backgroundColor:'rgba(0,230,118,0.05)',borderWidth:1,borderDash:[4,4],pointRadius:3,pointBackgroundColor:VO2}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{boxWidth:12,padding:16}}},
+    scales:{r:{min:0,max:100,ticks:{stepSize:25,backdropColor:'transparent',font:{size:10}},grid:{color:'rgba(255,255,255,0.06)'},pointLabels:{font:{size:11},color:'#8a8a9a'}}}
+  }
+});
+
+// ===== VOLUME PROJECTION =====
+const weeks24 = Array.from({length:24},(_,i)=>'W'+(i+1));
+const swimHrs = [1.5,1.5,2,2,2.5,2.5,2.5,3,3,3,3,3,3.5,3.5,3.5,3.5,3.5,3.5,3,3,2.5,2,1.5,1];
+const bikeHrs = [3,3,3.5,3.5,4,4,4.5,4.5,5,5,5,5.5,5.5,5.5,5.5,5.5,5.5,5.5,5,4.5,4,3,2,1.5];
+const runHrs =  [2.5,2.5,3,3,3,3,3.5,3.5,3.5,3.5,3.5,4,4,4,4,4,3.5,3.5,3.5,3,2.5,2,1.5,1];
+const strHrs =  [1.5,1.5,1.5,1.5,1,1,1,1,1,1,1,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0,0,0];
+
+new Chart(document.getElementById('volumeProjection'),{
+  type:'bar',
+  data:{
+    labels:weeks24,
+    datasets:[
+      {label:'Swim',data:swimHrs,backgroundColor:'rgba(58,240,199,0.6)',borderRadius:2,stack:'stack'},
+      {label:'Bike',data:bikeHrs,backgroundColor:'rgba(58,143,240,0.6)',borderRadius:2,stack:'stack'},
+      {label:'Run',data:runHrs,backgroundColor:'rgba(255,90,58,0.6)',borderRadius:2,stack:'stack'},
+      {label:'Strength',data:strHrs,backgroundColor:'rgba(240,184,58,0.4)',borderRadius:2,stack:'stack'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw+'h'}}},
+    scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:v=>v+'h'},title:{display:true,text:'Hours/Week',color:'#55556a'}}}
+  }
+});
+</script>
+</body>
+</html>
