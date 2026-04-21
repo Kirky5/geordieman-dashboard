@@ -2,41 +2,41 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 7 of 24
+## Current Status — Week 8 of 24
 
-**Date range covered:** 30 Jan – 12 Apr 2026 (87 activities)
+**Date range covered:** 16 Mar – 20 Apr 2026 (40 activities in this block)
 **Phase:** Phase 2 — Endurance Building (31 Mar – 27 Apr)
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~19
+**Weeks remaining:** ~18 (124 days)
 
-## Overall Readiness — 67% (up from 53%)
+## Overall Readiness — 70% (up from 67%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| 🏊 Swim | **65%** | +20 | 14 swims, 25.2 km, longest 2,275 m — OW still the gap |
-| 🚴 Bike | **67%** | +12 | 671 km / 25 rides, first outdoor ride done (42 km), longest 50.3 km |
-| 🏃 Run | **80%** | +20 | 312 km / 35 runs, longest 20.0 km, first brick done |
+| Swim | **65%** | flat | 9 swims this block, longest 2,250 m (Apr 18) — open water still the gap |
+| Bike | **72%** | +5 | First 60 km+ outdoor ride done (60.74 km, Apr 13); Zwift base holding |
+| Run | **76%** | recalibrated vs 21 km target | Longest 15.0 km (Apr 6), first brick run at 4:54/km (Apr 17) |
+| Transitions | **55%** | +10 | First full brick session completed |
 
-## Milestones Hit This Period
+## Milestones Hit This Block
 
-- **First outdoor ride** (Apr 7) — 42 km, South Ayrshire, HR 134
-- **First brick session** (Mar 12) — Zwift 30 km then 6.45 km run off the bike
-- **New longest ride** — 50.3 km ZTPL 100km group ride (Apr 10)
-- **20.0 km long run** (Mar 14) — within 1 km of half-marathon distance
-- **3 swims in one week** (Apr 6-12) — 2,025m + 1,800m + 1,940m
-- **87 sessions in 73 days** — ~7.1 h/week average, peaking at 9.5 h this week
+- **First BRICK session** (Apr 17) — Zwift 22.56 km → 7.42 km run at 4:54/km, HR held well
+- **Outdoor cycling breakthrough** — 42.05 km (Apr 7) then 60.74 km (Apr 13), back on the road
+- **Longest continuous swim** — 2,250 m (Apr 18), up from 2,025 m
+- **Consistent long runs** — 14–15 km every week through April
+- **~10 h peak training week** — biggest training volume of the plan so far
 
 ## This Week's Priorities
 
-1. **Recovery check** — 9.5 h this week was the biggest yet, consider easing next week
-2. **Build outdoor cycling distance** — target 60 km ride within 2 weeks
-3. **Next brick session** — aim for one more before end of April
-4. **Open water recce** — identify a Scottish OW venue for first wetsuit swim in May
-5. **SWOLF check** — trending up to 42-44, consider a technique-focused swim
+1. **Book an open water session** — May is the window; Loch Doon or Castle Semple are the closest realistic options
+2. **Push the outdoor ride to 70 km+** — next step toward the 90 km race leg
+3. **Second brick of the block** — repeat the bike→run pattern weekly from here
+4. **Extend long run to 17–18 km** — rebuild toward the 20 km runs you did earlier this year
+5. **Z2 discipline** — easy runs still drifting into Z3 (HR 137–141); keep HR under 130 on true recovery days
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 12 April 2026_
+_Last updated: 21 April 2026_
