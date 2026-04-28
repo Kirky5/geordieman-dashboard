@@ -186,6 +186,124 @@
 
   .scroll-top { position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,159,67,0.2); border:1px solid rgba(255,159,67,0.3); color:var(--accent-tri); font-size:20px; cursor:pointer; display:none; align-items:center; justify-content:center; z-index:999; }
   .scroll-top:hover { background:rgba(255,159,67,0.35); }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .container { padding: 16px 12px 60px; }
+    .header { margin-bottom: 22px; }
+    .header-label { letter-spacing: 2px; font-size: 10px; }
+    .header h1 { font-size: 26px; line-height: 1.15; letter-spacing: -1px; }
+    .header-sub { font-size: 12.5px; line-height: 1.6; margin-top: 8px; }
+    .race-countdown { font-size: 11px; padding: 7px 12px; letter-spacing: 0.5px; margin-top: 12px; }
+
+    .tabs { padding: 4px; gap: 3px; margin-bottom: 20px; }
+    .tab-btn { padding: 9px 12px; font-size: 12px; min-width: auto; flex: 0 0 auto; }
+
+    .stat-row { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px; }
+    .stat-card { padding: 14px 14px; border-radius: 12px; }
+    .stat-label { font-size: 9.5px; letter-spacing: 1.2px; margin-bottom: 6px; }
+    .stat-value { font-size: 22px; }
+    .stat-sub { font-size: 11px; }
+
+    .section-title { font-size: 16px; margin: 24px 0 12px; }
+
+    .chart-card { padding: 14px; border-radius: 12px; margin-bottom: 14px; }
+    .chart-card .chart-title { font-size: 12px; margin-bottom: 10px; }
+
+    /* Force chart heights to scale on mobile */
+    div[style*="height:280px"], div[style*="height: 280px"] { height: 220px !important; }
+    div[style*="height:300px"], div[style*="height: 300px"] { height: 240px !important; }
+    div[style*="height:260px"], div[style*="height: 260px"] { height: 210px !important; }
+    div[style*="height:240px"], div[style*="height: 240px"] { height: 200px !important; }
+
+    .two-col { grid-template-columns: 1fr; gap: 12px; }
+
+    .tri-hero, .vo2-hero, .sleep-hero, .race-hero { padding: 20px; border-radius: 16px; }
+    .tri-hero-row, .vo2-hero-row, .sleep-hero-row { gap: 14px; flex-direction: column; align-items: flex-start; }
+    .tri-number, .vo2-number, .sleep-number { font-size: 48px; letter-spacing: -2px; }
+    .tri-unit, .vo2-unit, .sleep-unit { font-size: 13px; }
+    .tri-info, .vo2-info { min-width: 100%; }
+    .tri-info h3, .vo2-info h3 { font-size: 16px; line-height: 1.3; }
+    .tri-info p, .vo2-info p { font-size: 13px; line-height: 1.6; }
+    .tri-badge, .vo2-badge { font-size: 10px; letter-spacing: 0.8px; padding: 3px 10px; }
+
+    .readiness-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .readiness-card { padding: 14px; border-radius: 12px; }
+    .readiness-label { font-size: 9.5px; letter-spacing: 0.8px; }
+    .readiness-value { font-size: 30px; letter-spacing: -1px; }
+    .readiness-value small { font-size: 14px; }
+    .readiness-sub { font-size: 11px; line-height: 1.45; }
+    .readiness-change { font-size: 9px; padding: 1px 6px; }
+
+    .phase-tracker { padding: 16px; border-radius: 12px; }
+    .phase-row { flex-wrap: wrap; gap: 4px; }
+    .phase-box { flex: 1 1 calc(33.33% - 4px); padding: 8px 4px; min-width: 0; }
+    .phase-box .phase-num { font-size: 13px; }
+    .phase-box .phase-name { font-size: 8.5px; letter-spacing: 0.5px; }
+
+    .goal-cols { grid-template-columns: 1fr; gap: 12px; }
+    .goal-col { padding: 16px; border-radius: 12px; }
+    .goal-time { font-size: 26px; margin-bottom: 12px; }
+    .goal-splits { gap: 6px; }
+    .goal-split { padding: 8px 4px; }
+    .goal-split-label { font-size: 9px; letter-spacing: 0.5px; }
+    .goal-split-val { font-size: 12px; }
+
+    .garmin-row { grid-template-columns: 1fr; gap: 10px; }
+    .garmin-card { padding: 16px; border-radius: 12px; }
+    .garmin-card h4 { font-size: 13px; }
+    .garmin-card p { font-size: 12px; line-height: 1.55; }
+
+    .insight-card { padding: 14px 16px; border-radius: 4px 12px 12px 4px; }
+    .insight-card h4 { font-size: 14px; }
+    .insight-card p { font-size: 12.5px; line-height: 1.55; }
+
+    .rec-card { padding: 13px 15px; border-radius: 10px; }
+    .rec-card h4 { font-size: 13px; }
+    .rec-card p { font-size: 12px; line-height: 1.5; }
+
+    .race-hero-row { gap: 8px; }
+    .race-card { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 12px 8px; border-radius: 10px; }
+    .race-dist { font-size: 10px; letter-spacing: 1px; margin-bottom: 6px; }
+    .race-time { font-size: 20px; }
+    .race-sub { font-size: 10px; margin-top: 4px; }
+
+    .data-table-wrap { border-radius: 12px; }
+    .data-table { font-size: 11px; }
+    .data-table th { padding: 10px 8px; font-size: 9px; letter-spacing: 0.5px; }
+    .data-table td { padding: 9px 8px; }
+    .data-table .mono { font-size: 10px; }
+    .data-table td[style*="max-width"] { max-width: 110px !important; }
+    .brick-badge, .outdoor-badge { font-size: 8px; padding: 1px 5px; letter-spacing: 0.5px; margin-left: 4px; }
+    .te-badge { font-size: 10px; padding: 2px 7px; }
+
+    .gauge-bar-outer { height: 24px; margin: 16px 0 10px; }
+    .gauge-marker { height: 36px; width: 3px; }
+    .gauge-target { height: 36px; }
+    .gauge-target-label { font-size: 9px; left: -12px; }
+    .gauge-labels { font-size: 9px; }
+
+    .hr-zone-name { font-size: 12px; }
+    .hr-zone-count { font-size: 12px; }
+    .hr-note { font-size: 11px; line-height: 1.5; margin-top: 10px; }
+
+    .scroll-top { width: 38px; height: 38px; bottom: 16px; right: 16px; font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 10px 8px 48px; }
+    .header h1 { font-size: 22px; }
+    .header-sub { font-size: 12px; }
+    .stat-value { font-size: 19px; }
+    .stat-card { padding: 12px; }
+    .readiness-grid { grid-template-columns: 1fr; }
+    .readiness-value { font-size: 34px; }
+    .tri-number, .vo2-number, .sleep-number { font-size: 42px; }
+    .tab-btn { padding: 8px 10px; font-size: 11px; }
+    .race-time { font-size: 18px; }
+    .race-card { padding: 10px 6px; }
+    .goal-time { font-size: 24px; }
+  }
 </style>
 </head>
 <body>
@@ -194,10 +312,10 @@
     <div class="header-label">Geordieman 70.3 · Training Dashboard</div>
     <h1>Road to Druridge Bay</h1>
     <div class="header-sub">
-      Mar 16 – Apr 20, 2026 · 40 activities · Phase 2 (Endurance), Week 8 of 24<br>
-      Overall Race Readiness: <span>70%</span> · VO₂ Max: <span>54</span> · Primary goal: <span>Sub-6h</span>
+      Mar 16 – Apr 27, 2026 · 48 activities · Phase 3 (Race-Specific) starts this week, Week 9 of 24<br>
+      Overall Race Readiness: <span>74%</span> · VO₂ Max: <span>54</span> · Primary goal: <span>Sub-6h</span>
     </div>
-    <div class="race-countdown">⏱ 124 DAYS TO RACE DAY · 23 AUGUST 2026</div>
+    <div class="race-countdown">⏱ 117 DAYS TO RACE DAY · 23 AUGUST 2026</div>
   </div>
 
   <div class="tabs">
@@ -216,11 +334,11 @@
   <div id="tab-geordieman" class="tab-content active">
     <div class="tri-hero">
       <div class="tri-hero-row">
-        <div><div class="tri-number">70<span class="tri-unit">% ready</span></div></div>
+        <div><div class="tri-number">74<span class="tri-unit">% ready</span></div></div>
         <div class="tri-info">
-          <div class="tri-badge">PHASE 2: ENDURANCE · WEEK 8 OF 24</div>
-          <h3>Big April — outdoor riding and first brick nailed</h3>
-          <p>Readiness climbed from 62% → 70% over the last 7 weeks. The breakthroughs: first two outdoor rides (42km + 60.7km), first brick session (22.6km bike → 7.4km run), longest run pushed to 15km, and pool swims consistently above 2,000m — you've cleared race distance in the pool. The remaining gaps are real but shrinking: open water swim, a 90km ride rehearsal, and extending long run to 18-21km.</p>
+          <div class="tri-badge">PHASE 3: RACE-SPECIFIC · WEEK 9 OF 24</div>
+          <h3>Outdoor cycling block — 3 rides in 6 days, 16km long run logged</h3>
+          <p>Readiness now at 74%, up from 70% last week. Apr 21-27 was your biggest outdoor cycling week of the build: 35.27km (Apr 22), 45.65km (Apr 25), 46.04km (Apr 27) — 127km of outdoor riding in one week. New longest run hit on Apr 24 (16.08km @ 5:21/km), and two more endurance swims banked. Pool fitness, run base, and outdoor cycling are all now race-credible. Open water swim and the 70km+ ride remain the two final unticked boxes for Phase 3.</p>
         </div>
       </div>
     </div>
@@ -228,28 +346,28 @@
     <div class="section-title">Discipline Readiness (vs Sub-6h target)</div>
     <div class="readiness-grid">
       <div class="readiness-card">
-        <div class="readiness-label">Swim <span class="readiness-change readiness-up">▲ +10</span></div>
+        <div class="readiness-label">Swim <span class="readiness-change readiness-flat">— flat</span></div>
         <div class="readiness-value" style="color:var(--accent-swim)">65<small>%</small></div>
         <div class="readiness-bar"><div class="readiness-fill" style="width:65%;background:var(--accent-swim)"></div></div>
-        <div class="readiness-sub">9 pool swims, 6 over 1,900m. Longest 2,250m. No OW yet — biggest gap.</div>
+        <div class="readiness-sub">11 pool swims, 7 over 1,900m. Longest 2,250m. No OW yet — biggest gap.</div>
       </div>
       <div class="readiness-card">
-        <div class="readiness-label">Bike <span class="readiness-change readiness-up">▲ +10</span></div>
-        <div class="readiness-value" style="color:var(--accent-cycle)">72<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" style="width:72%;background:var(--accent-cycle)"></div></div>
-        <div class="readiness-sub">First outdoor rides: 42km + 60.7km. Zwift volume strong. Need 90km rehearsal.</div>
+        <div class="readiness-label">Bike <span class="readiness-change readiness-up">▲ +4</span></div>
+        <div class="readiness-value" style="color:var(--accent-cycle)">76<small>%</small></div>
+        <div class="readiness-bar"><div class="readiness-fill" style="width:76%;background:var(--accent-cycle)"></div></div>
+        <div class="readiness-sub">5 outdoor rides now (229.7km). Three back-to-back 35-46km this week. 70km+ next.</div>
       </div>
       <div class="readiness-card">
-        <div class="readiness-label">Run <span class="readiness-change readiness-up">▲ +8</span></div>
-        <div class="readiness-value" style="color:var(--accent-run)">76<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" style="width:76%;background:var(--accent-run)"></div></div>
-        <div class="readiness-sub">14 runs, 124km. Longest 15km. First BRICK 7.4km @ 4:54/km off bike.</div>
+        <div class="readiness-label">Run <span class="readiness-change readiness-up">▲ +4</span></div>
+        <div class="readiness-value" style="color:var(--accent-run)">80<small>%</small></div>
+        <div class="readiness-bar"><div class="readiness-fill" style="width:80%;background:var(--accent-run)"></div></div>
+        <div class="readiness-sub">16 runs, 150.8km. New longest 16.08km @ 5:21/km (Apr 24). Solid base.</div>
       </div>
       <div class="readiness-card">
-        <div class="readiness-label">Transitions / Nutrition <span class="readiness-change readiness-up">▲ +10</span></div>
+        <div class="readiness-label">Transitions / Nutrition <span class="readiness-change readiness-flat">— flat</span></div>
         <div class="readiness-value" style="color:var(--accent-hiit)">55<small>%</small></div>
         <div class="readiness-bar"><div class="readiness-fill" style="width:55%;background:var(--accent-hiit)"></div></div>
-        <div class="readiness-sub">First brick completed. T1/T2 practice and fuelling tests still outstanding.</div>
+        <div class="readiness-sub">No new brick this week. T1/T2 practice + fuelling tests Phase 3 priority.</div>
       </div>
     </div>
 
@@ -262,13 +380,13 @@
     <div class="phase-tracker">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
         <div style="font-size:15px;font-weight:700">24-Week Build to Race Day</div>
-        <div class="mono" style="color:var(--accent-tri)">Week 8 / 24</div>
+        <div class="mono" style="color:var(--accent-tri)">Week 9 / 24</div>
       </div>
-      <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Currently in Phase 2 (Endurance). Next milestone: Phase 3 begins Apr 28 — race-specific work, nutrition testing, first 90km ride attempts.</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Phase 3 (Race-Specific) starts now. Focus: 90km ride builds, weekly bricks, OW swim sessions, race-day fuelling tests. Phase 4 (Peak) begins early June.</div>
       <div class="phase-row">
         <div class="phase-box done"><span class="phase-num">P1</span><span class="phase-name">Foundation</span></div>
-        <div class="phase-box current"><span class="phase-num">P2</span><span class="phase-name">Endurance</span></div>
-        <div class="phase-box future"><span class="phase-num">P3</span><span class="phase-name">Race-Specific</span></div>
+        <div class="phase-box done"><span class="phase-num">P2</span><span class="phase-name">Endurance</span></div>
+        <div class="phase-box current"><span class="phase-num">P3</span><span class="phase-name">Race-Specific</span></div>
         <div class="phase-box future"><span class="phase-num">P4</span><span class="phase-name">Peak</span></div>
         <div class="phase-box future"><span class="phase-num">P5</span><span class="phase-name">Sharpen</span></div>
         <div class="phase-box future"><span class="phase-num">P6</span><span class="phase-name">Taper</span></div>
@@ -299,22 +417,26 @@
       </div>
     </div>
 
-    <div class="section-title">Next Week Focus (Week 9 — Phase 3 starts)</div>
+    <div class="section-title">Next Week Focus (Week 10 — Phase 3 momentum)</div>
     <div class="rec-card">
-      <h4>1. Book an open water swim</h4>
-      <p>This is the single biggest readiness jump available. Loch Doon, Loch Ken or a coastal spot in Ayrshire — any OW exposure is worth more than another pool session. Even a short wetsuit swim counts.</p>
+      <h4>1. Outdoor 70km ride this weekend</h4>
+      <p>You've stacked three outdoor rides in 6 days (35.27 + 45.65 + 46.04 km) without any HR drift — the legs are ready. Step up to 70km at steady Z2 effort. This is the next milestone toward race distance.</p>
     </div>
     <div class="rec-card">
-      <h4>2. Progress outdoor ride to 70km+</h4>
-      <p>You rode 60.7km comfortably last Monday. Next step is 70-80km at steady aerobic effort. Keep practising fuelling on the bike — one bottle + one gel per hour minimum.</p>
+      <h4>2. Book the open water swim — non-negotiable now</h4>
+      <p>The longer this slips the more it bites. Loch Doon, Loch Ken, Castle Semple, or coastal Ayrshire. Even a 15-minute wetsuit acclimatisation counts. May is the realistic window before water temperature is a non-issue.</p>
     </div>
     <div class="rec-card">
-      <h4>3. One more brick session</h4>
-      <p>Your first brick (22.6km bike → 7.4km run @ 4:54/km) was controlled and fast. Add another this week — aim for 40-50km bike → 5km run to rehearse T2 legs.</p>
+      <h4>3. Reintroduce a brick this week</h4>
+      <p>One brick per week from Phase 3 onwards. Suggest: 40km Zwift or outdoor → 5-7km run off the bike at race pace (4:50-5:00/km). Apr 17's brick set the template — rehearse it.</p>
     </div>
     <div class="rec-card">
-      <h4>4. Extend long run toward 18km</h4>
-      <p>You've done 15km this block and 25km historically. Slot a Z2 long run of 17-18km this weekend — slower pace (5:30-5:45/km), HR &lt;130 where possible.</p>
+      <h4>4. Long run to 17-18km</h4>
+      <p>You jumped from 15km (Apr 6) to 16km (Apr 24) — clean progression. Next: 17-18km this weekend. Keep pace honest at 5:30-5:45/km, HR sub-140. Rebuild toward 20km within 4 weeks.</p>
+    </div>
+    <div class="rec-card">
+      <h4>5. Recovery check after a ~9.5h week</h4>
+      <p>Apr 21-27 was 8 sessions, ~9.5h training. With Phase 3 ramping, monitor HRV and sleep score. If either dips for 2+ days, cut the next session by 30%.</p>
     </div>
 
     <div class="section-title">Flags & Considerations</div>
@@ -328,10 +450,10 @@
   <!-- ========== OVERVIEW ========== -->
   <div id="tab-overview" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value" style="color:var(--accent-tri)">40</div><div class="stat-sub">in 36 days</div></div>
-      <div class="stat-card"><div class="stat-label">Total Time</div><div class="stat-value">36.5<span style="font-size:18px;color:var(--text-muted)">h</span></div><div class="stat-sub">avg 55 min/session</div></div>
-      <div class="stat-card"><div class="stat-label">Calories</div><div class="stat-value">24,282</div><div class="stat-sub">607 avg/session</div></div>
-      <div class="stat-card"><div class="stat-label">VO₂ Max</div><div class="stat-value" style="color:var(--accent-vo2)">54</div><div class="stat-sub">Excellent → Superior</div></div>
+      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value" style="color:var(--accent-tri)">48</div><div class="stat-sub">in 43 days</div></div>
+      <div class="stat-card"><div class="stat-label">Total Time</div><div class="stat-value">46.0<span style="font-size:18px;color:var(--text-muted)">h</span></div><div class="stat-sub">avg 57 min/session</div></div>
+      <div class="stat-card"><div class="stat-label">Calories</div><div class="stat-value">30,932</div><div class="stat-sub">644 avg/session</div></div>
+      <div class="stat-card"><div class="stat-label">VO₂ Max</div><div class="stat-value" style="color:var(--accent-vo2)">54</div><div class="stat-sub">Holding Superior</div></div>
     </div>
     <div class="two-col">
       <div class="chart-card"><div class="chart-title">Sessions by Activity Type</div><div style="height:240px"><canvas id="pieChart"></canvas></div></div>
@@ -339,16 +461,16 @@
     </div>
     <div class="section-title">Weekly Training Volume</div>
     <div class="chart-card"><div style="height:280px"><canvas id="weeklyChart"></canvas></div>
-      <div class="hr-note">Phase 2 Endurance target: 10-12h/week. Apr 7-13 hit the band (big outdoor ride + long run).</div>
+      <div class="hr-note">W6 (Apr 7-13) and W8 (Apr 21-27) both cracked 9.5h+ — sustainable Phase 2/3 volume. Stack of 3 outdoor rides drove W8.</div>
     </div>
     <div class="section-title">Heart Rate Zone Distribution</div>
     <div class="chart-card">
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z1 Recovery (&lt;110)</span><span class="hr-zone-count" style="color:#6B7280">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:3%;background:#6B7280"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z2 Endurance (110-130)</span><span class="hr-zone-count" style="color:var(--accent-swim)">11</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:28%;background:var(--accent-swim)"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z3 Tempo (130-150)</span><span class="hr-zone-count" style="color:var(--accent-hiit)">19</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:48%;background:var(--accent-hiit)"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z4 Threshold (150-165)</span><span class="hr-zone-count" style="color:var(--accent-run)">8</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:20%;background:var(--accent-run)"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z5 VO₂ Max (165+)</span><span class="hr-zone-count" style="color:var(--accent-danger)">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:3%;background:var(--accent-danger)"></div></div></div>
-      <div class="hr-note">Z3 still dominant. Polarise: push easy runs lower (HR &lt;130), push VO₂ sessions harder. 80/20 rule unlocks the next fitness jump.</div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z1 Recovery (&lt;110)</span><span class="hr-zone-count" style="color:#6B7280">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:2%;background:#6B7280"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z2 Endurance (110-130)</span><span class="hr-zone-count" style="color:var(--accent-swim)">15</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:31%;background:var(--accent-swim)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z3 Tempo (130-150)</span><span class="hr-zone-count" style="color:var(--accent-hiit)">23</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:48%;background:var(--accent-hiit)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z4 Threshold (150-165)</span><span class="hr-zone-count" style="color:var(--accent-run)">8</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:17%;background:var(--accent-run)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z5 VO₂ Max (165+)</span><span class="hr-zone-count" style="color:var(--accent-danger)">1</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:2%;background:var(--accent-danger)"></div></div></div>
+      <div class="hr-note">Z2 share is creeping up (now 31%) as outdoor cycling adds steady aerobic time. Z3 still leads — keep pushing easy runs below HR 130 to flip the ratio further.</div>
     </div>
     <div class="section-title">Daily Calorie Burn</div>
     <div class="chart-card"><div style="height:240px"><canvas id="timelineChart"></canvas></div></div>
@@ -361,8 +483,8 @@
         <div><div class="vo2-number">54<span class="vo2-unit"> ml/kg/min</span></div></div>
         <div class="vo2-info">
           <div class="vo2-badge">HOLDING SUPERIOR — 95th PERCENTILE</div>
-          <h3>Superior threshold held through April</h3>
-          <p>VO₂ Max has held at 54 across the April block, despite the shift toward longer aerobic volume (endurance rides and swims) which typically doesn't push VO₂ upward as hard as short intervals. To nudge toward 55-56, reintroduce 1-2 VO₂ max sessions per week (the Mar 23 "VO2 max builder" style) alongside the current endurance build.</p>
+          <h3>Superior threshold holding into Phase 3</h3>
+          <p>VO₂ Max has held at 54 across the full April block, including this week's outdoor cycling stack. Endurance volume typically doesn't move VO₂ upward as hard as intervals do — to push toward 55-56, reintroduce 1-2 VO₂ max sessions per week (the Mar 23 "VO2 max builder" style) once Phase 3 settles. Race-specific work is now the priority.</p>
         </div>
       </div>
     </div>
@@ -399,7 +521,7 @@
   <!-- ========== SWIM ========== -->
   <div id="tab-swim" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Swims</div><div class="stat-value" style="color:var(--accent-swim)">9</div><div class="stat-sub">16,705m total</div></div>
+      <div class="stat-card"><div class="stat-label">Total Swims</div><div class="stat-value" style="color:var(--accent-swim)">11</div><div class="stat-sub">20,255m total</div></div>
       <div class="stat-card"><div class="stat-label">Longest</div><div class="stat-value">2,250<span style="font-size:16px;color:var(--text-muted)">m</span></div><div class="stat-sub">Apr 18 · Citadel endurance</div></div>
       <div class="stat-card"><div class="stat-label">Avg SWOLF</div><div class="stat-value" style="color:var(--accent-hiit)">43</div><div class="stat-sub">range 38-44</div></div>
       <div class="stat-card"><div class="stat-label">Weekly Avg</div><div class="stat-value">1.8<span style="font-size:16px;color:var(--text-muted)">×</span></div><div class="stat-sub">swims per week</div></div>
@@ -407,7 +529,7 @@
 
     <div class="section-title">Swim Distance Progression</div>
     <div class="chart-card"><div style="height:260px"><canvas id="swimDistChart"></canvas></div>
-      <div class="hr-note">Race distance (1.9km / 1,900m) line shown for reference. You've cleared it 6 of 9 swims — pool endurance is no longer a limiter.</div>
+      <div class="hr-note">Race distance (1.9km / 1,900m) line shown for reference. You've cleared it 7 of 11 swims — pool endurance is no longer a limiter.</div>
     </div>
 
     <div class="section-title">SWOLF Trend</div>
@@ -429,13 +551,13 @@
   <!-- ========== RUNNING ========== -->
   <div id="tab-running" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value" style="color:var(--accent-run)">14</div><div class="stat-sub">124.0 km total</div></div>
-      <div class="stat-card"><div class="stat-label">Avg Pace</div><div class="stat-value">5:13<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">across all runs</div></div>
-      <div class="stat-card"><div class="stat-label">Longest Run</div><div class="stat-value" style="color:var(--accent-tri)">15.0<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">Apr 6 · Z3 effort</div></div>
+      <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value" style="color:var(--accent-run)">16</div><div class="stat-sub">150.8 km total</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Pace</div><div class="stat-value">5:14<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">across all runs</div></div>
+      <div class="stat-card"><div class="stat-label">Longest Run</div><div class="stat-value" style="color:var(--accent-tri)">16.1<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">Apr 24 · 5:21/km · HR 140</div></div>
       <div class="stat-card"><div class="stat-label">Avg HR</div><div class="stat-value">142<span style="font-size:16px;color:var(--text-muted)">bpm</span></div><div class="stat-sub">Z3 dominant</div></div>
     </div>
     <div class="section-title">Pace Trend</div>
-    <div class="chart-card"><div style="height:260px"><canvas id="paceChart"></canvas></div><div class="hr-note">Lower = faster. Mar 31 "parkrun-style" at 4:21/km was the fastest effort. Apr 17 BRICK run came in at 4:54/km off the bike — strong.</div></div>
+    <div class="chart-card"><div style="height:260px"><canvas id="paceChart"></canvas></div><div class="hr-note">Lower = faster. Mar 31 "parkrun-style" at 4:21/km was the fastest effort. Apr 17 BRICK run came in at 4:54/km off the bike. New longest 16.08km on Apr 24 at 5:21/km — controlled aerobic.</div></div>
     <div class="section-title">Distance per Run</div>
     <div class="chart-card"><div style="height:240px"><canvas id="runDistChart"></canvas></div></div>
     <div class="section-title">All Runs</div>
@@ -445,14 +567,14 @@
   <!-- ========== CYCLING ========== -->
   <div id="tab-cycling" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Rides</div><div class="stat-value" style="color:var(--accent-cycle)">10</div><div class="stat-sub">293.9 km (8 Zwift, 2 outdoor)</div></div>
+      <div class="stat-card"><div class="stat-label">Total Rides</div><div class="stat-value" style="color:var(--accent-cycle)">13</div><div class="stat-sub">420.9 km (8 Zwift, 5 outdoor)</div></div>
       <div class="stat-card"><div class="stat-label">Longest Ride</div><div class="stat-value" style="color:var(--accent-tri)">60.7<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">Apr 13 · outdoor · 2:29</div></div>
-      <div class="stat-card"><div class="stat-label">Outdoor km</div><div class="stat-value" style="color:var(--accent-vo2)">102.8<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">2 rides · race-specific</div></div>
+      <div class="stat-card"><div class="stat-label">Outdoor km</div><div class="stat-value" style="color:var(--accent-vo2)">229.7<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">5 rides · race-specific</div></div>
       <div class="stat-card"><div class="stat-label">Best NP (Zwift)</div><div class="stat-value">213<span style="font-size:16px;color:var(--text-muted)">W</span></div><div class="stat-sub">Apr 20 Yumezi Grit</div></div>
     </div>
     <div class="section-title">Ride Distance Progression</div>
     <div class="chart-card"><div style="height:260px"><canvas id="rideDistChart"></canvas></div>
-      <div class="hr-note">Race distance (90km) line shown. Apr 13 outdoor ride (60.7km) is the longest of the block — next target is 75-90km as Phase 3 begins.</div>
+      <div class="hr-note">Race distance (90km) line shown. 5 outdoor rides logged (35-60km). Apr 22-27 stacked 3 rides totalling 127km — next target is a 70km+ single ride as Phase 3 progresses.</div>
     </div>
     <div class="section-title">Zwift Power Trend</div>
     <div class="chart-card"><div style="height:240px"><canvas id="powerChart"></canvas></div></div>
@@ -555,12 +677,12 @@
   <!-- ========== INSIGHTS ========== -->
   <div id="tab-insights" class="tab-content">
     <div class="section-title">Key Observations — April Block</div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 First brick — cleanly executed</h4><p>Apr 17: 22.6km Zwift → 7.4km run at 4:54/km. HR 145, TE 3.3. Ran off the bike faster than several standalone runs this block. Strong foundation for Phase 3 brick progression.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🚴 Outdoor cycling returned</h4><p>Two outdoor rides in April (42.05km + 60.74km). Over 100km of outdoor volume — race-specific training that Zwift cannot fully replicate (road feel, wind, position fatigue, fuelling practice). Biggest bike readiness jump.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-swim)"><h4>🏊 Pool distance consistent</h4><p>9 swims, 6 above 1,900m (race distance). Longest 2,250m. SWOLF 42-44 showing solid stroke efficiency. Pool fitness is no longer the swim bottleneck — open water experience is.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 Long run extended to 15km</h4><p>Apr 6: 15km in 1:14:48 at 4:59/km. Controlled aerobic effort. Your historical 25km PB confirms the base is there — progressive extension to 18-20km over next 4-6 weeks is achievable.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-hiit)"><h4>💪 HIIT/Hyrox load sustained</h4><p>6 HIIT sessions plus strength — high functional load that supports running under fatigue and T2 leg turnover. A hidden triathlon advantage that compounds with swim/bike/run.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-danger)"><h4>❤️ Z3 still dominant</h4><p>48% of sessions averaged in Z3. Too hard to recover, not hard enough for VO₂ stimulus. Slow the easy runs (HR &lt;130), keep hard sessions hard. Biggest single change available.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🚴 Outdoor cycling block — 127km in one week</h4><p>Apr 22, 25, 27: three outdoor rides totalling 127km (35.27 + 45.65 + 46.04km). All at HR 128-133, comfortable aerobic effort, no signs of fatigue between sessions. This is a step-change in cycling readiness — race-specific volume that Zwift cannot fully replicate (terrain, wind, position fatigue, fuelling rehearsal).</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 First brick — cleanly executed</h4><p>Apr 17: 22.6km Zwift → 7.4km run at 4:54/km. HR 145, TE 3.3. Ran off the bike faster than several standalone runs this block. Strong foundation for Phase 3 brick progression — but no second brick yet, schedule one this week.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 New longest run: 16.08km (Apr 24)</h4><p>1:26:01 at 5:21/km, HR 140 — Z3 controlled. Up from 15km on Apr 6. Clean 1km progression matches the safe 10% rule. Next steps: 17km, 18km, 20km over the coming weekends, keeping pace honest at 5:30-5:45/km.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-swim)"><h4>🏊 Pool distance consistent — 11 swims</h4><p>11 pool swims, 7 above 1,900m (race distance). Longest 2,250m. SWOLF 42-44. Apr 26's 2,150m at HR 128 was slightly higher effort — may indicate growing race-pace tolerance. Open water still untouched.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-hiit)"><h4>💪 HIIT/Hyrox load sustained</h4><p>7 HIIT sessions plus strength — high functional load that supports running under fatigue and T2 leg turnover. A hidden triathlon advantage that compounds with swim/bike/run.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-danger)"><h4>❤️ Z3 still dominant</h4><p>48% of sessions averaged in Z3 — though Z2 share is creeping up to 31% as outdoor cycling adds steady aerobic time. Slow the easy runs (HR &lt;130), keep hard sessions hard. Biggest single change available.</p></div>
 
     <div class="section-title">Priority Recommendations (Next 4 Weeks)</div>
     <div class="rec-card"><h4>1. Open water swim — book one this week</h4><p>Biggest single readiness jump available. Loch Ken, Loch Doon, or a coastal session. Start with 15-20 min acclimatisation in a wetsuit. Nothing else moves the swim score more than OW exposure.</p></div>
@@ -593,26 +715,26 @@ const RUN='#ff5a3a',CYCLE='#3a8ff0',HIIT='#f0b83a',SWIM='#3af0c7',WALK='#a87cf0'
 new Chart(document.getElementById('readinessChart'),{
   type:'line',
   data:{
-    labels:['W1 Mar 3','W2','W3','W4','W5','W6','W7 Apr 20'],
+    labels:['W1 Mar 3','W2','W3','W4','W5','W6','W7','W8 Apr 27'],
     datasets:[
-      {label:'Swim',data:[55,55,57,58,60,62,65],borderColor:SWIM,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:SWIM,borderWidth:2},
-      {label:'Bike',data:[62,62,63,64,66,70,72],borderColor:CYCLE,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2},
-      {label:'Run',data:[68,69,70,71,73,74,76],borderColor:RUN,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:RUN,borderWidth:2},
-      {label:'Overall',data:[62,62,63,64,66,68,70],borderColor:TRI,backgroundColor:'rgba(255,159,67,0.12)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:TRI,borderWidth:3}
+      {label:'Swim',data:[55,55,57,58,60,62,65,65],borderColor:SWIM,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:SWIM,borderWidth:2},
+      {label:'Bike',data:[62,62,63,64,66,70,72,76],borderColor:CYCLE,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2},
+      {label:'Run',data:[68,69,70,71,73,74,76,80],borderColor:RUN,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:RUN,borderWidth:2},
+      {label:'Overall',data:[62,62,63,64,66,68,70,74],borderColor:TRI,backgroundColor:'rgba(255,159,67,0.12)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:TRI,borderWidth:3}
     ]
   },
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:50,max:85,ticks:{stepSize:5,callback:v=>v+'%'}},x:{grid:{display:false}}}}
 });
 
 // OVERVIEW
-new Chart(document.getElementById('pieChart'),{type:'doughnut',data:{labels:['Running (14)','Swimming (9)','Zwift (8)','HIIT (6)','Outdoor Bike (2)','Strength (1)'],datasets:[{data:[14,9,8,6,2,1],backgroundColor:[RUN,SWIM,CYCLE,HIIT,VO2,WALK],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:12,padding:10,font:{size:11}}}}}});
+new Chart(document.getElementById('pieChart'),{type:'doughnut',data:{labels:['Running (16)','Swimming (11)','Zwift (8)','HIIT (7)','Outdoor Bike (5)','Strength (1)'],datasets:[{data:[16,11,8,7,5,1],backgroundColor:[RUN,SWIM,CYCLE,HIIT,VO2,WALK],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:12,padding:10,font:{size:11}}}}}});
 
-new Chart(document.getElementById('timeBarChart'),{type:'bar',data:{labels:['Running','Swimming','Zwift','HIIT','Outdoor Bike','Strength'],datasets:[{data:[647,448,407,350,249,30],backgroundColor:[RUN,SWIM,CYCLE,HIIT,VO2,WALK],borderRadius:6,barThickness:22}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' min ('+Math.round(c.raw/60*10)/10+'h)'}}},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}});
+new Chart(document.getElementById('timeBarChart'),{type:'bar',data:{labels:['Running','Outdoor Bike','Swimming','Zwift','HIIT','Strength'],datasets:[{data:[726,547,529,407,405,30],backgroundColor:[RUN,VO2,SWIM,CYCLE,HIIT,WALK],borderRadius:6,barThickness:22}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' min ('+Math.round(c.raw/60*10)/10+'h)'}}},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}});
 
-new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['W3 Mar 17-23','W4 Mar 24-30','W5 Mar 31-Apr 6','W6 Apr 7-13','W7 Apr 14-20'],datasets:[{label:'Sessions',data:[9,5,9,8,8],backgroundColor:TRI,borderRadius:4,barPercentage:0.5,yAxisID:'y'},{label:'Minutes',data:[387,210,448,606,380],backgroundColor:CYCLE,borderRadius:4,barPercentage:0.5,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,position:'left',title:{display:true,text:'Sessions'}},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'Minutes'}}}}});
+new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['W3 Mar 17-23','W4 Mar 24-30','W5 Mar 31-Apr 6','W6 Apr 7-13','W7 Apr 14-20','W8 Apr 21-27'],datasets:[{label:'Sessions',data:[9,5,9,8,8,8],backgroundColor:TRI,borderRadius:4,barPercentage:0.5,yAxisID:'y'},{label:'Minutes',data:[387,210,448,606,380,572],backgroundColor:CYCLE,borderRadius:4,barPercentage:0.5,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,position:'left',title:{display:true,text:'Sessions'}},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'Minutes'}}}}});
 
-const tlL=['03-16','03-17','03-18','03-20','03-22','03-23','03-24','03-25','03-26','03-27','03-31','04-01','04-02','04-03','04-05','04-06','04-07','04-08','04-09','04-10','04-12','04-13','04-14','04-15','04-16','04-17','04-18','04-20'];
-const tlC=[178,1207,775,1064,864,619,728,889,465,534,454,538,669,734,1396,1651,2362,539,570,937,1441,1365,1250,771,619,1005,559,547];
+const tlL=['03-16','03-17','03-18','03-20','03-22','03-23','03-25','03-27','03-31','04-01','04-03','04-05','04-06','04-07','04-08','04-10','04-12','04-13','04-14','04-15','04-16','04-17','04-18','04-20','04-21','04-22','04-23','04-24','04-25','04-26','04-27'];
+const tlC=[178,1207,775,1064,864,619,889,534,454,538,734,1396,1651,2362,539,937,1441,1365,1250,771,619,1005,559,547,1173,823,733,1267,1128,536,990];
 new Chart(document.getElementById('timelineChart'),{type:'bar',data:{labels:tlL,datasets:[{label:'Calories',data:tlC,backgroundColor:tlC.map(c=>c>1500?RUN:c>900?HIIT:c>500?CYCLE:WALK),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,autoSkip:true,maxTicksLimit:14}},y:{beginAtZero:true}}}});
 
 // VO2
@@ -628,7 +750,9 @@ const swims=[
   {d:'04-07',t:'Geordieman endurance',m:2025,time:'48:22',swolf:44,hr:113},
   {d:'04-12',t:'Prestwick workout',m:1940,time:'54:50',swolf:43,hr:120},
   {d:'04-14',t:'Citadel endurance',m:2150,time:'49:38',swolf:43,hr:114},
-  {d:'04-18',t:'Citadel endurance',m:2250,time:'51:27',swolf:43,hr:119}
+  {d:'04-18',t:'Citadel endurance',m:2250,time:'51:27',swolf:43,hr:119},
+  {d:'04-21',t:'Citadel recovery',m:1400,time:'31:40',swolf:42,hr:114},
+  {d:'04-26',t:'Citadel endurance',m:2150,time:'48:13',swolf:42,hr:128}
 ];
 new Chart(document.getElementById('swimDistChart'),{type:'bar',data:{labels:swims.map(s=>s.d),datasets:[{label:'Distance (m)',data:swims.map(s=>s.m),backgroundColor:swims.map(s=>s.m>=1900?SWIM:'rgba(58,240,199,0.35)'),borderRadius:4},{label:'Race distance (1,900m)',data:swims.map(()=>1900),type:'line',borderColor:RACE,borderDash:[5,5],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{title:c=>swims[c[0].dataIndex].t,label:c=>{const s=swims[c.dataIndex];return[s.m+'m in '+s.time,'SWOLF: '+s.swolf+' · HR '+s.hr]}}}},scales:{y:{beginAtZero:true,max:2500,ticks:{callback:v=>v+'m'}},x:{grid:{display:false}}}}});
 
@@ -652,7 +776,9 @@ const runs=[
   {d:'04-08',t:'South Ayrshire',dist:7.00,pSec:289,hr:145,te:3.2,brick:false},
   {d:'04-12',t:'South Ayrshire',dist:12.00,pSec:299,hr:149,te:3.6,brick:false},
   {d:'04-15',t:'East Renfrewshire',dist:10.10,pSec:335,hr:131,te:2.9,brick:false},
-  {d:'04-17',t:'7k BRICK',dist:7.42,pSec:294,hr:145,te:3.3,brick:true}
+  {d:'04-17',t:'7k BRICK',dist:7.42,pSec:294,hr:145,te:3.3,brick:true},
+  {d:'04-21',t:'South Ayrshire',dist:10.71,pSec:297,hr:146,te:3.4,brick:false},
+  {d:'04-24',t:'South Ayrshire LONG',dist:16.08,pSec:321,hr:140,te:3.7,brick:false}
 ];
 
 new Chart(document.getElementById('paceChart'),{type:'line',data:{labels:runs.map(r=>r.d),datasets:[{label:'Avg Pace (sec/km)',data:runs.map(r=>r.pSec),borderColor:RUN,backgroundColor:'rgba(255,90,58,0.08)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:runs.map(r=>r.brick?TRI:RUN),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>runs[c[0].dataIndex].t+(runs[c[0].dataIndex].brick?' (BRICK)':''),label:c=>{const r=runs[c.dataIndex];const m=Math.floor(r.pSec/60),s=String(r.pSec%60).padStart(2,'0');return['Pace: '+m+':'+s+'/km','Distance: '+r.dist+' km','HR: '+r.hr+' bpm']}}}},scales:{y:{reverse:true,ticks:{callback:v=>Math.floor(v/60)+':'+String(v%60).padStart(2,'0')}},x:{grid:{display:false},ticks:{maxRotation:45}}}}});
@@ -676,7 +802,10 @@ const rides=[
   {d:'04-10',t:'Zwift ZTPL Wintertal 100km',dist:50.30,ap:175,np:196,hr:110,te:3.2,outdoor:false,brick:false},
   {d:'04-13',t:'South Ayrshire',dist:60.74,ap:null,np:null,hr:129,te:3.1,outdoor:true,speed:24.4,brick:false},
   {d:'04-17',t:'Zwift Big Spin Stage 1',dist:22.56,ap:181,np:190,hr:139,te:2.6,outdoor:false,brick:true},
-  {d:'04-20',t:'Zwift Yumezi Grit race',dist:19.53,ap:206,np:213,hr:140,te:3.1,outdoor:false,brick:false}
+  {d:'04-20',t:'Zwift Yumezi Grit race',dist:19.53,ap:206,np:213,hr:140,te:3.1,outdoor:false,brick:false},
+  {d:'04-22',t:'South Ayrshire',dist:35.27,ap:null,np:null,hr:128,te:2.6,outdoor:true,speed:24.5,brick:false},
+  {d:'04-25',t:'South Ayrshire',dist:45.65,ap:null,np:null,hr:133,te:2.9,outdoor:true,speed:26.4,brick:false},
+  {d:'04-27',t:'South Ayrshire',dist:46.04,ap:null,np:null,hr:128,te:2.8,outdoor:true,speed:25.7,brick:false}
 ];
 
 new Chart(document.getElementById('rideDistChart'),{type:'bar',data:{labels:rides.map(r=>r.d),datasets:[{label:'Distance (km)',data:rides.map(r=>r.dist),backgroundColor:rides.map(r=>r.outdoor?VO2:r.brick?TRI:CYCLE),borderRadius:4},{label:'Race distance (90km)',data:rides.map(()=>90),type:'line',borderColor:RACE,borderDash:[5,5],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{title:c=>rides[c[0].dataIndex].t+(rides[c[0].dataIndex].outdoor?' · outdoor':'')+(rides[c[0].dataIndex].brick?' · BRICK':''),label:c=>c.raw+' km'}}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'km'}},x:{grid:{display:false},ticks:{maxRotation:45}}}}});

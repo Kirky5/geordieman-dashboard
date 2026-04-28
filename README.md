@@ -2,41 +2,40 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 8 of 24
+## Current Status — Week 9 of 24
 
-**Date range covered:** 16 Mar – 20 Apr 2026 (40 activities in this block)
-**Phase:** Phase 2 — Endurance Building (31 Mar – 27 Apr)
+**Date range covered:** 16 Mar – 27 Apr 2026 (48 activities)
+**Phase:** Phase 3 — Race-Specific (starts this week)
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~18 (124 days)
+**Weeks remaining:** ~17 (117 days)
 
-## Overall Readiness — 70% (up from 67%)
+## Overall Readiness — 74% (up from 70%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **65%** | flat | 9 swims this block, longest 2,250 m (Apr 18) — open water still the gap |
-| Bike | **72%** | +5 | First 60 km+ outdoor ride done (60.74 km, Apr 13); Zwift base holding |
-| Run | **76%** | recalibrated vs 21 km target | Longest 15.0 km (Apr 6), first brick run at 4:54/km (Apr 17) |
-| Transitions | **55%** | +10 | First full brick session completed |
+| Swim | **65%** | flat | 11 swims, 20.3 km, longest 2,250 m — open water still the gap |
+| Bike | **76%** | +4 | 5 outdoor rides done (229.7 km); 3 in 6 days this week |
+| Run | **80%** | +4 | New longest 16.08 km @ 5:21/km (Apr 24); 16 runs, 150.8 km |
+| Transitions | **55%** | flat | First brick still standing alone — schedule the next |
 
-## Milestones Hit This Block
+## Milestones Hit This Week (Apr 21-27)
 
-- **First BRICK session** (Apr 17) — Zwift 22.56 km → 7.42 km run at 4:54/km, HR held well
-- **Outdoor cycling breakthrough** — 42.05 km (Apr 7) then 60.74 km (Apr 13), back on the road
-- **Longest continuous swim** — 2,250 m (Apr 18), up from 2,025 m
-- **Consistent long runs** — 14–15 km every week through April
-- **~10 h peak training week** — biggest training volume of the plan so far
+- **Outdoor cycling stack** — 35.27 km (Apr 22), 45.65 km (Apr 25), 46.04 km (Apr 27) — 127 km of outdoor riding in 6 days
+- **New longest run** — 16.08 km on Apr 24 at 5:21/km, HR 140 (Z3 controlled)
+- **Two more endurance swims** — 1,400 m (recovery, Apr 21) + 2,150 m (Apr 26)
+- **8 sessions / ~9.5 h training week** — sustainable Phase 3 volume
 
 ## This Week's Priorities
 
-1. **Book an open water session** — May is the window; Loch Doon or Castle Semple are the closest realistic options
-2. **Push the outdoor ride to 70 km+** — next step toward the 90 km race leg
-3. **Second brick of the block** — repeat the bike→run pattern weekly from here
-4. **Extend long run to 17–18 km** — rebuild toward the 20 km runs you did earlier this year
-5. **Z2 discipline** — easy runs still drifting into Z3 (HR 137–141); keep HR under 130 on true recovery days
+1. **Outdoor 70 km ride** — next milestone, the 60.74 km from Apr 13 was easy at HR 129
+2. **Book the open water swim** — May window, Loch Doon / Loch Ken / Castle Semple / coastal Ayrshire
+3. **Reintroduce a brick session** — 40 km bike → 5-7 km run off the bike at race pace
+4. **Long run to 17-18 km** — clean 1km/week progression continues
+5. **Recovery monitoring** — after 9.5h week, watch HRV and sleep score for 2-day dips
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 21 April 2026_
+_Last updated: 28 April 2026_
