@@ -2,47 +2,51 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 11 of 24
+## Current Status — Week 13 of 24
 
-**Date range covered:** 16 Mar – 17 May 2026 (68 activities)
-**Phase:** Phase 3 — Race-Specific
+**Date range covered:** 16 Mar – 31 May 2026 (81 activities)
+**Phase:** Phase 3 → Phase 4 (Peak) transition
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~14 (98 days — under 100)
+**Weeks remaining:** ~12 (84 days)
 
-## Overall Readiness — 78% (up from 75%)
+## Overall Readiness — 83% (up from 78%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **67%** | +2 | 15 swims, 27.9 km, longest 2,250 m equalled (May 12) |
-| Bike | **80%** | +4 | **New longest 76.88 km outdoor (May 8)** — 85% of race distance |
-| Run | **84%** | +2 | 28 runs, 243.8 km; May 13 fast 9.95 km @ 4:17/km |
-| Transitions | **55%** | flat | Still only 1 brick on record (Apr 17 — 30 days ago) |
+| Swim | **75%** | +8 | 17 pool + **1 OW (1,478m, May 31)** — biggest gap closed |
+| Bike | **81%** | +1 | 7 outdoor rides, 339.3 km, longest 76.88 km (May 8) |
+| Run | **87%** | +3 | 36 runs, 285.7 km; held sharpness through Mogán week |
+| Transitions | **55%** | flat | Brick drought now 44 days (Apr 17) — Phase 4 priority |
 
-## Milestones Hit Last 10 Days (May 8 – May 17)
+## 🌊 The Headline — First Open Water Swim
 
-- **76.88 km outdoor ride** (May 8) at HR 129 over 3h 17min — biggest breakthrough of the build
-- **Fast 9.95 km @ 4:17/km** (May 13) — fastest 10km pace of the build, HR 160
-- **Long run double** — 15.01 km (May 6) + 15.00 km (May 11), both at sub-5:15/km pace
-- **Equal longest swim** — 2,250 m on May 12, HR 123 (SWOLF 43)
-- **HR polarisation improving** — Z2 31% (was 28%), Z3 49% (was 53%)
+**May 31, 2026 — North Ayrshire Open Water Swimming**
+- Distance: 1,478m (almost full race distance, 1,900m)
+- Time: 36:02
+- Avg HR: 109 (Z1 — controlled, not panicked)
+- SWOLF: 50 (naturally higher than pool — no walls, glide, push-off)
 
-## Watch List
+Plus a 475m sea familiarisation session on May 26 as a smart warm-up. The single biggest race-day risk factor is now broken in. With 84 days to race day, all three disciplines are race-credible.
 
-- **Open water still zero** — 63 days into build, 98 days to race. Last major gap.
-- **Brick drought** — 30 days since Apr 17 brick. Bike + run both race-credible now.
-- **Aerobic drift at extended distance** — May 8 ride EF 3.03 vs shorter rides 3.16-3.35. Expected, but informs race pacing.
+## Other Milestones Last Fortnight (May 18-31)
 
-## This Week's Priorities
+- **Mogán holiday week** (May 18-22) — sensible deload, three easy 5-6km runs in heat at 6:11-6:18/km
+- **Run sharpness preserved** — May 25 5.93km @ 4:18/km, May 29 8.21km @ 5:00/km
+- **May 27 outdoor ride** — 32.71km tempo at HR 137
+- **Strength session reintroduced** — May 18, 36-min session
+- **Pool consistency** — May 19 1,975m at HR 114 (efficient)
 
-1. **Open water swim — Priority 1** — wetsuit + venue within 7-10 days
-2. **Schedule a brick** — 40-50 km bike → 5-8 km run at race pace
+## This Week's Priorities (Week 14 — Phase 4 begins)
+
+1. **Second OW swim** — build on May 31, target 1,900m race distance + sighting practice
+2. **Brick session — 44 days overdue** — 40-50 km bike → 5-8 km run at race pace
 3. **Extend long ride to 85-90 km** — within 2-3 weeks, with race-day fuelling
-4. **Long run to 17 km** — clean progression continues
-5. **Recovery monitoring** — 14h training in 10 days, watch HRV
+4. **Long run back to 17 km** — Mogán reset the streak, rebuild from 15 km
+5. **Race-day pacing rehearsal** — pick a weekend for full kit + nutrition test
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 17 May 2026_
+_Last updated: 31 May 2026_
