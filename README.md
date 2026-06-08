@@ -2,51 +2,56 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 13 of 24
+## Current Status — Week 14 of 24
 
-**Date range covered:** 16 Mar – 31 May 2026 (81 activities)
-**Phase:** Phase 3 → Phase 4 (Peak) transition
+**Date range covered:** 16 Mar – 7 Jun 2026 (90 activities)
+**Phase:** Phase 4 — Peak
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~12 (84 days)
+**Weeks remaining:** ~11 (76 days)
 
-## Overall Readiness — 83% (up from 78%)
+## Overall Readiness — 85% (up from 83%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **75%** | +8 | 17 pool + **1 OW (1,478m, May 31)** — biggest gap closed |
-| Bike | **81%** | +1 | 7 outdoor rides, 339.3 km, longest 76.88 km (May 8) |
-| Run | **87%** | +3 | 36 runs, 285.7 km; held sharpness through Mogán week |
-| Transitions | **55%** | flat | Brick drought now 44 days (Apr 17) — Phase 4 priority |
+| Swim | **78%** | +3 | 18 pool + 2 OW (1,478m + 1,509m). Jun 2 pool 2,250m at HR 109 |
+| Bike | **81%** | flat | Weather-paused outdoors — Zwift 39.33km only. Getting back out today |
+| Run | **88%** | +1 | 41 runs, 316.8 km. Brick 10k @ 5:05/km. Jun 7 fast 5km @ 4:25/km |
+| Transitions | **70%** | +15 | **Brick + fuelling test successful (Jun 1)** — race-day rehearsal nailed |
 
-## 🌊 The Headline — First Open Water Swim
+## 🏆 The Headlines (Jun 1-7)
 
-**May 31, 2026 — North Ayrshire Open Water Swimming**
-- Distance: 1,478m (almost full race distance, 1,900m)
-- Time: 36:02
-- Avg HR: 109 (Z1 — controlled, not panicked)
-- SWOLF: 50 (naturally higher than pool — no walls, glide, push-off)
+**Jun 1 — "Brick 10k" with successful gel fuelling**
+- Zwift 39.33 km (NP 179W, 1h 13min) → 10.02 km run @ 5:05/km, HR 146
+- Gels tested and confirmed working
+- First proper race-day rehearsal — 5:05/km is right at sub-6h target pace
 
-Plus a 475m sea familiarisation session on May 26 as a smart warm-up. The single biggest race-day risk factor is now broken in. With 84 days to race day, all three disciplines are race-credible.
+**Jun 3 — Second OW swim**
+- 1,509 m at HR 112 in North Ayrshire (35:44)
+- Slightly longer + slightly higher effort than May 31 — clean progression
+- Followed by 5.37 km easy run = swim-run mini-brick
 
-## Other Milestones Last Fortnight (May 18-31)
+**Jun 2 — Efficient pool swim**
+- 2,250 m at HR 109 (lowest swim HR of the build), SWOLF 44
 
-- **Mogán holiday week** (May 18-22) — sensible deload, three easy 5-6km runs in heat at 6:11-6:18/km
-- **Run sharpness preserved** — May 25 5.93km @ 4:18/km, May 29 8.21km @ 5:00/km
-- **May 27 outdoor ride** — 32.71km tempo at HR 137
-- **Strength session reintroduced** — May 18, 36-min session
-- **Pool consistency** — May 19 1,975m at HR 114 (efficient)
+**Jun 7 — Sharp 5k**
+- 5.02 km @ 4:25/km, HR 152 — top-end speed maintained
 
-## This Week's Priorities (Week 14 — Phase 4 begins)
+## This Week's Priorities (Week 15)
 
-1. **Second OW swim** — build on May 31, target 1,900m race distance + sighting practice
-2. **Brick session — 44 days overdue** — 40-50 km bike → 5-8 km run at race pace
-3. **Extend long ride to 85-90 km** — within 2-3 weeks, with race-day fuelling
-4. **Long run back to 17 km** — Mogán reset the streak, rebuild from 15 km
-5. **Race-day pacing rehearsal** — pick a weekend for full kit + nutrition test
+1. **Outdoor ride tonight** — weather opens, 9 days since the last road ride
+2. **Long run back to 16-18 km** — running has been frequent but short
+3. **Third OW swim** — keep the weekly streak going
+4. **Repeat the brick weekly** — build distance progressively toward 50-60 km bike + 8-10 km run
+5. **Lock in the fuelling protocol** — Jun 1 worked, now standardise
+
+## Watch List
+
+- **Bike volume weather-limited** — outdoor on hold for 11 days; getting back out today
+- **Long run distance** — last 15km+ was May 11, base needs reinstating
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 31 May 2026_
+_Last updated: 8 June 2026_
