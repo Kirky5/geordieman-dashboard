@@ -2,59 +2,57 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 16 of 24
+## Current Status — Week 17 of 24
 
-**Date range covered:** 16 Mar – 18 Jun 2026 (99 activities)
-**Phase:** Phase 4 — Peak
+**Date range covered:** 16 Mar – 22 Jun 2026 (101 activities)
+**Phase:** Phase 4 (Peak) → Phase 5 (Sharpen) transition
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~9 (65 days — sub-10 weeks)
+**Weeks remaining:** ~9 (61 days)
 
-## Overall Readiness — 88% (up from 86%)
+## Overall Readiness — 90% (up from 88%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **82%** | +4 | 18 pool + 4 OW. **Jun 9 OW 1,736m at HR 110 = 91% race distance** |
-| Bike | **86%** | +2 | 9 outdoor rides, 480.5 km. Jun 8 80km + Jun 17 60km tempo |
-| Run | **92%** | +4 | 44 runs, 354 km. **New longest 18.51 km @ 5:01/km (Jun 12)** |
-| Transitions | **70%** | flat | No new brick since Jun 1 — fuelling protocol locked, needs reps |
+| Swim | **86%** | +4 | 18 pool + 5 OW. **Jun 21 OW 2,218m at HR 111 = 117% of race distance** |
+| Bike | **87%** | +1 | 10 outdoor rides, 521.3 km. Jun 22 40.79km (race-gel test) at EF 3.54 |
+| Run | **92%** | flat | 44 runs, 354 km. Longest 18.51km @ 5:01/km (Jun 12) |
+| Transitions | **73%** | +3 | Jun 22 ride tested race-day gels — gut acclimation building |
 
-## 🏆 The Headlines (Jun 9-18)
+## 🏆 The Headlines (Jun 19-22)
 
-**Jun 12 — NEW LONGEST RUN: 18.51 km @ 5:01/km**
-- 1h 32min at HR 146, TE 4.0
-- Up from 16.08 km (Apr 24) — 15% jump
-- Pace faster than sub-6h target (5:18/km for the run leg)
-- EF 1.367 — aerobic engine handling new distance
+**Jun 21 — OW SWIM AT RACE+ DISTANCE: 2,218m**
+- 53:08 in North Ayrshire — 117% of race distance (1,900m)
+- HR 111 (Z2 — fully controlled, not pushing)
+- SWOLF 49
+- The single biggest race-readiness signal of the build — swim leg is now genuinely race-ready
 
-**Jun 9 — OW swim 1,736m at HR 110**
-- 43:13 in North Ayrshire — 91% of race distance
-- HR 110 = Z2, fully controlled
-- Followed by 7.56km easy run = natural swim-run combo
+**Jun 22 — Race-day gel test on 40.79km ride**
+- 1h 26min outdoor at HR 133, 28.3 km/h tempo (fastest outdoor pace of build)
+- Robert specifically tested race-day gels to acclimate his gut
+- Cycle EF 3.54 — best of the build
+- Gut adaptation is a real physiological process — these reps matter
 
-**Jun 10 — Build's best Run EF**
-- "Easy 11k" at HR 129 (proper Z2!) — EF 1.389
-- Aerobic engine deepening, not just maintained
+## Phase 4 → Phase 5 Transition
 
-**Jun 17 — 60.57 km outdoor tempo**
-- 2h 15min at HR 136 — solid tempo effort
-- Bike consistency maintained between long rides
+Every "build" box is now ticked:
+- ✅ Swim: pool fitness + 5 OW sessions including race+ distance
+- ✅ Bike: 80km long ride + 10 outdoor rides + race-gel test
+- ✅ Run: 18.51km longest + sub-5:01/km pace + best EF
+- ✅ Transitions: brick + 2 fuelling rehearsals
 
-## Watch List
+Phase 5 (Sharpen) starts this week. Focus shifts from "build distance" to "rehearse race". Volume dials back, race-pace quality goes up, recovery becomes part of the work.
 
-- **Brick drought** — 18 days since Jun 1 brick. Need 1-2 more before Phase 5
-- **Phase 5 (Sharpen) starts ~Jul 1** — focus shifts from "build distance" to "rehearse race"
+## This Week's Priorities (Week 18 — Phase 5 begins)
 
-## This Week's Priorities (Week 17)
-
-1. **Push long ride to 85-90 km** — with full race-day fuelling protocol
-2. **Repeat the brick** — 50 km bike → 8-10 km run at race pace
-3. **OW at race distance** — push to 1,900-2,000 m next outing
-4. **Hold long run at 16-18 km** — lock in the 18 km capability over multiple weeks
-5. **Plan Phase 5 schedule** — race-pace simulations begin
+1. **Repeat the brick with race-day gels** — combine the two locked race variables
+2. **One more 85-90 km long ride** — final long-distance rehearsal with full fuelling
+3. **Hold OW at race distance** — repeat 1,900-2,200m sessions, practice sighting
+4. **Race-pace simulation weekend** — full kit + bike at race pace → run at race pace + gels
+5. **Phase 5 mindset** — sharpen, don't pile volume. Engine is built, now protect it for Aug 23
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 19 June 2026_
+_Last updated: 23 June 2026_
