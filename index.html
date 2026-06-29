@@ -365,21 +365,27 @@
 
   /* ===== HEATMAP ===== */
   .heatmap-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
-  .heatmap-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .heatmap-row { display:flex; gap:10px; align-items:flex-start; min-width:fit-content; }
-  .heatmap-day-labels { display:grid; grid-template-rows:repeat(7,14px); gap:3px; font-size:9px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; padding-top:18px; padding-right:4px; flex-shrink:0; }
-  .heatmap-col { display:flex; flex-direction:column; gap:3px; }
-  .heatmap-month-label { font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; height:14px; line-height:14px; text-align:left; white-space:nowrap; }
-  .heatmap-cell { width:14px; height:14px; border-radius:3px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.025); cursor:pointer; transition:transform 0.12s, box-shadow 0.12s; }
-  .heatmap-cell.has-activity { border-color:rgba(255,255,255,0.08); }
-  .heatmap-cell:hover { transform:scale(1.5); box-shadow:0 0 10px rgba(255,255,255,0.35); z-index:2; position:relative; }
+  .heatmap-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px; }
+  .heatmap-row { display:flex; gap:12px; align-items:flex-start; min-width:fit-content; }
+  .heatmap-day-labels { display:grid; grid-template-rows:repeat(7,22px); gap:4px; font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; padding-top:22px; padding-right:6px; flex-shrink:0; }
+  .heatmap-day-labels span { display:flex; align-items:center; }
+  .heatmap-col { display:flex; flex-direction:column; gap:4px; }
+  .heatmap-month-label { font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; height:18px; line-height:18px; text-align:left; white-space:nowrap; font-weight:600; }
+  .heatmap-cell { width:22px; height:22px; border-radius:4px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.025); cursor:pointer; transition:transform 0.12s, box-shadow 0.12s; }
+  .heatmap-cell.has-activity { border-color:rgba(255,255,255,0.1); }
+  .heatmap-cell:hover { transform:scale(1.35); box-shadow:0 0 12px rgba(255,255,255,0.4); z-index:2; position:relative; }
   .heatmap-cell.future { background:rgba(255,255,255,0.015); border-style:dashed; opacity:0.45; }
-  .heatmap-cell.race-day { background:var(--accent-tri); box-shadow:0 0 12px rgba(255,159,67,0.6); animation:racePulse 2.4s ease-in-out infinite; }
+  .heatmap-cell.race-day { background:var(--accent-tri); box-shadow:0 0 14px rgba(255,159,67,0.65); animation:racePulse 2.4s ease-in-out infinite; }
   @keyframes racePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
-  .heatmap-legend { display:flex; flex-wrap:wrap; gap:14px 18px; margin-top:18px; font-size:11px; color:var(--text-secondary); }
+  .heatmap-week-label { font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; height:14px; line-height:14px; text-align:center; margin-top:4px; letter-spacing:0.5px; }
+  .heatmap-week-label.recent { color:var(--text-secondary); font-weight:600; }
+  .heatmap-week-label.current { color:var(--accent-tri); font-weight:700; background:rgba(255,159,67,0.12); border-radius:4px; padding:1px 0; }
+  .heatmap-col.current-week .heatmap-cell { border-color:rgba(255,159,67,0.4); }
+  .heatmap-col.month-start { margin-left:6px; padding-left:6px; border-left:1px dashed rgba(255,255,255,0.06); }
+  .heatmap-legend { display:flex; flex-wrap:wrap; gap:14px 18px; margin-top:20px; font-size:12px; color:var(--text-secondary); }
   .heatmap-legend-item { display:flex; align-items:center; gap:6px; }
-  .heatmap-legend-swatch { width:12px; height:12px; border-radius:3px; }
-  .heatmap-tip { position:fixed; background:#0c0d12; border:1px solid var(--border); border-radius:8px; padding:8px 12px; font-size:11px; line-height:1.5; color:var(--text-primary); pointer-events:none; z-index:1000; display:none; max-width:260px; box-shadow:0 6px 20px rgba(0,0,0,0.7); font-family:'JetBrains Mono',monospace; }
+  .heatmap-legend-swatch { width:14px; height:14px; border-radius:3px; }
+  .heatmap-tip { position:fixed; background:#0c0d12; border:1px solid var(--border); border-radius:8px; padding:10px 14px; font-size:12px; line-height:1.5; color:var(--text-primary); pointer-events:none; z-index:1000; display:none; max-width:280px; box-shadow:0 6px 20px rgba(0,0,0,0.7); font-family:'JetBrains Mono',monospace; }
   .heatmap-tip strong { color:var(--accent-tri); }
   .heatmap-summary { display:flex; gap:18px; margin-bottom:18px; flex-wrap:wrap; font-size:12px; }
   .heatmap-summary-stat { display:flex; flex-direction:column; padding:8px 14px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border); }
@@ -387,9 +393,15 @@
   .heatmap-summary-stat span { font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
   @media (max-width:768px) {
     .heatmap-card { padding:16px 12px; }
-    .heatmap-cell { width:11px; height:11px; }
-    .heatmap-day-labels { grid-template-rows:repeat(7,11px); padding-top:15px; }
-    .heatmap-month-label { font-size:9px; height:11px; line-height:11px; }
+    .heatmap-cell { width:16px; height:16px; }
+    .heatmap-day-labels { grid-template-rows:repeat(7,16px); padding-top:20px; font-size:10px; }
+    .heatmap-month-label { font-size:10px; height:16px; line-height:16px; }
+    .heatmap-week-label { font-size:9px; }
+  }
+  @media (max-width:480px) {
+    .heatmap-cell { width:13px; height:13px; }
+    .heatmap-day-labels { grid-template-rows:repeat(7,13px); padding-top:18px; }
+    .heatmap-month-label { height:14px; line-height:14px; }
   }
 </style>
 </head>
@@ -1474,14 +1486,28 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   let activeCount=0, brickCount=0, owCount=0, longestStreak=0, currentStreak=0;
 
+  // Plan W1 = week starting Mar 3, 2026. So Mar 16 = W3
+  const planStart = new Date(2026,2,3); // Mar 3
+  function weekNum(d){ return Math.floor((d - planStart)/(86400000*7)) + 1; }
+  // Identify "current week" = the week containing today
+  const todayWeek = weekNum(today);
+  const recentThreshold = todayWeek - 4; // last 4 weeks get bolder label
+
   const cur = new Date(gridStart);
   let currentMonth = -1;
+  let colIndex = 0;
   while (cur <= gridEnd){
     const col = document.createElement('div'); col.className='heatmap-col';
+    const colWeek = weekNum(cur);
+    if (colWeek === todayWeek) col.classList.add('current-week');
     // Month label row at top
     const monthLabel = document.createElement('div'); monthLabel.className='heatmap-month-label';
     const wkMonth = cur.getMonth();
-    if (wkMonth !== currentMonth){ monthLabel.textContent = MONTHS[wkMonth]; currentMonth = wkMonth; }
+    if (wkMonth !== currentMonth){
+      monthLabel.textContent = MONTHS[wkMonth];
+      currentMonth = wkMonth;
+      if (colIndex > 0) col.classList.add('month-start');
+    }
     col.appendChild(monthLabel);
     for (let d=0; d<7; d++){
       const cell = document.createElement('div'); cell.className='heatmap-cell';
@@ -1491,13 +1517,13 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
       const isPreStart = cur < start;
       if (isRace){
         cell.classList.add('race-day');
-        cell.dataset.tip = '🏆 RACE DAY · Geordieman 70.3 · Druridge Bay';
+        cell.dataset.tip = '🏆 RACE DAY · Geordieman 70.3 · Druridge Bay · W'+colWeek;
       } else if (A[dateKey]){
         const act = A[dateKey];
         cell.classList.add('has-activity');
         cell.style.background = C[act.t];
         cell.style.boxShadow = '0 0 4px '+C[act.t]+'66';
-        cell.dataset.tip = '<strong>'+formatDate(cur)+'</strong><br>'+LABEL[act.t]+' — '+act.n;
+        cell.dataset.tip = '<strong>'+formatDate(cur)+' · W'+colWeek+'</strong><br>'+LABEL[act.t]+' — '+act.n;
         activeCount++;
         if (act.t==='brick') brickCount++;
         if (act.t==='ow') owCount++;
@@ -1505,10 +1531,10 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
         if (currentStreak > longestStreak) longestStreak = currentStreak;
       } else if (isFuture || isPreStart){
         cell.classList.add('future');
-        cell.dataset.tip = formatDate(cur) + (isFuture?' · planned':' · pre-build');
+        cell.dataset.tip = formatDate(cur) + ' · W'+colWeek + (isFuture?' · planned':' · pre-build');
         currentStreak=0;
       } else {
-        cell.dataset.tip = '<strong>'+formatDate(cur)+'</strong><br>Rest day';
+        cell.dataset.tip = '<strong>'+formatDate(cur)+' · W'+colWeek+'</strong><br>Rest day';
         currentStreak=0;
       }
       cell.addEventListener('mouseenter', e => { tip.innerHTML = cell.dataset.tip; tip.style.display='block'; });
@@ -1517,7 +1543,15 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
       col.appendChild(cell);
       cur.setDate(cur.getDate()+1);
     }
+    // Week label at bottom
+    const weekLabel = document.createElement('div');
+    weekLabel.className = 'heatmap-week-label';
+    if (colWeek === todayWeek) weekLabel.classList.add('current');
+    else if (colWeek >= recentThreshold && colWeek < todayWeek) weekLabel.classList.add('recent');
+    weekLabel.textContent = 'W'+colWeek;
+    col.appendChild(weekLabel);
     grid.appendChild(col);
+    colIndex++;
   }
   grid.style.display='flex';
   grid.style.gap='3px';
