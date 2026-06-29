@@ -316,6 +316,81 @@
     .race-card { padding: 10px 6px; }
     .goal-time { font-size: 24px; }
   }
+
+  /* ===== LIVE COUNTDOWN ===== */
+  .countdown-wrap { display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:18px; padding:20px 24px; border-radius:16px; background:linear-gradient(135deg,rgba(255,159,67,0.12),rgba(255,159,67,0.04)); border:1px solid rgba(255,159,67,0.25); position:relative; overflow:hidden; }
+  .countdown-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(255,159,67,0.10), transparent 70%); pointer-events:none; animation:cdPulse 4s ease-in-out infinite; }
+  @keyframes cdPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  .countdown-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--accent-tri); text-transform:uppercase; position:relative; z-index:1; text-align:center; }
+  .countdown-grid { display:flex; gap:8px; position:relative; z-index:1; }
+  .countdown-unit { display:flex; flex-direction:column; align-items:center; min-width:68px; padding:12px 14px; background:rgba(0,0,0,0.35); border:1px solid rgba(255,159,67,0.18); border-radius:10px; backdrop-filter:blur(4px); }
+  .countdown-num { font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:700; color:#fff; letter-spacing:-1px; line-height:1; transition:color 0.18s, transform 0.18s; }
+  .countdown-num.tick { color:var(--accent-tri); transform:scale(1.08); }
+  .countdown-unit-label { font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; margin-top:8px; }
+  @media (max-width:768px) {
+    .countdown-wrap { padding:16px 14px; gap:10px; }
+    .countdown-unit { min-width:56px; padding:10px 8px; }
+    .countdown-num { font-size:24px; }
+    .countdown-grid { gap:6px; }
+    .countdown-label { font-size:10px; letter-spacing:2px; }
+  }
+  @media (max-width:480px) {
+    .countdown-unit { min-width:48px; padding:8px 4px; }
+    .countdown-num { font-size:20px; }
+    .countdown-unit-label { font-size:8px; letter-spacing:1px; }
+  }
+
+  /* ===== RING GAUGES ===== */
+  .ring-wrap { position:relative; width:130px; height:130px; margin:6px auto 12px; }
+  .ring-svg { transform:rotate(-90deg); width:100%; height:100%; display:block; }
+  .ring-bg-circle { fill:none; stroke:rgba(255,255,255,0.05); stroke-width:9; }
+  .ring-fg-circle { fill:none; stroke-width:9; stroke-linecap:round; stroke-dasharray:400; stroke-dashoffset:400; transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1); }
+  .ring-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; }
+  .ring-pct { font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; line-height:1; letter-spacing:-1px; }
+  .ring-pct small { font-size:14px; color:var(--text-muted); margin-left:2px; font-weight:500; }
+  .ring-mini-label { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--text-muted); letter-spacing:1.5px; text-transform:uppercase; margin-top:3px; }
+  .readiness-card-v2 { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:18px 14px 16px; text-align:center; transition:background 0.2s; }
+  .readiness-card-v2:hover { background:var(--bg-card-hover); }
+  .readiness-card-v2 .readiness-label { display:flex; justify-content:center; align-items:center; gap:8px; font-size:11px; text-transform:uppercase; letter-spacing:1.8px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:4px; }
+  .readiness-card-v2 .readiness-sub { font-size:12px; color:var(--text-secondary); line-height:1.45; margin-top:6px; }
+  @media (max-width:768px) {
+    .ring-wrap { width:108px; height:108px; }
+    .ring-pct { font-size:26px; }
+    .ring-pct small { font-size:11px; }
+  }
+  @media (max-width:480px) {
+    .ring-wrap { width:96px; height:96px; }
+    .ring-pct { font-size:22px; }
+  }
+
+  /* ===== HEATMAP ===== */
+  .heatmap-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
+  .heatmap-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .heatmap-row { display:flex; gap:10px; align-items:flex-start; min-width:fit-content; }
+  .heatmap-day-labels { display:grid; grid-template-rows:repeat(7,14px); gap:3px; font-size:9px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; padding-top:18px; padding-right:4px; flex-shrink:0; }
+  .heatmap-col { display:flex; flex-direction:column; gap:3px; }
+  .heatmap-month-label { font-size:10px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; height:14px; line-height:14px; text-align:left; white-space:nowrap; }
+  .heatmap-cell { width:14px; height:14px; border-radius:3px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.025); cursor:pointer; transition:transform 0.12s, box-shadow 0.12s; }
+  .heatmap-cell.has-activity { border-color:rgba(255,255,255,0.08); }
+  .heatmap-cell:hover { transform:scale(1.5); box-shadow:0 0 10px rgba(255,255,255,0.35); z-index:2; position:relative; }
+  .heatmap-cell.future { background:rgba(255,255,255,0.015); border-style:dashed; opacity:0.45; }
+  .heatmap-cell.race-day { background:var(--accent-tri); box-shadow:0 0 12px rgba(255,159,67,0.6); animation:racePulse 2.4s ease-in-out infinite; }
+  @keyframes racePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+  .heatmap-legend { display:flex; flex-wrap:wrap; gap:14px 18px; margin-top:18px; font-size:11px; color:var(--text-secondary); }
+  .heatmap-legend-item { display:flex; align-items:center; gap:6px; }
+  .heatmap-legend-swatch { width:12px; height:12px; border-radius:3px; }
+  .heatmap-tip { position:fixed; background:#0c0d12; border:1px solid var(--border); border-radius:8px; padding:8px 12px; font-size:11px; line-height:1.5; color:var(--text-primary); pointer-events:none; z-index:1000; display:none; max-width:260px; box-shadow:0 6px 20px rgba(0,0,0,0.7); font-family:'JetBrains Mono',monospace; }
+  .heatmap-tip strong { color:var(--accent-tri); }
+  .heatmap-summary { display:flex; gap:18px; margin-bottom:18px; flex-wrap:wrap; font-size:12px; }
+  .heatmap-summary-stat { display:flex; flex-direction:column; padding:8px 14px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid var(--border); }
+  .heatmap-summary-stat strong { font-family:'JetBrains Mono',monospace; font-size:18px; color:var(--text-primary); }
+  .heatmap-summary-stat span { font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+  @media (max-width:768px) {
+    .heatmap-card { padding:16px 12px; }
+    .heatmap-cell { width:11px; height:11px; }
+    .heatmap-day-labels { grid-template-rows:repeat(7,11px); padding-top:15px; }
+    .heatmap-month-label { font-size:9px; height:11px; line-height:11px; }
+  }
 </style>
 </head>
 <body>
@@ -334,7 +409,15 @@
       Mar 16 – Jun 28, 2026 · 107 activities · Phase 5 (Sharpen), Week 17 of 24<br>
       Overall Race Readiness: <span id="liveOverallPct">92%</span> · VO₂ Max: <span>54</span> · Primary goal: <span>Sub-6h</span>
     </div>
-    <div class="race-countdown" id="liveCountdown">⏱ 55 DAYS TO RACE DAY · 23 AUGUST 2026</div>
+    <div class="countdown-wrap" id="liveCountdown">
+      <div class="countdown-label">⏱ Countdown to Race Start · Druridge Bay · 07:00 BST</div>
+      <div class="countdown-grid">
+        <div class="countdown-unit"><div class="countdown-num" id="cdDays">--</div><div class="countdown-unit-label">Days</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdHours">--</div><div class="countdown-unit-label">Hours</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdMins">--</div><div class="countdown-unit-label">Mins</div></div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdSecs">--</div><div class="countdown-unit-label">Secs</div></div>
+      </div>
+    </div>
   </div>
 
   <div class="tabs">
@@ -365,28 +448,60 @@
 
     <div class="section-title">Discipline Readiness (vs Sub-6h target)</div>
     <div class="readiness-grid">
-      <div class="readiness-card">
+      <div class="readiness-card-v2">
         <div class="readiness-label">Swim <span class="readiness-change readiness-up">▲ +1</span></div>
-        <div class="readiness-value" style="color:var(--accent-swim)" id="liveSwimPct">87<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" id="liveSwimBar" style="width:87%;background:var(--accent-swim)"></div></div>
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="87" style="stroke:var(--accent-swim); filter:drop-shadow(0 0 6px var(--accent-swim));"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct" style="color:var(--accent-swim)" id="liveSwimPct">87<small>%</small></div>
+            <div class="ring-mini-label">Ready</div>
+          </div>
+        </div>
         <div class="readiness-sub" id="liveSwimSub">18 pool + 6 OW. Jun 23 OW 1,832m at HR 113 — race-distance comfort consolidating.</div>
       </div>
-      <div class="readiness-card">
+      <div class="readiness-card-v2">
         <div class="readiness-label">Bike <span class="readiness-change readiness-up">▲ +2</span></div>
-        <div class="readiness-value" style="color:var(--accent-cycle)" id="liveBikePct">89<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" id="liveBikeBar" style="width:89%;background:var(--accent-cycle)"></div></div>
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="89" style="stroke:var(--accent-cycle); filter:drop-shadow(0 0 6px var(--accent-cycle));"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct" style="color:var(--accent-cycle)" id="liveBikePct">89<small>%</small></div>
+            <div class="ring-mini-label">Ready</div>
+          </div>
+        </div>
         <div class="readiness-sub" id="liveBikeSub">11 outdoor rides, 593.5 km. Jun 26 72.17km at HR 130 — second-longest ride with gels.</div>
       </div>
-      <div class="readiness-card">
+      <div class="readiness-card-v2">
         <div class="readiness-label">Run <span class="readiness-change readiness-up">▲ +1</span></div>
-        <div class="readiness-value" style="color:var(--accent-run)" id="liveRunPct">93<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" id="liveRunBar" style="width:93%;background:var(--accent-run)"></div></div>
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="93" style="stroke:var(--accent-run); filter:drop-shadow(0 0 6px var(--accent-run));"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct" style="color:var(--accent-run)" id="liveRunPct">93<small>%</small></div>
+            <div class="ring-mini-label">Ready</div>
+          </div>
+        </div>
         <div class="readiness-sub" id="liveRunSub">48 runs, 387 km. 3 sub-5:00/km runs in 5 days + Jun 28 proper Z2 (6:01/km HR 127).</div>
       </div>
-      <div class="readiness-card">
-        <div class="readiness-label">Transitions / Nutrition <span class="readiness-change readiness-up">▲ +5</span></div>
-        <div class="readiness-value" style="color:var(--accent-hiit)" id="liveTransPct">78<small>%</small></div>
-        <div class="readiness-bar"><div class="readiness-fill" id="liveTransBar" style="width:78%;background:var(--accent-hiit)"></div></div>
+      <div class="readiness-card-v2">
+        <div class="readiness-label">T1/T2 + Fuel <span class="readiness-change readiness-up">▲ +5</span></div>
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="78" style="stroke:var(--accent-hiit); filter:drop-shadow(0 0 6px var(--accent-hiit));"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct" style="color:var(--accent-hiit)" id="liveTransPct">78<small>%</small></div>
+            <div class="ring-mini-label">Ready</div>
+          </div>
+        </div>
         <div class="readiness-sub" id="liveTransSub">Gels now standard on bike + run sessions — gut adaptation building cleanly.</div>
       </div>
     </div>
@@ -395,6 +510,29 @@
     <div class="chart-card"><div style="height:280px"><canvas id="readinessChart"></canvas></div>
       <div class="hr-note">All four disciplines trending up. Largest jump in Bike — outdoor riding returning as weather improves.</div>
     </div>
+
+    <div class="section-title">Training Activity Heatmap (Mar 16 → Race Day)</div>
+    <div class="heatmap-card">
+      <div class="heatmap-summary" id="heatmapSummary"></div>
+      <div class="heatmap-scroll">
+        <div class="heatmap-row">
+          <div class="heatmap-day-labels"><span>M</span><span></span><span>W</span><span></span><span>F</span><span></span><span>S</span></div>
+          <div id="heatmapGrid"></div>
+        </div>
+      </div>
+      <div class="heatmap-legend">
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#ff5a3a"></span>Running</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#00e676"></span>Outdoor Bike</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#3a8ff0"></span>Zwift</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#3af0c7"></span>Pool Swim</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#00b8d9"></span>Open Water</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#f0b83a"></span>HIIT</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#a87cf0"></span>Strength</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#ff9f43"></span>BRICK</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.2)"></span>Rest / Future</div>
+      </div>
+    </div>
+    <div class="heatmap-tip" id="heatmapTip"></div>
 
     <div class="section-title">Training Phase Roadmap</div>
     <div class="phase-tracker">
@@ -1173,6 +1311,234 @@ const longZwift=[
 longZwift.forEach(r=>r.ef=+(r.np/r.hr).toFixed(3));
 
 new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels:longZwift.map(r=>r.d),datasets:[{label:'Zwift NP ÷ HR',data:longZwift.map(r=>r.ef),borderColor:CYCLE,backgroundColor:'rgba(58,143,240,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:CYCLE,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>longZwift[c[0].dataIndex].t,label:c=>{const r=longZwift[c.dataIndex];return['EF: '+r.ef+' (W ÷ bpm)','NP '+r.np+'W · HR '+r.hr,r.dist+'km']}}}},scales:{y:{min:1.30,max:1.90,ticks:{stepSize:0.1,callback:v=>v.toFixed(2)}},x:{grid:{display:false}}}}});
+
+// ===== LIVE COUNTDOWN to 23 Aug 2026 07:00 BST =====
+(function(){
+  const raceTs = new Date('2026-08-23T07:00:00+01:00').getTime();
+  const $d = document.getElementById('cdDays');
+  const $h = document.getElementById('cdHours');
+  const $m = document.getElementById('cdMins');
+  const $s = document.getElementById('cdSecs');
+  if (!$d) return;
+  function tick(){
+    const diff = raceTs - Date.now();
+    if (diff <= 0){
+      $d.textContent='000';$h.textContent='00';$m.textContent='00';$s.textContent='00';
+      return;
+    }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    $d.textContent = String(d).padStart(3,'0');
+    $h.textContent = String(h).padStart(2,'0');
+    $m.textContent = String(m).padStart(2,'0');
+    $s.textContent = String(s).padStart(2,'0');
+    $s.classList.add('tick');
+    setTimeout(()=>$s.classList.remove('tick'),140);
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+
+// ===== RING GAUGE ANIMATION =====
+(function(){
+  function animate(){
+    document.querySelectorAll('.ring-fg-circle').forEach(c=>{
+      const r = parseFloat(c.getAttribute('r'));
+      const pct = parseFloat(c.getAttribute('data-pct'));
+      const circ = 2*Math.PI*r;
+      c.style.strokeDasharray = circ;
+      c.style.strokeDashoffset = circ;
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        c.style.strokeDashoffset = circ*(1 - pct/100);
+      }));
+    });
+  }
+  // Initial animation
+  setTimeout(animate, 100);
+  // Re-animate when Geordieman tab clicked
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if (btn.dataset.tab === 'geordieman') setTimeout(animate, 350);
+    });
+  });
+})();
+
+// ===== ACTIVITY HEATMAP =====
+(function(){
+  // Activity colours
+  const C = { run:'#ff5a3a', bike:'#00e676', zwift:'#3a8ff0', pool:'#3af0c7', ow:'#00b8d9', hiit:'#f0b83a', strength:'#a87cf0', brick:'#ff9f43' };
+  const LABEL = { run:'Run', bike:'Outdoor Bike', zwift:'Zwift', pool:'Pool Swim', ow:'OW Swim', hiit:'HIIT', strength:'Strength', brick:'BRICK' };
+
+  // Per-day primary activity + note (longest/highlight session that day)
+  const A = {
+    '2026-03-16':{t:'strength',n:'Strength + HIIT + TM Run'},
+    '2026-03-17':{t:'pool',n:'Pool 2,125m + HIIT'},
+    '2026-03-18':{t:'run',n:'Run 10.03km @ 5:45/km'},
+    '2026-03-20':{t:'pool',n:'Pool 2,000m + 2 Runs'},
+    '2026-03-22':{t:'run',n:'Run 6.01km + Zwift'},
+    '2026-03-23':{t:'run',n:'VO2 max TM 10km @ 4:42/km'},
+    '2026-03-24':{t:'pool',n:'Pool 775m + Zwift'},
+    '2026-03-25':{t:'run',n:'Glasgow 11.60km'},
+    '2026-03-26':{t:'hiit',n:'HIIT 44min'},
+    '2026-03-27':{t:'zwift',n:'Zwift Big Spin 24km'},
+    '2026-03-31':{t:'run',n:'Fast 6km @ 4:21/km'},
+    '2026-04-01':{t:'run',n:'East Renfrewshire 6.83km'},
+    '2026-04-02':{t:'hiit',n:'HIIT 1:01'},
+    '2026-04-03':{t:'pool',n:'Pool 1,640m + Zwift'},
+    '2026-04-05':{t:'zwift',n:'Zwift 26.78km + Run 10km'},
+    '2026-04-06':{t:'run',n:'LONG 15.00km + Pool 1,800m'},
+    '2026-04-07':{t:'bike',n:'★ First outdoor 42.05km'},
+    '2026-04-08':{t:'run',n:'Run 7km @ 4:49/km'},
+    '2026-04-09':{t:'hiit',n:'HIIT 55min'},
+    '2026-04-10':{t:'zwift',n:'ZTPL 100km 50.30km'},
+    '2026-04-12':{t:'run',n:'Run 12km + Pool 1,940m'},
+    '2026-04-13':{t:'bike',n:'Outdoor 60.74km'},
+    '2026-04-14':{t:'pool',n:'Pool 2,150m + HIIT'},
+    '2026-04-15':{t:'run',n:'East Renfrewshire 10.10km'},
+    '2026-04-16':{t:'hiit',n:'HIIT 50min'},
+    '2026-04-17':{t:'brick',n:'★ FIRST BRICK Zwift 22.56 → Run 7.42km @ 4:54'},
+    '2026-04-18':{t:'pool',n:'Pool 2,250m (longest)'},
+    '2026-04-20':{t:'zwift',n:'Zwift Yumezi Grit 19.53km'},
+    '2026-04-21':{t:'run',n:'Run 10.71km + Pool 1,400m'},
+    '2026-04-22':{t:'bike',n:'Outdoor 35.27km'},
+    '2026-04-23':{t:'hiit',n:'HIIT 55min'},
+    '2026-04-24':{t:'run',n:'LONG 16.08km @ 5:21'},
+    '2026-04-25':{t:'bike',n:'Outdoor 45.65km'},
+    '2026-04-26':{t:'pool',n:'Citadel endurance 2,150m'},
+    '2026-04-27':{t:'bike',n:'Outdoor 46.04km'},
+    '2026-04-28':{t:'run',n:'Run 7.51km + Pool 2,000m'},
+    '2026-04-29':{t:'run',n:'Run 10.01km'},
+    '2026-05-01':{t:'run',n:'Pool + Zwift + Run combo'},
+    '2026-05-03':{t:'run',n:'3 runs incl. 5.16km @ 3:49/km'},
+    '2026-05-05':{t:'pool',n:'Pool 1,725m'},
+    '2026-05-06':{t:'run',n:'LONG 15.01km @ 5:14/km'},
+    '2026-05-07':{t:'hiit',n:'HIIT 59min'},
+    '2026-05-08':{t:'bike',n:'★ 76.88km outdoor (Z2)'},
+    '2026-05-10':{t:'run',n:'Run 6.46km @ 4:33'},
+    '2026-05-11':{t:'run',n:'LONG 15.00km @ 5:07'},
+    '2026-05-12':{t:'pool',n:'Pool 2,250m'},
+    '2026-05-13':{t:'run',n:'Threshold 9.95km @ 4:17/km'},
+    '2026-05-14':{t:'hiit',n:'HIIT 1:00'},
+    '2026-05-15':{t:'hiit',n:'HIIT 57min'},
+    '2026-05-17':{t:'run',n:'Run 8.06km @ 4:38'},
+    '2026-05-18':{t:'strength',n:'Strength + Mogán run'},
+    '2026-05-19':{t:'pool',n:'Pool 1,975m'},
+    '2026-05-21':{t:'run',n:'Mogán holiday run'},
+    '2026-05-22':{t:'run',n:'Mogán holiday run'},
+    '2026-05-25':{t:'run',n:'Fast 5.93km @ 4:18'},
+    '2026-05-26':{t:'run',n:'Run + OW familiarisation'},
+    '2026-05-27':{t:'bike',n:'Outdoor 32.71km tempo'},
+    '2026-05-28':{t:'hiit',n:'HIIT 1:00'},
+    '2026-05-29':{t:'run',n:'Run 8.21km @ 5:00'},
+    '2026-05-31':{t:'ow',n:'★ FIRST OW 1,478m + Run'},
+    '2026-06-01':{t:'brick',n:'★ BRICK 10k Zwift 39 → Run 10km @ 5:05 (gels)'},
+    '2026-06-02':{t:'pool',n:'Pool 2,250m at HR 109'},
+    '2026-06-03':{t:'ow',n:'OW 1,509m + Run'},
+    '2026-06-04':{t:'hiit',n:'HIIT 1:00'},
+    '2026-06-06':{t:'run',n:'Run 8.82km easy'},
+    '2026-06-07':{t:'run',n:'Fast 5km @ 4:25/km'},
+    '2026-06-08':{t:'bike',n:'★ 80.60km outdoor (HR 125)'},
+    '2026-06-09':{t:'ow',n:'OW 1,736m + Run 7.56km'},
+    '2026-06-10':{t:'run',n:'Easy 11k @ HR 129 (best EF)'},
+    '2026-06-11':{t:'hiit',n:'HIIT 58min'},
+    '2026-06-12':{t:'run',n:'★ LONGEST 18.51km @ 5:01/km'},
+    '2026-06-16':{t:'ow',n:'OW 790m familiarisation'},
+    '2026-06-17':{t:'bike',n:'Outdoor 60.57km tempo'},
+    '2026-06-18':{t:'hiit',n:'HIIT 1:01'},
+    '2026-06-21':{t:'ow',n:'★ OW 2,218m (race+ distance)'},
+    '2026-06-22':{t:'bike',n:'Outdoor 40.79km + race gel test'},
+    '2026-06-23':{t:'ow',n:'OW 1,832m at HR 113'},
+    '2026-06-24':{t:'run',n:'East Renfrewshire 7.35km'},
+    '2026-06-25':{t:'run',n:'Fast 8.06km @ 4:54'},
+    '2026-06-26':{t:'bike',n:'★ 72.17km outdoor (gels)'},
+    '2026-06-27':{t:'run',n:'Fast 10.02km @ 4:59'},
+    '2026-06-28':{t:'run',n:'Easy Z2 7.61km @ HR 127'}
+  };
+
+  // Build grid Mar 16 → Aug 23 (race day)
+  const start = new Date(2026,2,16); // Mar 16
+  const race  = new Date(2026,7,23); // Aug 23
+  const today = new Date();
+
+  // Adjust start to previous Monday (ISO week starts Mon)
+  const startDow = (start.getDay()+6)%7; // 0=Mon..6=Sun
+  const gridStart = new Date(start); gridStart.setDate(start.getDate() - startDow);
+  // Pad end to next Sunday after race
+  const raceDow = (race.getDay()+6)%7;
+  const gridEnd = new Date(race); gridEnd.setDate(race.getDate() + (6 - raceDow));
+
+  const grid = document.getElementById('heatmapGrid');
+  const tip  = document.getElementById('heatmapTip');
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  let activeCount=0, brickCount=0, owCount=0, longestStreak=0, currentStreak=0;
+
+  const cur = new Date(gridStart);
+  let currentMonth = -1;
+  while (cur <= gridEnd){
+    const col = document.createElement('div'); col.className='heatmap-col';
+    // Month label row at top
+    const monthLabel = document.createElement('div'); monthLabel.className='heatmap-month-label';
+    const wkMonth = cur.getMonth();
+    if (wkMonth !== currentMonth){ monthLabel.textContent = MONTHS[wkMonth]; currentMonth = wkMonth; }
+    col.appendChild(monthLabel);
+    for (let d=0; d<7; d++){
+      const cell = document.createElement('div'); cell.className='heatmap-cell';
+      const dateKey = cur.getFullYear()+'-'+String(cur.getMonth()+1).padStart(2,'0')+'-'+String(cur.getDate()).padStart(2,'0');
+      const isRace = cur.getFullYear()===2026 && cur.getMonth()===7 && cur.getDate()===23;
+      const isFuture = cur > today;
+      const isPreStart = cur < start;
+      if (isRace){
+        cell.classList.add('race-day');
+        cell.dataset.tip = '🏆 RACE DAY · Geordieman 70.3 · Druridge Bay';
+      } else if (A[dateKey]){
+        const act = A[dateKey];
+        cell.classList.add('has-activity');
+        cell.style.background = C[act.t];
+        cell.style.boxShadow = '0 0 4px '+C[act.t]+'66';
+        cell.dataset.tip = '<strong>'+formatDate(cur)+'</strong><br>'+LABEL[act.t]+' — '+act.n;
+        activeCount++;
+        if (act.t==='brick') brickCount++;
+        if (act.t==='ow') owCount++;
+        currentStreak++;
+        if (currentStreak > longestStreak) longestStreak = currentStreak;
+      } else if (isFuture || isPreStart){
+        cell.classList.add('future');
+        cell.dataset.tip = formatDate(cur) + (isFuture?' · planned':' · pre-build');
+        currentStreak=0;
+      } else {
+        cell.dataset.tip = '<strong>'+formatDate(cur)+'</strong><br>Rest day';
+        currentStreak=0;
+      }
+      cell.addEventListener('mouseenter', e => { tip.innerHTML = cell.dataset.tip; tip.style.display='block'; });
+      cell.addEventListener('mousemove', e => { tip.style.left = (e.clientX+12)+'px'; tip.style.top = (e.clientY+12)+'px'; });
+      cell.addEventListener('mouseleave', () => { tip.style.display='none'; });
+      col.appendChild(cell);
+      cur.setDate(cur.getDate()+1);
+    }
+    grid.appendChild(col);
+  }
+  grid.style.display='flex';
+  grid.style.gap='3px';
+
+  // Summary stats
+  const totalDays = Math.floor((today - start)/86400000)+1;
+  const restDays = totalDays - activeCount;
+  const consistency = Math.round(activeCount/totalDays*100);
+  document.getElementById('heatmapSummary').innerHTML = `
+    <div class="heatmap-summary-stat"><strong>${activeCount}</strong><span>Training Days</span></div>
+    <div class="heatmap-summary-stat"><strong>${restDays}</strong><span>Rest Days</span></div>
+    <div class="heatmap-summary-stat"><strong>${consistency}%</strong><span>Consistency</span></div>
+    <div class="heatmap-summary-stat"><strong>${longestStreak}</strong><span>Best Streak</span></div>
+    <div class="heatmap-summary-stat"><strong>${owCount}</strong><span>OW Swims</span></div>
+    <div class="heatmap-summary-stat"><strong>${brickCount}</strong><span>Bricks</span></div>
+  `;
+
+  function formatDate(d){
+    return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+  }
+})();
 
 // Combined long-session table
 const allLong=[
