@@ -2,63 +2,54 @@
 
 Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
-## Current Status — Week 17 of 24
+## Current Status — Week 18 of 24
 
-**Date range covered:** 16 Mar – 28 Jun 2026 (107 activities)
+**Date range covered:** 16 Mar – 2 Jul 2026 (111 activities)
 **Phase:** Phase 5 — Sharpen
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~8 (55 days)
+**Weeks remaining:** ~7 (51 days)
 
-## Overall Readiness — 92% (up from 90%)
+## Overall Readiness — 94% (up from 92%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **87%** | +1 | 18 pool + 6 OW. Jun 23 OW 1,832m — race-distance consolidation |
-| Bike | **89%** | +2 | 11 outdoor rides, 593.5 km. **Jun 26 72.17km with gels** |
-| Run | **93%** | +1 | 48 runs, 387 km. 3 sub-5:00/km in 5 days + textbook Z2 Jun 28 |
-| Transitions | **78%** | +5 | **Gels now standard on bike + run** — gut adaptation building |
+| Swim | **88%** | +1 | 18 pool + 7 OW (11,067m total). Jun 29 OW 1,504m at HR 112 |
+| Bike | **91%** | +2 | 12 outdoor rides, 640 km. Jul 2 brick bike 47km hilly+windy |
+| Run | **95%** | +2 | 50 runs, 404 km. **★ Jul 2 BRICK run 5.46km @ 4:49/km "comfortable"** |
+| Transitions | **85%** | +7 | 3rd brick + full race-day protocol locked (gels, kit, conditions) |
 
-## 🏆 This Week's Headlines (Jun 23-28)
+## 🏆 The Headline — Jul 2 Race-Condition BRICK
 
-**Jun 26 — 72.17 km outdoor with race-day gels**
-- 2h 42min at HR 130, 26.6 km/h avg, 489m ascent
-- Second-longest ride of the build
-- Cycle EF 3.42 (strong)
-- Gels in throughout — protocol now habit, not test
+**Bike leg**: 46.93 km outdoor at HR 128 — hilly + windy South Ayrshire terrain, race-day fuelling with race gels throughout.
 
-**Jun 23 — Second race+ distance OW (1,832m)**
-- 44:41 in North Ayrshire at HR 113
-- SWOLF 50 — consistent with the 2,218m on Jun 21
-- Two race-distance OW sessions in 3 days = confidence locked
+**Run leg**: 5.46 km @ **4:49/km** at HR 166, TE 3.2. Robert reports: "comfortable pace I could hold for a while on race day."
 
-**Jun 25 + 27 — Sub-5:00/km tempo runs**
-- Jun 25: 8.06km @ 4:54/km, HR 153
-- Jun 27: 10.02km @ 4:59/km, HR 150
-- Top-end speed sharp and repeatable
+**Why this matters**: 4:49/km is 29 seconds/km FASTER than the sub-6h target (5:18/km for the half marathon). If that pace is repeatable at race distance, sub-6h isn't the question — sub-5:30 becomes credible.
 
-**Jun 28 — Textbook easy run**
-- 7.61km @ 6:01/km, HR 127 (proper Z2!)
-- Demonstrates polarisation discipline — easy days actually easy
+**Watch flag**: HR 166 is officially Z5, but Robert's perceived effort was comfortable. Either genuine fitness peak OR cardiac drift from bike fatigue + terrain. Next brick will confirm.
 
-## Phase 5 (Sharpen) Status
+## Other Recent Wins (Jun 29 – Jul 2)
 
-Every box was already ticked by Jun 22. Phase 5 now about consolidation, not building:
-- ✅ Swim: pool + 6 OW (including race+)
-- ✅ Bike: 80km + 72km long rides + 11 outdoor sessions
-- ✅ Run: 18.51km longest + sub-5:00/km top-end + proper Z2
-- ✅ Transitions: 2 fuelling rehearsals + gels now standard
+- **Jun 29** — 7th OW swim, 1,504m at HR 112 (weekly OW cadence set)
+- **Jul 1** — Z2 discipline: 11.57 km @ 5:27/km at HR 132 (proper easy run)
+- **Jul 2** — Full brick + race gels + real conditions = 3rd fuelling rehearsal
+- **100+ training hours** now on record for the build (100.7h total)
 
-## This Week's Priorities (Week 18)
+## This Week's Priorities (Week 19)
 
-1. **Brick session with full race kit** — 50-60km bike → 8-10km run at race pace, gels
-2. **One more 85-90km long ride** — final volume box before taper
-3. **Weekly OW** — hold race distance, practice sighting & breathing
-4. **Easy days genuinely easy** — Jun 28 was the template
-5. **Race-day dress rehearsal** — full kit + nutrition test in one session
+1. **One more 85-90 km outdoor ride** — final volume box, then taper
+2. **Repeat the race-condition brick** — 60km + 8km at same protocol
+3. **Sanity-check brick run pace** — if 4:49/km replicates, revise race target
+4. **Weekly OW maintenance** — 1× per week through July
+5. **Taper prep from early August** — reduce volume 20% end of July, 40% into August
+
+## Phase 5 Status
+
+Every "race-ready" box is now checked. Focus is now on protecting the peak — no more chasing distance records.
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 29 June 2026_
+_Last updated: 3 July 2026_
