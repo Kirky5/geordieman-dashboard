@@ -4,65 +4,66 @@ Live dashboard: https://kirky5.github.io/geordieman-dashboard/
 
 ## Current Status — Week 19 of 24
 
-**Date range covered:** 16 Mar – 9 Jul 2026 (119 activities)
+**Date range covered:** 16 Mar – 12 Jul 2026 (123 activities)
 **Phase:** Phase 5 — Sharpen
 **Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~6 (44 days)
+**Weeks remaining:** ~6 (41 days)
 
-## Overall Readiness — 95% (up from 94%)
+## Overall Readiness — 97% (up from 95%)
 
 | Discipline | Readiness | Change | Key Stat |
 |---|---|---|---|
-| Swim | **89%** | +1 | 19 pool + 7 OW. Jul 7 pyramid 1,800m at HR 120 — efficiency work |
-| Bike | **91%** | flat | 12 outdoor, 640 km. No new rides — Olympic sim Sunday refreshes |
-| Run | **96%** | +1 | 54 runs, 431 km. **Track intervals + easy Z2 + recovery = polarised mix** |
-| Transitions | **85%** | flat | Sunday's Olympic sim will test full T1/T2 + race-day fuelling |
+| Swim | **90%** | +1 | 19 pool + 8 OW. Jul 12 tri-sim OW 1,471m at HR 115 |
+| Bike | **93%** | +2 | 13 outdoor, 684 km. Jul 12 tri-sim 43.58km @ 27.7 km/h |
+| Run | **97%** | +1 | 56 runs, 445 km. Jul 12 Olympic 10k @ 5:03/km off bike |
+| Transitions | **92%** | +7 | Full tri-sim + race gels + heat = final race-day rehearsal |
 
-## 🎯 The Big Session Coming — Sunday Jul 12
+## 🏆 The Headline — Sunday Jul 12 Olympic Tri Sim
 
-**Olympic-distance run-through with friends** who are also doing Geordieman 70.3.
+Full run-through with Grant & Ryan (both doing Geordieman 70.3) in hot conditions with race-day fuelling protocol.
 
-- Format: **1.5 km swim → 40 km bike → 10 km run**
-- First proper race-simulation with training partners
-- Priorities: rehearse T1/T2, test race-day fuelling under stress, find sustainable race pace
-- Not a race — a dress rehearsal (chase feel, not splits)
+**Swim leg** — 1,471 m OW, 36:07 at HR 115
+**Bike leg** — 43.58 km outdoor, 1h 34min at HR 133, **27.7 km/h avg**
+**Run leg** — 10.00 km at **5:03/km** at HR 155
 
-## This Week's Recap (Jul 3-9)
+Robert's note: **"Used my race gels and fuelling strategy. Was very hot — good practice if it's warm on race day. Felt comfortable in all three disciplines."**
 
-**Jul 3 — Track intervals**
-- 8×400m speed session, 4.52 km total, HR 124 avg (well-managed with recovery)
-- First structured track work of Phase 5
+## 70.3 Projection From Tri-Sim Data
 
-**Jul 5 — Aerobic 6.08 km**
-- 5:29/km at HR 141 — controlled tempo
+Scaling Jul 12 pace to 70.3 distances (with realistic slow-down at longer distance):
 
-**Jul 6 — Easy 1-hour Z2 base + strength**
-- 11.11 km @ 5:26/km at HR 139
-- 48-min strength session (HR 86 — recovery focused)
+- **Swim** (1.9 km): ~46 min
+- **T1**: ~4 min
+- **Bike** (90 km at 26 km/h): ~3:28
+- **T2**: ~3 min
+- **Run** (21.1 km at 5:15/km): ~1:51
 
-**Jul 7 — Pool pyramid**
-- 1,800 m "10,8,6,4,2 repeat sets" at HR 120, SWOLF 45
-- Pool efficiency work returning
+**Projected total: ~6:12** in heat. Cool race day + taper effect = **5:55-6:05 range achievable**. Sub-6h locked, sub-5:30 within reach if everything comes together.
 
-**Jul 8 — Recovery run**
-- 5.52 km @ 5:33/km at HR 134
+## This Week's Wins (Jul 10-12)
 
-**Jul 9 — Double session**
-- Strength 30 min + HIIT 44 min
+**Jul 10 — Track speed session**
+- 3×800m + 1200m hard + 10×(15s sprints/25s rest)
+- Avg HR 140, max 186, best pace 2:19/km
+- Serious speed reserve for race-day surges
 
-**Tonight (Jul 10) — Track speed work**
+**Jul 12 — Full Olympic tri sim with friends**
+- All three disciplines in one session
+- Race gels + fuelling strategy tested end-to-end
+- Heat rehearsal for warm race day possibility
+- "Comfortable in all three disciplines"
 
-## This Week's Priorities (Week 20 — post-Olympic reset)
+## This Week's Priorities (Week 20)
 
-1. **Sunday Jul 12** — Olympic-distance run-through (chase feel, not splits)
-2. **Track night Jul 10** — 5×800m or 6×600m at 5k pace
-3. **Recovery Mon/Tue after Olympic sim** — swim OR walk only, skip runs/rides
-4. **Mid-July 85-90 km ride** — final long-ride box before taper
-5. **Taper prep** — reduce volume 20% early Aug, 40% mid Aug
+1. **Recovery Mon/Tue** — swim OR walk only, skip runs/rides
+2. **One more 85-90 km outdoor ride** mid-July (final long-ride box)
+3. **Weekly OW maintenance** — race distance session ~10 days out
+4. **Taper begins Aug 1** — reduce ~20% early Aug, ~40% mid Aug
+5. **Sub-6h locked in — Sub-5:30 target upgrade in play**
 
 ## Files
 
 - `index.html` — full interactive dashboard (upload to GitHub Pages root)
 - `README.md` — this file
 
-_Last updated: 10 July 2026_
+_Last updated: 13 July 2026_
