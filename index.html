@@ -44,38 +44,30 @@
     z-index:-1;pointer-events:none;
   }
   .container { max-width:1100px; margin:0 auto; padding:32px 24px 80px; }
-
   .header { margin-bottom:36px; }
   .header-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
   .header h1 { font-size:clamp(28px,5vw,42px); font-weight:800; letter-spacing:-1.5px; line-height:1.1; background:linear-gradient(135deg,#fff 0%,#bbb 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
   .header-sub { font-size:14px; color:var(--text-secondary); margin-top:10px; line-height:1.5; }
   .header-sub span { color:var(--accent-tri); font-weight:600; }
   .race-countdown { display:inline-block; margin-top:14px; padding:8px 16px; border-radius:10px; background:rgba(255,159,67,0.1); border:1px solid rgba(255,159,67,0.25); font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:var(--accent-tri); letter-spacing:1px; }
-
   .tabs { display:flex; gap:3px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:5px; margin-bottom:32px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .tab-btn { flex:1; padding:11px 6px; border:none; border-radius:10px; cursor:pointer; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; transition:all 0.25s; background:transparent; color:var(--text-muted); white-space:nowrap; min-width:80px; }
   .tab-btn.active { background:var(--glow-tri); color:var(--accent-tri); }
   .tab-btn:hover:not(.active) { color:var(--text-secondary); }
-
   .tab-content { display:none; animation:fadeIn 0.35s ease; }
   .tab-content.active { display:block; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-
   .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-bottom:28px; }
   .stat-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px 24px; transition:background 0.2s; }
   .stat-card:hover { background:var(--bg-card-hover); }
   .stat-label { font-size:11px; text-transform:uppercase; letter-spacing:1.8px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:10px; }
   .stat-value { font-size:32px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1.1; letter-spacing:-1px; }
   .stat-sub { font-size:13px; color:var(--text-secondary); margin-top:6px; }
-
   .section-title { font-size:18px; font-weight:700; margin:36px 0 16px; letter-spacing:-0.3px; }
-
   .chart-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
   .chart-card .chart-title { font-size:13px; color:var(--text-secondary); margin-bottom:16px; font-weight:500; }
-
   .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   @media(max-width:700px){.two-col{grid-template-columns:1fr}}
-
   .tri-hero { background:linear-gradient(135deg,rgba(255,159,67,0.08),rgba(255,159,67,0.02),transparent); border:1px solid rgba(255,159,67,0.15); border-radius:20px; padding:32px; margin-bottom:24px; position:relative; overflow:hidden; }
   .tri-hero::after { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,159,67,0.1),transparent);border-radius:50%;pointer-events:none; }
   .tri-hero-row { display:flex; align-items:center; gap:32px; flex-wrap:wrap; position:relative; z-index:2; }
@@ -85,7 +77,6 @@
   .tri-info h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
   .tri-badge { display:inline-block; padding:4px 14px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; background:rgba(255,159,67,0.15); color:var(--accent-tri); }
   .tri-info p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
-
   .readiness-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:24px; }
   .readiness-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px; }
   .readiness-label { font-size:11px; text-transform:uppercase; letter-spacing:1.8px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
@@ -97,7 +88,6 @@
   .readiness-bar { height:8px; background:rgba(255,255,255,0.05); border-radius:4px; margin-top:10px; overflow:hidden; }
   .readiness-fill { height:100%; border-radius:4px; transition:width 1s ease; }
   .readiness-sub { font-size:12px; color:var(--text-secondary); margin-top:8px; line-height:1.5; }
-
   .phase-tracker { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
   .phase-row { display:flex; gap:6px; margin-top:16px; }
   .phase-box { flex:1; padding:12px 8px; border-radius:10px; border:1px solid var(--border); text-align:center; font-size:12px; }
@@ -106,7 +96,6 @@
   .phase-box.future { color:var(--text-muted); }
   .phase-box .phase-num { font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:700; display:block; }
   .phase-box .phase-name { font-size:10px; text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
-
   .vo2-hero { background:linear-gradient(135deg,rgba(0,230,118,0.06),rgba(0,230,118,0.02),transparent); border:1px solid rgba(0,230,118,0.12); border-radius:20px; padding:32px; margin-bottom:24px; position:relative; overflow:hidden; }
   .vo2-hero::after { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,230,118,0.08),transparent);border-radius:50%;pointer-events:none; }
   .vo2-hero-row { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
@@ -116,7 +105,6 @@
   .vo2-info h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
   .vo2-badge { display:inline-block; padding:4px 14px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; background:rgba(0,230,118,0.15); color:var(--accent-vo2); }
   .vo2-info p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
-
   .vo2-gauge { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
   .gauge-bar-outer { width:100%; height:32px; background:rgba(255,255,255,0.04); border-radius:16px; position:relative; overflow:visible; margin:20px 0 12px; }
   .gauge-segment { position:absolute; top:0; height:100%; }
@@ -124,7 +112,6 @@
   .gauge-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; }
   .gauge-target { position:absolute; top:-6px; height:44px; border-left:2px dashed rgba(255,255,255,0.3); z-index:5; }
   .gauge-target-label { position:absolute; top:-22px; left:-16px; font-size:10px; color:var(--text-secondary); font-family:'JetBrains Mono',monospace; white-space:nowrap; }
-
   .insight-card { background:var(--bg-card); border:1px solid var(--border); border-radius:4px 16px 16px 4px; padding:20px 24px; margin-bottom:12px; transition:background 0.2s; }
   .insight-card:hover { background:var(--bg-card-hover); }
   .insight-card h4 { font-size:16px; font-weight:700; margin-bottom:6px; }
@@ -132,12 +119,10 @@
   .rec-card { background:rgba(255,159,67,0.03); border:1px solid rgba(255,159,67,0.1); border-radius:12px; padding:18px 22px; margin-bottom:10px; }
   .rec-card h4 { font-size:14px; font-weight:700; color:var(--accent-tri); margin-bottom:6px; }
   .rec-card p { font-size:13px; color:var(--text-secondary); line-height:1.6; }
-
   .garmin-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:20px; }
   .garmin-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px; }
   .garmin-card h4 { font-size:14px; font-weight:600; margin-bottom:10px; }
   .garmin-card p { font-size:13px; color:var(--text-secondary); line-height:1.6; }
-
   .data-table-wrap { overflow-x:auto; background:var(--bg-card); border:1px solid var(--border); border-radius:16px; }
   .data-table { width:100%; border-collapse:collapse; font-size:13px; }
   .data-table th { padding:14px 16px; text-align:left; color:var(--text-muted); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid var(--border); font-family:'JetBrains Mono',monospace; }
@@ -148,7 +133,6 @@
   .te-badge { display:inline-block; padding:2px 10px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; }
   .brick-badge { display:inline-block; padding:2px 8px; border-radius:6px; font-size:10px; font-weight:700; font-family:'JetBrains Mono',monospace; background:rgba(255,159,67,0.2); color:var(--accent-tri); letter-spacing:1px; margin-left:6px; }
   .outdoor-badge { display:inline-block; padding:2px 8px; border-radius:6px; font-size:10px; font-weight:700; font-family:'JetBrains Mono',monospace; background:rgba(0,230,118,0.15); color:var(--accent-vo2); letter-spacing:1px; margin-left:6px; }
-
   .hr-zone-row { margin-bottom:12px; }
   .hr-zone-header { display:flex; justify-content:space-between; margin-bottom:5px; }
   .hr-zone-name { font-size:13px; color:var(--text-secondary); }
@@ -156,20 +140,17 @@
   .hr-zone-bar { height:8px; background:rgba(255,255,255,0.04); border-radius:4px; overflow:hidden; }
   .hr-zone-fill { height:100%; border-radius:4px; transition:width 0.8s ease; }
   .hr-note { font-size:12px; color:var(--text-muted); margin-top:14px; line-height:1.5; }
-
   .sleep-hero { background:linear-gradient(135deg,rgba(124,108,240,0.07),rgba(124,108,240,0.02),transparent); border:1px solid rgba(124,108,240,0.12); border-radius:20px; padding:32px; margin-bottom:24px; position:relative; overflow:hidden; }
   .sleep-hero::after { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(124,108,240,0.08),transparent);border-radius:50%;pointer-events:none; }
   .sleep-hero-row { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
   .sleep-number { font-family:'JetBrains Mono',monospace; font-size:72px; font-weight:700; color:var(--accent-sleep); line-height:1; letter-spacing:-3px; }
   .sleep-unit { font-size:16px; color:var(--text-secondary); letter-spacing:0; }
-
   .race-hero { background:linear-gradient(135deg,rgba(240,160,58,0.07),rgba(240,160,58,0.02),transparent); border:1px solid rgba(240,160,58,0.12); border-radius:20px; padding:32px; margin-bottom:24px; }
   .race-hero-row { display:flex; align-items:stretch; gap:16px; flex-wrap:wrap; }
   .race-card { flex:1; min-width:140px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:14px; padding:18px 20px; text-align:center; }
   .race-dist { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--text-muted); margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
   .race-time { font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; line-height:1.1; }
   .race-sub { font-size:12px; color:var(--text-secondary); margin-top:6px; }
-
   .goal-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
   @media(max-width:700px){.goal-cols{grid-template-columns:1fr}}
   .goal-col { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:22px; }
@@ -183,10 +164,8 @@
   .goal-split { background:rgba(255,255,255,0.02); padding:10px; border-radius:8px; text-align:center; }
   .goal-split-label { color:var(--text-muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; font-family:'JetBrains Mono',monospace; }
   .goal-split-val { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:14px; color:var(--text-primary); margin-top:4px; }
-
   .scroll-top { position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%; background:rgba(255,159,67,0.2); border:1px solid rgba(255,159,67,0.3); color:var(--accent-tri); font-size:20px; cursor:pointer; display:none; align-items:center; justify-content:center; z-index:999; }
   .scroll-top:hover { background:rgba(255,159,67,0.35); }
-
   /* ===== STRAVA BAR ===== */
   .strava-bar { display:flex; align-items:center; gap:12px; justify-content:flex-end; margin-bottom:20px; flex-wrap:wrap; }
   .strava-btn { display:inline-flex; align-items:center; gap:8px; padding:9px 18px; border-radius:10px; border:none; cursor:pointer; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; transition:all 0.2s; }
@@ -198,7 +177,6 @@
   .strava-status { font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; }
   @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
   .spinning { display:inline-block; animation:spin 0.8s linear infinite; }
-
   /* ===== MOBILE RESPONSIVE ===== */
   @media (max-width: 768px) {
     .container { padding: 16px 12px 60px; }
@@ -207,29 +185,21 @@
     .header h1 { font-size: 26px; line-height: 1.15; letter-spacing: -1px; }
     .header-sub { font-size: 12.5px; line-height: 1.6; margin-top: 8px; }
     .race-countdown { font-size: 11px; padding: 7px 12px; letter-spacing: 0.5px; margin-top: 12px; }
-
     .tabs { padding: 4px; gap: 3px; margin-bottom: 20px; }
     .tab-btn { padding: 9px 12px; font-size: 12px; min-width: auto; flex: 0 0 auto; }
-
     .stat-row { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px; }
     .stat-card { padding: 14px 14px; border-radius: 12px; }
     .stat-label { font-size: 9.5px; letter-spacing: 1.2px; margin-bottom: 6px; }
     .stat-value { font-size: 22px; }
     .stat-sub { font-size: 11px; }
-
     .section-title { font-size: 16px; margin: 24px 0 12px; }
-
     .chart-card { padding: 14px; border-radius: 12px; margin-bottom: 14px; }
     .chart-card .chart-title { font-size: 12px; margin-bottom: 10px; }
-
-    /* Force chart heights to scale on mobile */
     div[style*="height:280px"], div[style*="height: 280px"] { height: 220px !important; }
     div[style*="height:300px"], div[style*="height: 300px"] { height: 240px !important; }
     div[style*="height:260px"], div[style*="height: 260px"] { height: 210px !important; }
     div[style*="height:240px"], div[style*="height: 240px"] { height: 200px !important; }
-
     .two-col { grid-template-columns: 1fr; gap: 12px; }
-
     .tri-hero, .vo2-hero, .sleep-hero, .race-hero { padding: 20px; border-radius: 16px; }
     .tri-hero-row, .vo2-hero-row, .sleep-hero-row { gap: 14px; flex-direction: column; align-items: flex-start; }
     .tri-number, .vo2-number, .sleep-number { font-size: 48px; letter-spacing: -2px; }
@@ -238,7 +208,6 @@
     .tri-info h3, .vo2-info h3 { font-size: 16px; line-height: 1.3; }
     .tri-info p, .vo2-info p { font-size: 13px; line-height: 1.6; }
     .tri-badge, .vo2-badge { font-size: 10px; letter-spacing: 0.8px; padding: 3px 10px; }
-
     .readiness-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     .readiness-card { padding: 14px; border-radius: 12px; }
     .readiness-label { font-size: 9.5px; letter-spacing: 0.8px; }
@@ -246,13 +215,11 @@
     .readiness-value small { font-size: 14px; }
     .readiness-sub { font-size: 11px; line-height: 1.45; }
     .readiness-change { font-size: 9px; padding: 1px 6px; }
-
     .phase-tracker { padding: 16px; border-radius: 12px; }
     .phase-row { flex-wrap: wrap; gap: 4px; }
     .phase-box { flex: 1 1 calc(33.33% - 4px); padding: 8px 4px; min-width: 0; }
     .phase-box .phase-num { font-size: 13px; }
     .phase-box .phase-name { font-size: 8.5px; letter-spacing: 0.5px; }
-
     .goal-cols { grid-template-columns: 1fr; gap: 12px; }
     .goal-col { padding: 16px; border-radius: 12px; }
     .goal-time { font-size: 26px; margin-bottom: 12px; }
@@ -260,26 +227,21 @@
     .goal-split { padding: 8px 4px; }
     .goal-split-label { font-size: 9px; letter-spacing: 0.5px; }
     .goal-split-val { font-size: 12px; }
-
     .garmin-row { grid-template-columns: 1fr; gap: 10px; }
     .garmin-card { padding: 16px; border-radius: 12px; }
     .garmin-card h4 { font-size: 13px; }
     .garmin-card p { font-size: 12px; line-height: 1.55; }
-
     .insight-card { padding: 14px 16px; border-radius: 4px 12px 12px 4px; }
     .insight-card h4 { font-size: 14px; }
     .insight-card p { font-size: 12.5px; line-height: 1.55; }
-
     .rec-card { padding: 13px 15px; border-radius: 10px; }
     .rec-card h4 { font-size: 13px; }
     .rec-card p { font-size: 12px; line-height: 1.5; }
-
     .race-hero-row { gap: 8px; }
     .race-card { flex: 1 1 calc(50% - 4px); min-width: 0; padding: 12px 8px; border-radius: 10px; }
     .race-dist { font-size: 10px; letter-spacing: 1px; margin-bottom: 6px; }
     .race-time { font-size: 20px; }
     .race-sub { font-size: 10px; margin-top: 4px; }
-
     .data-table-wrap { border-radius: 12px; }
     .data-table { font-size: 11px; }
     .data-table th { padding: 10px 8px; font-size: 9px; letter-spacing: 0.5px; }
@@ -288,20 +250,16 @@
     .data-table td[style*="max-width"] { max-width: 110px !important; }
     .brick-badge, .outdoor-badge { font-size: 8px; padding: 1px 5px; letter-spacing: 0.5px; margin-left: 4px; }
     .te-badge { font-size: 10px; padding: 2px 7px; }
-
     .gauge-bar-outer { height: 24px; margin: 16px 0 10px; }
     .gauge-marker { height: 36px; width: 3px; }
     .gauge-target { height: 36px; }
     .gauge-target-label { font-size: 9px; left: -12px; }
     .gauge-labels { font-size: 9px; }
-
     .hr-zone-name { font-size: 12px; }
     .hr-zone-count { font-size: 12px; }
     .hr-note { font-size: 11px; line-height: 1.5; margin-top: 10px; }
-
     .scroll-top { width: 38px; height: 38px; bottom: 16px; right: 16px; font-size: 18px; }
   }
-
   @media (max-width: 480px) {
     .container { padding: 10px 8px 48px; }
     .header h1 { font-size: 22px; }
@@ -316,7 +274,6 @@
     .race-card { padding: 10px 6px; }
     .goal-time { font-size: 24px; }
   }
-
   /* ===== LIVE COUNTDOWN ===== */
   .countdown-wrap { display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:18px; padding:20px 24px; border-radius:16px; background:linear-gradient(135deg,rgba(255,159,67,0.12),rgba(255,159,67,0.04)); border:1px solid rgba(255,159,67,0.25); position:relative; overflow:hidden; }
   .countdown-wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(255,159,67,0.10), transparent 70%); pointer-events:none; animation:cdPulse 4s ease-in-out infinite; }
@@ -339,7 +296,6 @@
     .countdown-num { font-size:20px; }
     .countdown-unit-label { font-size:8px; letter-spacing:1px; }
   }
-
   /* ===== RING GAUGES ===== */
   .ring-wrap { position:relative; width:130px; height:130px; margin:6px auto 12px; }
   .ring-svg { transform:rotate(-90deg); width:100%; height:100%; display:block; }
@@ -362,7 +318,6 @@
     .ring-wrap { width:96px; height:96px; }
     .ring-pct { font-size:22px; }
   }
-
   /* ===== HEATMAP ===== */
   .heatmap-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:24px; margin-bottom:20px; }
   .heatmap-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px; }
@@ -413,13 +368,12 @@
       ↻ Refresh Data
     </button>
   </div>
-
   <div class="header">
     <div class="header-label">Geordieman 70.3 · Training Dashboard</div>
     <h1>Road to Druridge Bay</h1>
     <div class="header-sub" id="headerSub">
-      Mar 16 – Jul 12, 2026 · 123 activities · Phase 5 (Sharpen), Week 19 of 24<br>
-      Overall Race Readiness: <span id="liveOverallPct">97%</span> · VO₂ Max: <span>54</span> · Primary goal: <span>Sub-6h</span>
+      Mar 16 – Jul 20, 2026 · 132 activities · Phase 5 (Sharpen), Week 21 of 24<br>
+      Overall Race Readiness: <span id="liveOverallPct">98%</span> · VO₂ Max: <span>54</span> · Primary goal: <span>Sub-6h</span>
     </div>
     <div class="countdown-wrap" id="liveCountdown">
       <div class="countdown-label">⏱ Countdown to Race Start · Druridge Bay · 07:00 BST</div>
@@ -431,7 +385,6 @@
       </div>
     </div>
   </div>
-
   <div class="tabs">
     <button class="tab-btn active" data-tab="geordieman">🏊🚴🏃 Geordieman</button>
     <button class="tab-btn" data-tab="overview">Overview</button>
@@ -444,20 +397,18 @@
     <button class="tab-btn" data-tab="race">Race Predictor</button>
     <button class="tab-btn" data-tab="insights">Insights</button>
   </div>
-
   <!-- ========== GEORDIEMAN ========== -->
   <div id="tab-geordieman" class="tab-content active">
     <div class="tri-hero">
       <div class="tri-hero-row">
-        <div><div class="tri-number" id="liveReadiness">97<span class="tri-unit">% ready</span></div></div>
+        <div><div class="tri-number" id="liveReadiness">98<span class="tri-unit">% ready</span></div></div>
         <div class="tri-info">
-          <div class="tri-badge" id="liveBadge">PHASE 5: SHARPEN · WEEK 19 OF 24</div>
-          <h3 id="liveHeadline">🏆 FULL OLYMPIC TRI SIM — swim + bike + run in heat with race gels</h3>
-          <p id="liveDesc">Readiness to 97% (+2). Best session of the build: <strong>Jul 12 Olympic-distance tri with Grant + Ryan</strong> — 1.47km OW (36:07 @ HR 115) → 43.58 km bike (1:34, HR 133, 27.7 km/h avg) → 10 km run (5:03/km at HR 155). Race gels + race fuelling throughout. In heat = ideal race-day heat rehearsal. Robert reports "comfortable in all three disciplines". Plus Jul 10 track speed session (3×800m + 1200m hard + 10×15s sprints). 41 days to race — sub-6h target now firmly locked, sub-5:30 in play.</p>
+          <div class="tri-badge" id="liveBadge">PHASE 5: SHARPEN · WEEK 21 OF 24</div>
+          <h3 id="liveHeadline">🏆 Jul 20 hilly BRICK + Jul 16 76km — OW tonight at Booker Pond</h3>
+          <p id="liveDesc">Readiness to 98% (+1). Big volume + quality fortnight: <strong>Jul 20 hilly BRICK — 60.14 km outdoor at HR 127 (585 m ascent!) → 6.72 km run @ 4:43/km at HR 149</strong> using race gels + race hydration strategy. Pace off the bike is 35 s/km faster than sub-6h target. <strong>Jul 16: 76.16 km outdoor at HR 129</strong> — second-longest ride of the build. Plus 3 quality runs, Jul 14 OW 1,038 m at HR 118. <strong>Tonight: OW swim at Booker Pond, Irvine.</strong> 33 days to race — every race-day variable now rehearsed and confirmed.</p>
         </div>
       </div>
     </div>
-
     <div class="section-title">Discipline Readiness (vs Sub-6h target)</div>
     <div class="readiness-grid">
       <div class="readiness-card-v2">
@@ -465,64 +416,62 @@
         <div class="ring-wrap">
           <svg class="ring-svg" viewBox="0 0 120 120">
             <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
-            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="90" style="stroke:var(--accent-swim); filter:drop-shadow(0 0 6px var(--accent-swim));"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="91" style="stroke:var(--accent-swim); filter:drop-shadow(0 0 6px var(--accent-swim));"/>
           </svg>
           <div class="ring-center">
-            <div class="ring-pct" style="color:var(--accent-swim)" id="liveSwimPct">90<small>%</small></div>
+            <div class="ring-pct" style="color:var(--accent-swim)" id="liveSwimPct">91<small>%</small></div>
             <div class="ring-mini-label">Ready</div>
           </div>
         </div>
-        <div class="readiness-sub" id="liveSwimSub">19 pool + 8 OW. Jul 12 tri-sim OW 1,471m at HR 115 — race-simulation execution.</div>
+        <div class="readiness-sub" id="liveSwimSub">19 pool + 9 OW. Jul 14 OW 1,038m @ HR 118. Booker Pond, Irvine tonight (21 Jul).</div>
       </div>
       <div class="readiness-card-v2">
         <div class="readiness-label">Bike <span class="readiness-change readiness-up">▲ +2</span></div>
         <div class="ring-wrap">
           <svg class="ring-svg" viewBox="0 0 120 120">
             <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
-            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="93" style="stroke:var(--accent-cycle); filter:drop-shadow(0 0 6px var(--accent-cycle));"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="95" style="stroke:var(--accent-cycle); filter:drop-shadow(0 0 6px var(--accent-cycle));"/>
           </svg>
           <div class="ring-center">
-            <div class="ring-pct" style="color:var(--accent-cycle)" id="liveBikePct">93<small>%</small></div>
+            <div class="ring-pct" style="color:var(--accent-cycle)" id="liveBikePct">95<small>%</small></div>
             <div class="ring-mini-label">Ready</div>
           </div>
         </div>
-        <div class="readiness-sub" id="liveBikeSub">13 outdoor, 684 km. Jul 12 tri bike 43.58km @ 27.7 km/h avg — strong tempo pace.</div>
+        <div class="readiness-sub" id="liveBikeSub">16 outdoor, 851 km. Jul 16 76km + Jul 20 60km hilly brick — big volume week.</div>
       </div>
       <div class="readiness-card-v2">
         <div class="readiness-label">Run <span class="readiness-change readiness-up">▲ +1</span></div>
         <div class="ring-wrap">
           <svg class="ring-svg" viewBox="0 0 120 120">
             <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
-            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="97" style="stroke:var(--accent-run); filter:drop-shadow(0 0 6px var(--accent-run));"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="98" style="stroke:var(--accent-run); filter:drop-shadow(0 0 6px var(--accent-run));"/>
           </svg>
           <div class="ring-center">
-            <div class="ring-pct" style="color:var(--accent-run)" id="liveRunPct">97<small>%</small></div>
+            <div class="ring-pct" style="color:var(--accent-run)" id="liveRunPct">98<small>%</small></div>
             <div class="ring-mini-label">Ready</div>
           </div>
         </div>
-        <div class="readiness-sub" id="liveRunSub">56 runs, 445 km. Jul 12 Olympic 10k @ 5:03/km off bike + Jul 10 track speed session.</div>
+        <div class="readiness-sub" id="liveRunSub">59 runs, 465 km. Jul 20 hilly BRICK run @ 4:43/km with race fuelling — locked.</div>
       </div>
       <div class="readiness-card-v2">
-        <div class="readiness-label">T1/T2 + Fuel <span class="readiness-change readiness-up">▲ +7</span></div>
+        <div class="readiness-label">T1/T2 + Fuel <span class="readiness-change readiness-up">▲ +3</span></div>
         <div class="ring-wrap">
           <svg class="ring-svg" viewBox="0 0 120 120">
             <circle class="ring-bg-circle" cx="60" cy="60" r="52"/>
-            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="92" style="stroke:var(--accent-hiit); filter:drop-shadow(0 0 6px var(--accent-hiit));"/>
+            <circle class="ring-fg-circle" cx="60" cy="60" r="52" data-pct="95" style="stroke:var(--accent-hiit); filter:drop-shadow(0 0 6px var(--accent-hiit));"/>
           </svg>
           <div class="ring-center">
-            <div class="ring-pct" style="color:var(--accent-hiit)" id="liveTransPct">92<small>%</small></div>
+            <div class="ring-pct" style="color:var(--accent-hiit)" id="liveTransPct">95<small>%</small></div>
             <div class="ring-mini-label">Ready</div>
           </div>
         </div>
-        <div class="readiness-sub" id="liveTransSub">Full tri-sim with race gels + heat = final race-day rehearsal. Everything worked.</div>
+        <div class="readiness-sub" id="liveTransSub">Jul 20 brick w/ race gels + hydration strategy in hills. Full protocol proven.</div>
       </div>
     </div>
-
     <div class="section-title">Readiness Progress (Week-over-Week)</div>
     <div class="chart-card"><div style="height:280px"><canvas id="readinessChart"></canvas></div>
-      <div class="hr-note">All four disciplines trending up. Largest jump in Bike — outdoor riding returning as weather improves.</div>
+      <div class="hr-note">All four disciplines trending up. Bike + Transitions climbing further after the hilly brick and 76km long ride.</div>
     </div>
-
     <div class="section-title">Training Activity Heatmap (Mar 16 → Race Day)</div>
     <div class="heatmap-card">
       <div class="heatmap-summary" id="heatmapSummary"></div>
@@ -539,20 +488,19 @@
         <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#3af0c7"></span>Pool Swim</div>
         <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#00b8d9"></span>Open Water</div>
         <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#f0b83a"></span>HIIT</div>
-        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#a87cf0"></span>Strength</div>
+        <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#a87cf0"></span>Strength / Walk</div>
         <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:#ff9f43"></span>BRICK</div>
         <div class="heatmap-legend-item"><span class="heatmap-legend-swatch" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.2)"></span>Rest / Future</div>
       </div>
     </div>
     <div class="heatmap-tip" id="heatmapTip"></div>
-
     <div class="section-title">Training Phase Roadmap</div>
     <div class="phase-tracker">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
         <div style="font-size:15px;font-weight:700">24-Week Build to Race Day</div>
-        <div class="mono" style="color:var(--accent-tri)">Week 19 / 24</div>
+        <div class="mono" style="color:var(--accent-tri)">Week 21 / 24</div>
       </div>
-      <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Phase 5 momentum peaked. Full Olympic-distance tri sim complete ✓ (swim + bike + run in heat with race gels). Every race-day variable now tested and confirmed. Remaining: 1× 85km ride, hold OW, execute taper. Race target locked in.</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Phase 5 nearly done. Full Olympic tri sim ✓, race-condition brick ✓, hilly brick with race fuelling ✓, 76km long ride ✓. Remaining: 1× 85-90km ride, hold OW cadence, execute taper from early August. Race target locked.</div>
       <div class="phase-row">
         <div class="phase-box done"><span class="phase-num">P1</span><span class="phase-name">Foundation</span></div>
         <div class="phase-box done"><span class="phase-num">P2</span><span class="phase-name">Endurance</span></div>
@@ -562,7 +510,6 @@
         <div class="phase-box future"><span class="phase-num">P6</span><span class="phase-name">Taper</span></div>
       </div>
     </div>
-
     <div class="section-title">Race Day Targets</div>
     <div class="goal-cols">
       <div class="goal-col primary">
@@ -586,44 +533,41 @@
         </div>
       </div>
     </div>
-
-    <div class="section-title">Next Week Focus (Week 20 — recovery + last volume push)</div>
+    <div class="section-title">Next Week Focus (Week 22 — final volume + start taper)</div>
     <div class="rec-card">
-      <h4>1. Recovery Mon/Tue (Jul 13-14)</h4>
-      <p>Yesterday was a full-effort tri sim. Body needs 48h of easy work only — 30min swim, walking, mobility. Skip runs and rides until Wednesday. Recovery is now training.</p>
+      <h4>1. Tonight — OW swim at Booker Pond, Irvine</h4>
+      <p>New venue rehearsal. Practice sighting rhythm, bilateral breathing, wetsuit comfort. 20-30 min steady swim. Adds another OW rep (9th of build) and confidence at a different venue.</p>
     </div>
     <div class="rec-card">
-      <h4>2. One more 85-90 km outdoor ride mid-July</h4>
-      <p>Final long-ride box. Ideally Jul 19-20 weekend with full race-day fuelling (protocol confirmed). After this, no more max-volume sessions — everything else is quality + taper.</p>
+      <h4>2. Final 85-90 km ride this weekend</h4>
+      <p>Jul 16 (76.16 km) and Jul 20 hilly brick (60.14 km, 585 m ascent) have built the platform. One more 85-90km outing with full race-day fuelling in Jul 26-27 window = the last volume box.</p>
     </div>
     <div class="rec-card">
-      <h4>3. Weekly OW maintenance</h4>
-      <p>Jul 12's 1,471m OW was smooth. Hold 1× OW per week through end of July. Race-distance session in ~10 days to keep the muscle memory.</p>
+      <h4>3. Repeat the brick with race fuelling</h4>
+      <p>Jul 20's hilly brick with race gels + hydration = perfect race-day rehearsal. Repeat once more before taper: 40-50 km bike → 6-8 km run at race pace. Locks the T2 leg turnover memory.</p>
     </div>
     <div class="rec-card">
-      <h4>4. Taper begins Aug 1</h4>
-      <p>41 days to race. Last 2 weeks of July: hold Phase 5 volume. Aug 1-9: reduce ~20% (drop one HIIT + one strength). Aug 10-16: reduce ~40%. Race week: skill/tune-up only.</p>
+      <h4>4. Weekly OW maintenance</h4>
+      <p>9 OW sessions banked. Hold 1× per week through end of July. Consider one more race-distance session (1.9km+) before taper for confidence.</p>
     </div>
     <div class="rec-card">
-      <h4>5. Race target — sub-6h locked, sub-5:30 in play</h4>
-      <p>Jul 12 tri sim data: swim 36:07 for 1.47km → projects ~46min for 1.9km. Bike 43.58km at 27.7 km/h → projects 3:15-3:25 for 90km. Run 10km @ 5:03/km → projects 1:50-1:55 for 21.1km. Total range: 5:55 – 6:15. Cooler race day + taper = the fast end.</p>
+      <h4>5. Taper begins Aug 1</h4>
+      <p>33 days to race. Aug 1-9: reduce ~20% (drop one HIIT + one strength). Aug 10-16: reduce ~40%. Race week: skill/tune-up only, kit prep, mental drills.</p>
     </div>
-
     <div class="section-title">Flags & Considerations</div>
     <div class="garmin-row">
-      <div class="garmin-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 12 — FULL OLYMPIC TRI SIM (in heat!)</h4><p>Swim 1,471m @ HR 115 → Bike 43.58km @ 27.7 km/h + HR 133 → Run 10km @ 5:03/km + HR 155. Race gels throughout. Robert reports "comfortable in all three disciplines" — the biggest confidence-building signal of the build. Hot conditions = perfect heat rehearsal.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Jul 10 — Track speed session complete</h4><p>3×800m + 1200m hard effort + 10×(15s sprint / 25s rest). Best pace splits down to 2:19/km. HR avg 140, max 186. Serious short-duration speed reserve — useful for race-day surges and closing kick.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Heat exposure training complete</h4><p>Jul 12 tri sim in hot conditions — race-day at Druridge Bay is typically 15-18°C, so training in 24°C+ gives a heat-adaptation buffer. If race is warm, you've already rehearsed. If cool, you'll feel 5-10% faster.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 20 — Hilly BRICK with race fuelling</h4><p>60.14 km outdoor at HR 127, 585 m ascent (hilliest ride of build) → 6.72 km @ 4:43/km at HR 149 using race gels + race hydration strategy. Cycle EF 3.53 — build best. Fastest brick run of build. Real race-day rehearsal in tough terrain.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Jul 16 — 76.16 km outdoor at HR 129</h4><p>2h 52min, 26.6 km/h avg, 501 m ascent. Third-longest ride of build. Cycle EF 3.43 — strong. With Jul 20's hilly brick that's 136km of race-specific outdoor volume in 5 days.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌊 Tonight — OW at Booker Pond, Irvine</h4><p>New venue. Different water, different vibe = confidence adaptation. Focus on sighting rhythm and bilateral breathing. Not a hard effort — reps + venue familiarity are the goal.</p></div>
     </div>
   </div>
-
   <!-- ========== OVERVIEW ========== -->
   <div id="tab-overview" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value" style="color:var(--accent-tri)" id="liveSessions">123</div><div class="stat-sub" id="liveSessionsSub">in 120 days</div></div>
-      <div class="stat-card"><div class="stat-label">Run km</div><div class="stat-value" style="color:var(--accent-run)" id="liveTotalRunKm">445<span style="font-size:18px;color:var(--text-muted)">km</span></div><div class="stat-sub" id="liveTotalRunSub">56 runs</div></div>
-      <div class="stat-card"><div class="stat-label">Ride km</div><div class="stat-value" style="color:var(--accent-cycle)" id="liveTotalRideKm">941<span style="font-size:18px;color:var(--text-muted)">km</span></div><div class="stat-sub" id="liveTotalRideSub">23 rides</div></div>
-      <div class="stat-card"><div class="stat-label">Swim m</div><div class="stat-value" style="color:var(--accent-swim)" id="liveTotalSwimM">46,918</div><div class="stat-sub" id="liveTotalSwimSub">27 swims (8 OW)</div></div>
+      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value" style="color:var(--accent-tri)" id="liveSessions">132</div><div class="stat-sub" id="liveSessionsSub">in 127 days</div></div>
+      <div class="stat-card"><div class="stat-label">Run km</div><div class="stat-value" style="color:var(--accent-run)" id="liveTotalRunKm">465<span style="font-size:18px;color:var(--text-muted)">km</span></div><div class="stat-sub" id="liveTotalRunSub">59 runs</div></div>
+      <div class="stat-card"><div class="stat-label">Ride km</div><div class="stat-value" style="color:var(--accent-cycle)" id="liveTotalRideKm">1,108<span style="font-size:18px;color:var(--text-muted)">km</span></div><div class="stat-sub" id="liveTotalRideSub">26 rides</div></div>
+      <div class="stat-card"><div class="stat-label">Swim m</div><div class="stat-value" style="color:var(--accent-swim)" id="liveTotalSwimM">47,956</div><div class="stat-sub" id="liveTotalSwimSub">28 swims (9 OW)</div></div>
     </div>
     <div class="two-col">
       <div class="chart-card"><div class="chart-title">Sessions by Activity Type</div><div style="height:240px"><canvas id="pieChart"></canvas></div></div>
@@ -631,21 +575,20 @@
     </div>
     <div class="section-title">Weekly Training Volume</div>
     <div class="chart-card"><div style="height:280px"><canvas id="weeklyChart"></canvas></div>
-      <div class="hr-note">W19 (Jul 7-12) closed at 8 sessions / 5.9h — capped by Sunday's full Olympic tri sim with Grant + Ryan (all 3 disciplines in heat with race gels). Perfect Phase 5 sharpening pattern.</div>
+      <div class="hr-note">W20 (Jul 14-20) closed at 8 sessions / 8.6h — including the Jul 16 76km ride and Jul 20 hilly brick. Biggest bike volume week in over a month. Phase 5 quality + volume both firing.</div>
     </div>
     <div class="section-title">Heart Rate Zone Distribution</div>
     <div class="chart-card">
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z1 Recovery (&lt;110)</span><span class="hr-zone-count" style="color:#6B7280">6</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:5%;background:#6B7280"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z2 Endurance (110-130)</span><span class="hr-zone-count" style="color:var(--accent-swim)">39</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:32%;background:var(--accent-swim)"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z3 Tempo (130-150)</span><span class="hr-zone-count" style="color:var(--accent-hiit)">55</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:46%;background:var(--accent-hiit)"></div></div></div>
-      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z4 Threshold (150-165)</span><span class="hr-zone-count" style="color:var(--accent-run)">18</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:15%;background:var(--accent-run)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z1 Recovery (&lt;110)</span><span class="hr-zone-count" style="color:#6B7280">8</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:6%;background:#6B7280"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z2 Endurance (110-130)</span><span class="hr-zone-count" style="color:var(--accent-swim)">43</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:33%;background:var(--accent-swim)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z3 Tempo (130-150)</span><span class="hr-zone-count" style="color:var(--accent-hiit)">57</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:44%;background:var(--accent-hiit)"></div></div></div>
+      <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z4 Threshold (150-165)</span><span class="hr-zone-count" style="color:var(--accent-run)">19</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:15%;background:var(--accent-run)"></div></div></div>
       <div class="hr-zone-row"><div class="hr-zone-header"><span class="hr-zone-name">Z5 VO₂ Max (165+)</span><span class="hr-zone-count" style="color:var(--accent-danger)">2</span></div><div class="hr-zone-bar"><div class="hr-zone-fill" style="width:2%;background:var(--accent-danger)"></div></div></div>
-      <div class="hr-note">Jul 12 tri sim added Z2+Z3+Z4 across the three legs — near-perfect race-distance intensity distribution. Aerobic engine handling race demands cleanly.</div>
+      <div class="hr-note">Z1+Z2 share now 39% — best polarisation of build. Jul 20 hilly brick pushed Z3 slightly higher but bike + long OW added Z2 volume. Excellent Phase 5 mix.</div>
     </div>
     <div class="section-title">Daily Calorie Burn</div>
     <div class="chart-card"><div style="height:240px"><canvas id="timelineChart"></canvas></div></div>
   </div>
-
   <!-- ========== VO2 MAX ========== -->
   <div id="tab-vo2" class="tab-content">
     <div class="vo2-hero">
@@ -653,8 +596,8 @@
         <div><div class="vo2-number">54<span class="vo2-unit"> ml/kg/min</span></div></div>
         <div class="vo2-info">
           <div class="vo2-badge">HOLDING SUPERIOR — 95th PERCENTILE</div>
-          <h3>Superior threshold holding into Phase 3</h3>
-          <p>VO₂ Max has held at 54 across the full April block, including this week's outdoor cycling stack. Endurance volume typically doesn't move VO₂ upward as hard as intervals do — to push toward 55-56, reintroduce 1-2 VO₂ max sessions per week (the Mar 23 "VO2 max builder" style) once Phase 3 settles. Race-specific work is now the priority.</p>
+          <h3>Superior threshold holding into Phase 5</h3>
+          <p>VO₂ Max has held at 54 across the full build. Endurance volume typically doesn't move VO₂ upward as hard as intervals do — with the taper approaching, expect the value to hold rather than climb. Race-day performance is now about accumulated adaptation, not top-end VO₂.</p>
         </div>
       </div>
     </div>
@@ -673,103 +616,94 @@
     </div>
     <div class="section-title">VO₂ Max Trend (8 Months)</div>
     <div class="chart-card"><div style="height:260px"><canvas id="vo2TrendChart"></canvas></div>
-      <div class="hr-note">Running VO₂ (green) reached 54 in March and has held through April. Cycling VO₂ (blue) tracks ~52.</div>
+      <div class="hr-note">Running VO₂ (green) reached 54 in March and has held. Cycling VO₂ (blue) tracks ~52.</div>
     </div>
     <div class="section-title">Garmin Training Status Analysis</div>
     <div class="garmin-row">
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>📊 Training Status</h4><p>Productive block extending through April. Outdoor volume added without triggering overreaching — well-managed progression.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-swim)"><h4>💚 HRV Status</h4><p>Baseline ~60-70ms, broadly balanced. Occasional unbalanced dips around big volume weeks — expected during Phase 2 endurance building.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)"><h4>📈 Acute Training Load</h4><p>Sits in the optimal range. April volume (~36.5h over 5 weeks) matches Phase 2 expectations.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>📊 Training Status</h4><p>Productive block extending through July. Race-specific volume added without triggering overreaching — well-managed progression.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-swim)"><h4>💚 HRV Status</h4><p>Baseline ~60-70ms, broadly balanced. Occasional unbalanced dips around big volume weeks — expected during Phase 5 sharpening.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)"><h4>📈 Acute Training Load</h4><p>Sits in the optimal range. Watch for early taper indicators from Aug 1.</p></div>
     </div>
     <div class="section-title">Path to Sustained Superior (55-56)</div>
-    <div class="rec-card"><h4>1. VO₂ max intervals 1-2× per week</h4><p>Your Mar 23 "VO₂ max builder" (10km, HR 170, avg pace 4:42/km) was ideal. Repeat fortnightly: 4-6 × 3-5 min at 90-95% max HR. These are the sessions that push beyond 54.</p></div>
-    <div class="rec-card"><h4>2. Genuine Zone 2 running</h4><p>April easy runs averaged HR 137-151 — that's Z3, not Z2. Slow the easy sessions to HR &lt;130. Feels too easy, but builds the aerobic base.</p></div>
-    <div class="rec-card"><h4>3. Respect recovery around brick sessions</h4><p>Bricks are high stimulus. One quality brick per week is enough during Phase 3. Don't stack bricks back-to-back with long rides.</p></div>
-    <div class="rec-card"><h4>4. Keep cycling VO₂ building</h4><p>Outdoor riding at steady aerobic effort (HR Z2-Z3) grows cycling-specific VO₂. Mix in 2×20 min tempo intervals on longer rides when you're ready.</p></div>
+    <div class="rec-card"><h4>1. VO₂ max intervals 1-2× per week</h4><p>Track sessions like Jul 3 (8×400m) and Jul 10 (3×800m + 1200m + sprints) are ideal. Keep one per week through late July, then reduce during taper.</p></div>
+    <div class="rec-card"><h4>2. Genuine Zone 2 running</h4><p>Jul 6 easy 1-hour @ HR 139 was textbook. Keep recovery runs sub-130 HR to protect the hard sessions.</p></div>
+    <div class="rec-card"><h4>3. Respect recovery around brick sessions</h4><p>Jul 20's hilly brick was high stimulus. Give 48h easy work after and skip runs Monday-Tuesday.</p></div>
+    <div class="rec-card"><h4>4. Keep cycling volume steady</h4><p>Outdoor riding at steady aerobic effort (HR Z2-Z3) grows cycling-specific VO₂. Jul 16 (76km) + Jul 20 (60km hilly) is the right pattern.</p></div>
   </div>
-
   <!-- ========== SWIM ========== -->
   <div id="tab-swim" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Swims</div><div class="stat-value" style="color:var(--accent-swim)">27</div><div class="stat-sub">46,918m (19 pool + 8 OW)</div></div>
+      <div class="stat-card"><div class="stat-label">Total Swims</div><div class="stat-value" style="color:var(--accent-swim)">28</div><div class="stat-sub">47,956m (19 pool + 9 OW)</div></div>
       <div class="stat-card"><div class="stat-label">Longest Pool</div><div class="stat-value">2,250<span style="font-size:16px;color:var(--text-muted)">m</span></div><div class="stat-sub">Apr 18 + May 12 + Jun 2</div></div>
       <div class="stat-card" style="border-left:3px solid var(--accent-vo2)"><div class="stat-label">Longest OW ★</div><div class="stat-value" style="color:var(--accent-vo2)">2,218<span style="font-size:16px;color:var(--text-muted)">m</span></div><div class="stat-sub">Jun 21 · HR 111 · 117% of race</div></div>
-      <div class="stat-card"><div class="stat-label">Avg SWOLF (pool)</div><div class="stat-value" style="color:var(--accent-hiit)">43</div><div class="stat-sub">range 38-44</div></div>
+      <div class="stat-card"><div class="stat-label">Avg SWOLF (pool)</div><div class="stat-value" style="color:var(--accent-hiit)">43</div><div class="stat-sub">range 38-45</div></div>
     </div>
-
     <div class="section-title">Swim Distance Progression</div>
     <div class="chart-card"><div style="height:260px"><canvas id="swimDistChart"></canvas></div>
-      <div class="hr-note">Race distance (1.9km / 1,900m) line shown for reference. You've cleared it 9 of 15 swims — pool endurance is no longer a limiter.</div>
+      <div class="hr-note">Race distance (1.9km / 1,900m) line shown. You've cleared it 10 of 16 pool swims and hit race+ distance twice in OW — pool endurance is no longer a limiter.</div>
     </div>
-
     <div class="section-title">SWOLF Trend</div>
     <div class="chart-card"><div style="height:240px"><canvas id="swolfChart"></canvas></div>
-      <div class="hr-note">SWOLF = strokes + seconds per 25m length. Lower = more efficient. Target &lt;40 through drill work. Best session was Mar 24 (SWOLF 38).</div>
+      <div class="hr-note">SWOLF = strokes + seconds per 25m length. Lower = more efficient. Best session was Mar 24 (SWOLF 38).</div>
     </div>
-
     <div class="section-title">All Pool Swims</div>
     <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Session</th><th>Distance</th><th>Time</th><th>SWOLF</th><th>HR</th></tr></thead><tbody id="swimTable"></tbody></table></div>
-
-    <div class="section-title">🌊 Open Water Swim — 5 Sessions, Race Distance Exceeded</div>
+    <div class="section-title">🌊 Open Water Swim — 9 Sessions, Race Distance Locked</div>
     <div class="garmin-row">
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>★ Jun 21 — 2,218m at HR 111 (RACE+)</h4><p>53:08 over 2,218m — 117% of race distance, fully controlled in Z2. SWOLF 49. This single session closes any remaining race-day swim doubts. From zero OW 7 weeks ago to comfortably exceeding race distance.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Jun 9 — 1,736m at HR 110</h4><p>43:13 over 1,736m at Z2. SWOLF 51. Followed by 7.56km easy run = natural swim-run combo. Big single OW jump that paved the way for Jun 21.</p></div>
-      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ May 31 + Jun 3 + Jun 16</h4><p>The early OW block: May 31 (1,478m, HR 109), Jun 3 (1,509m, HR 112), Jun 16 (790m familiarisation). Clean progression — distance + HR always controlled.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>★ Jun 21 — 2,218m at HR 111 (RACE+)</h4><p>53:08 over 2,218m — 117% of race distance, fully controlled in Z2. SWOLF 49. Single session that closed race-day swim doubts.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Jul 12 + Jul 14 — Race-sim OW blocks</h4><p>Jul 12: 1,471m tri-sim OW at HR 115. Jul 14: 1,038m at HR 118 (Booker Pond training). Cadence set.</p></div>
+      <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌊 Tonight — Booker Pond, Irvine</h4><p>9th OW session lined up. New venue = confidence adaptation. Focus on sighting every 6 strokes and bilateral breathing.</p></div>
     </div>
   </div>
-
   <!-- ========== RUNNING ========== -->
   <div id="tab-running" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value" style="color:var(--accent-run)">56</div><div class="stat-sub">445 km total</div></div>
-      <div class="stat-card"><div class="stat-label">Avg Pace</div><div class="stat-value">5:09<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">across all runs</div></div>
-      <div class="stat-card" style="border-left:3px solid var(--accent-tri)"><div class="stat-label">Olympic 10k ★</div><div class="stat-value" style="color:var(--accent-tri)">5:03<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">Jul 12 · off swim + bike in heat</div></div>
+      <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value" style="color:var(--accent-run)">59</div><div class="stat-sub">465 km total</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Pace</div><div class="stat-value">5:08<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">across all runs</div></div>
+      <div class="stat-card" style="border-left:3px solid var(--accent-tri)"><div class="stat-label">Hilly BRICK ★</div><div class="stat-value" style="color:var(--accent-tri)">4:43<span style="font-size:16px;color:var(--text-muted)">/km</span></div><div class="stat-sub">Jul 20 · 6.72km off hilly 60km ride</div></div>
       <div class="stat-card"><div class="stat-label">Avg HR</div><div class="stat-value">143<span style="font-size:16px;color:var(--text-muted)">bpm</span></div><div class="stat-sub">Z3 dominant</div></div>
     </div>
     <div class="section-title">Pace Trend</div>
-    <div class="chart-card"><div style="height:260px"><canvas id="paceChart"></canvas></div><div class="hr-note">Lower = faster. NEW LONGEST: Jun 12 18.51 km @ 5:01/km, HR 146 — faster than sub-6h target (5:18/km). Jun 10's 11 km easy at HR 129 (proper Z2!) confirms aerobic discipline. Jun 1 Brick 10k @ 5:05/km still the race-pace benchmark.</div></div>
+    <div class="chart-card"><div style="height:260px"><canvas id="paceChart"></canvas></div><div class="hr-note">Lower = faster. ★ Jul 20 BRICK 6.72km @ 4:43/km off a hilly 60km ride with race gels — fastest brick run of build. Jul 14 fast 5.55km @ 4:26/km. Sub-6h target is 5:18/km — you're well ahead of it.</div></div>
     <div class="section-title">Distance per Run</div>
     <div class="chart-card"><div style="height:240px"><canvas id="runDistChart"></canvas></div></div>
     <div class="section-title">All Runs</div>
     <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Title</th><th>Dist</th><th>Pace</th><th>HR</th><th>TE</th></tr></thead><tbody id="runTable"></tbody></table></div>
   </div>
-
   <!-- ========== CYCLING ========== -->
   <div id="tab-cycling" class="tab-content">
     <div class="stat-row">
-      <div class="stat-card"><div class="stat-label">Total Rides</div><div class="stat-value" style="color:var(--accent-cycle)">23</div><div class="stat-sub">941.0 km (10 Zwift, 13 outdoor)</div></div>
+      <div class="stat-card"><div class="stat-label">Total Rides</div><div class="stat-value" style="color:var(--accent-cycle)">26</div><div class="stat-sub">1,108 km (10 Zwift, 16 outdoor)</div></div>
       <div class="stat-card"><div class="stat-label">Longest Ride</div><div class="stat-value" style="color:var(--accent-tri)">80.6<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">Jun 8 · outdoor · 3:36 · HR 125</div></div>
-      <div class="stat-card"><div class="stat-label">Outdoor km</div><div class="stat-value" style="color:var(--accent-vo2)">684.0<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">13 rides · race-specific</div></div>
-      <div class="stat-card" style="border-left:3px solid var(--accent-tri)"><div class="stat-label">Tri-Sim Bike ★</div><div class="stat-value" style="color:var(--accent-tri)">27.7<span style="font-size:16px;color:var(--text-muted)">km/h</span></div><div class="stat-sub">Jul 12 · 43.58km at HR 133</div></div>
+      <div class="stat-card"><div class="stat-label">Outdoor km</div><div class="stat-value" style="color:var(--accent-vo2)">851<span style="font-size:16px;color:var(--text-muted)">km</span></div><div class="stat-sub">16 rides · race-specific</div></div>
+      <div class="stat-card" style="border-left:3px solid var(--accent-tri)"><div class="stat-label">Hilly BRICK Bike ★</div><div class="stat-value" style="color:var(--accent-tri)">585<span style="font-size:16px;color:var(--text-muted)">m</span></div><div class="stat-sub">Jul 20 · ascent · 60.14km @ HR 127</div></div>
     </div>
     <div class="section-title">Ride Distance Progression</div>
     <div class="chart-card"><div style="height:260px"><canvas id="rideDistChart"></canvas></div>
-      <div class="hr-note">Race distance (90km) line shown. Jun 8 outdoor 80.60 km at HR 125 is the longest. Jun 17 60.57 km and Jun 22 40.79 km (race-gel test) added Phase 4 consistency. 10 outdoor rides logged — bike volume + race-day fuelling protocol both locked in.</div>
+      <div class="hr-note">Race distance (90km) line shown. Jun 8 outdoor 80.60 km at HR 125 is the longest. Jul 16 76.16km and Jul 20 hilly brick 60.14km added Phase 5 outdoor consistency. 16 outdoor rides total.</div>
     </div>
     <div class="section-title">Zwift Power Trend</div>
     <div class="chart-card"><div style="height:240px"><canvas id="powerChart"></canvas></div></div>
     <div class="section-title">All Rides</div>
     <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Title</th><th>Dist</th><th>Avg W / Speed</th><th>HR</th><th>TE</th></tr></thead><tbody id="cycleTable"></tbody></table></div>
   </div>
-
   <!-- ========== AEROBIC EFFICIENCY ========== -->
   <div id="tab-aerobic" class="tab-content">
     <div class="vo2-hero" style="background:linear-gradient(135deg,rgba(0,230,118,0.07),rgba(0,230,118,0.02),transparent); border-color:rgba(0,230,118,0.15);">
       <div class="vo2-hero-row">
-        <div><div class="vo2-number" style="color:var(--accent-vo2)">1.389</div></div>
+        <div><div class="vo2-number" style="color:var(--accent-vo2)">3.528</div></div>
         <div class="vo2-info">
-          <div class="vo2-badge">RUN EF · BUILD BEST · JUN 10</div>
-          <h3>Aerobic engine deepening — Jun 10 11k at HR 129 = best EF</h3>
-          <p>Jun 10's 11k easy at HR 129 hit EF 1.389 — best run EF of the build, and in genuinely Z2 territory. This is the key signal: same pace, lower HR = aerobic engine deepening, not just maintained. Plus Jun 12's 18.51 km long run hit EF 1.367 at HR 146 (new longest distance + strong efficiency). Cycle EF 3.30 at Jun 17 60km tempo. Every metric points to peak aerobic form.</p>
+          <div class="vo2-badge">CYCLE EF · BUILD BEST · JUL 20 BRICK</div>
+          <h3>Jul 20 hilly brick bike hits Build best EF</h3>
+          <p>Jul 20's brick bike (60.14km hilly at HR 127) hit EF 3.528 — new build best for outdoor cycling. Race gels + race hydration throughout. Combined with Jul 16's 76km at EF 3.434, cycle aerobic engine is at peak form. Run EF holding 1.33-1.39 across long runs. Every metric points to race readiness.</p>
         </div>
       </div>
     </div>
-
     <div class="section-title">What is Aerobic Efficiency?</div>
     <div class="garmin-row">
       <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
         <h4>📈 The metric</h4>
-        <p>EF = Average speed (m/min) ÷ Average HR (bpm). Computed for every session over 55 minutes — long enough that aerobic effort dominates. Trending UP across weeks = aerobic engine improving (more pace at same heartbeat).</p>
+        <p>EF = Average speed (m/min) ÷ Average HR (bpm). Computed for every session over 55 minutes — long enough that aerobic effort dominates. Trending UP = aerobic engine improving.</p>
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-tri)">
         <h4>🎯 What "good" looks like</h4>
@@ -777,47 +711,41 @@
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)">
         <h4>⚠️ Decoupling caveat</h4>
-        <p>True intra-session decoupling (HR drift in second half vs first half) needs lap-level data. Currently using session-level EF as a proxy — strong indicator, but not the full picture. Export Garmin lap data to upgrade this view to true decoupling %.</p>
+        <p>True intra-session decoupling (HR drift in second half vs first half) needs lap-level data. Currently using session-level EF as a proxy — strong indicator, but not the full picture.</p>
       </div>
     </div>
-
     <div class="section-title">Running Aerobic Efficiency (sessions ≥55 min)</div>
     <div class="chart-card"><div style="height:260px"><canvas id="runEFChart"></canvas></div>
-      <div class="hr-note">★ Jun 10's 11k at HR 129 = EF 1.389 (build best, in proper Z2). Jun 12's 18.51 km long run at HR 146 = EF 1.367. The trend is clean upward — aerobic engine deepening as distance extends and intensity stays controlled.</div>
+      <div class="hr-note">Run EF stable at 1.33-1.39 across long runs. Aerobic engine handling extended distance efficiently.</div>
     </div>
-
     <div class="section-title">Outdoor Cycling Aerobic Efficiency</div>
     <div class="chart-card"><div style="height:260px"><canvas id="cycleOutEFChart"></canvas></div>
-      <div class="hr-note">Jun 22's gel-test ride EF 3.54 remains build best. Jul 2's brick bike (47km hilly+windy at HR 128) EF 3.31 — strong given the terrain. Trend clear: cycle aerobic engine sharpening across the build, fuelling protocol proven.</div>
+      <div class="hr-note">★ Jul 20's hilly brick bike EF 3.53 is build best (despite 585m of climbing). Jul 16's 76km at EF 3.43 confirms the trend. Cycle aerobic engine at peak form for race day.</div>
     </div>
-
     <div class="section-title">Zwift Power-Based Efficiency (NP ÷ HR)</div>
     <div class="chart-card"><div style="height:240px"><canvas id="cycleZwiftEFChart"></canvas></div>
-      <div class="hr-note">Apr 10 ZTPL ride (1.78) is an outlier — heavy drafting kept HR low for high power. Pure trend across Zwift is flat — these sessions test threshold not aerobic depth. Use outdoor for aerobic gains, Zwift for power.</div>
+      <div class="hr-note">Zwift trend flat — these sessions test threshold not aerobic depth. Use outdoor for aerobic gains, Zwift for power.</div>
     </div>
-
     <div class="section-title">All Long Sessions — Efficiency Detail</div>
     <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Type</th><th>Session</th><th>Dist · Time</th><th>Avg HR</th><th>EF</th></tr></thead><tbody id="aerobicTable"></tbody></table></div>
-
     <div class="section-title">Reading the Data</div>
     <div class="rec-card">
       <h4>1. Running EF is consistent — this is good news</h4>
-      <p>Run EF holding 1.33-1.36 across 8 weeks of building volume to 16km. Steady (rather than declining) EF as long runs extend = your aerobic engine is handling the load. If EF were dropping you'd see fatigue/overreaching emerging.</p>
+      <p>Run EF holding 1.33-1.39 across long runs. Steady (rather than declining) EF as long runs extend = your aerobic engine is handling the load.</p>
     </div>
     <div class="rec-card">
       <h4>2. Outdoor cycling EF is your strongest gain</h4>
-      <p>+6% in 20 days on outdoor rides. Zwift sessions have flat EF because virtual riding rewards power production over aerobic patience. Keep prioritising outdoor — the next 60-70km ride should land EF 3.30+ if the trend continues.</p>
+      <p>Jul 20's build-best 3.53 in hills confirms peak cycle aerobic form. Race-ready.</p>
     </div>
     <div class="rec-card">
-      <h4>3. The race-readiness signal to watch for</h4>
-      <p>Right now your long-session EF (15-16km runs, 40-60km rides) matches your shorter-session EF. That's the green light. If long-session EF starts diverging downward from short-session EF, your aerobic ceiling is the limiter and base volume is the answer.</p>
+      <h4>3. Race-readiness signal locked</h4>
+      <p>Long-session EF now matches shorter-session EF across both disciplines. That's the green light for race distance.</p>
     </div>
     <div class="rec-card">
-      <h4>4. Upgrade path: true intra-session decoupling</h4>
-      <p>Export Garmin lap-level data (sub-1km laps) for any long session. The dashboard can then compute first-half EF vs second-half EF for proper decoupling %. Target: under 5% drift on long efforts = race-ready aerobic system. Over 10% drift = need more base.</p>
+      <h4>4. Focus shifts to taper, not building</h4>
+      <p>Aerobic engine is built. Taper protects it. Trust the training.</p>
     </div>
   </div>
-
   <!-- ========== SLEEP ========== -->
   <div id="tab-sleep" class="tab-content">
     <div class="sleep-hero">
@@ -826,51 +754,45 @@
         <div class="vo2-info">
           <div class="vo2-badge" style="background:rgba(124,108,240,0.15);color:var(--accent-sleep)">GOOD — BASELINE HOLDING</div>
           <h3>Sleep is a Strength — With Room to Optimise</h3>
-          <p>Your long-term average sleep score is 80 (Good) with duration ~7h 52min. No fresh sleep CSV this upload — prior baseline and correlations still apply. Recent strong training volume makes sleep discipline even more valuable for adaptation.</p>
+          <p>Your long-term average sleep score is 80 (Good) with duration ~7h 52min. Sleep discipline through taper (2-3 weeks out) becomes race-critical.</p>
         </div>
       </div>
     </div>
-
     <div class="stat-row">
       <div class="stat-card"><div class="stat-label">Avg Score</div><div class="stat-value" style="color:var(--accent-sleep)">80</div><div class="stat-sub">across 51 weeks</div></div>
       <div class="stat-card"><div class="stat-label">Avg Duration</div><div class="stat-value">7:52</div><div class="stat-sub">hours per night</div></div>
       <div class="stat-card"><div class="stat-label">Best Week</div><div class="stat-value" style="color:var(--accent-vo2)">89</div><div class="stat-sub">Jul 16-22, 2025</div></div>
       <div class="stat-card"><div class="stat-label">Worst Week</div><div class="stat-value" style="color:var(--accent-danger)">63</div><div class="stat-sub">Sep 10-16, 2025</div></div>
     </div>
-
     <div class="section-title">Sleep Score Trend (12 Months)</div>
     <div class="chart-card"><div style="height:280px"><canvas id="sleepScoreChart"></canvas></div></div>
-
     <div class="section-title">Sleep Duration Trend</div>
     <div class="chart-card"><div style="height:260px"><canvas id="sleepDurationChart"></canvas></div></div>
-
     <div class="section-title">Bedtime Consistency</div>
     <div class="chart-card"><div style="height:240px"><canvas id="bedtimeChart"></canvas></div>
       <div class="hr-note">Earlier, consistent bedtimes correlate with higher sleep scores. Your best scores align with bedtimes before 11:30 PM.</div>
     </div>
-
     <div class="section-title">Sleep &amp; Training Insights</div>
     <div class="garmin-row">
       <div class="garmin-card" style="border-left:3px solid var(--accent-sleep)">
         <h4>🌙 Late Nights Impact Quality</h4>
-        <p>Bedtimes past midnight consistently score Fair. Your best scores come when bedtime is before 11:30 PM. Even 30 minutes matters.</p>
+        <p>Bedtimes past midnight consistently score Fair. Your best scores come when bedtime is before 11:30 PM.</p>
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
         <h4>📈 Sleep supports the build</h4>
-        <p>Your 80+ sleep scores with 8h+ duration correlated with VO₂ Max climbing 50→54. Protect this as volume grows through Phase 3.</p>
+        <p>Your 80+ sleep scores with 8h+ duration correlated with VO₂ Max climbing 50→54. Protect this through taper.</p>
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-hiit)">
         <h4>⏰ 8h+ is the sweet spot</h4>
-        <p>Weeks with 8h+ sleep average score 83, sub-7.5h weeks average 76. Protect 8h minimum especially around long runs and bricks.</p>
+        <p>Weeks with 8h+ sleep average score 83, sub-7.5h weeks average 76. Protect 8h minimum especially around race day.</p>
       </div>
     </div>
   </div>
-
   <!-- ========== RACE PREDICTOR ========== -->
   <div id="tab-race" class="tab-content">
     <div class="race-hero">
       <div style="margin-bottom:20px">
-        <div class="vo2-badge" style="background:rgba(240,160,58,0.15);color:var(--accent-race)">GARMIN RACE PREDICTOR — APRIL 2026</div>
+        <div class="vo2-badge" style="background:rgba(240,160,58,0.15);color:var(--accent-race)">GARMIN RACE PREDICTOR — CURRENT</div>
         <h3 style="font-size:20px;font-weight:700;margin-top:8px">Predicted Run Times</h3>
         <p style="font-size:14px;color:var(--text-secondary);margin-top:6px">Based on current VO₂ Max 54 and run data</p>
       </div>
@@ -881,66 +803,53 @@
         <div class="race-card"><div class="race-dist">Marathon</div><div class="race-time" style="color:var(--accent-run)">~3:18:00</div><div class="race-sub">4:42/km pace</div></div>
       </div>
     </div>
-
     <div class="section-title">Race Prediction Trend (7 Months)</div>
     <div class="chart-card"><div style="height:300px"><canvas id="raceTrendChart"></canvas></div>
-      <div class="hr-note">Half marathon and marathon predictions continue to improve as long-run volume increases. Half now predicted at 1:32 — directly relevant to Geordieman's 21.1km leg target of ~1:52.</div>
+      <div class="hr-note">Half marathon prediction 1:32 — directly relevant to Geordieman's 21.1km leg target of ~1:52.</div>
     </div>
-
     <div class="section-title">Race Prediction Analysis</div>
     <div class="garmin-row">
       <div class="garmin-card" style="border-left:3px solid var(--accent-cycle)">
         <h4>🏁 5K: Sub-20 is within reach</h4>
-        <p>Current prediction ~20:00. Mar 31 parkrun-style 6km at 4:21/km pace shows top-end speed is there. A focused 5K tune-up could go sub-19:30.</p>
+        <p>Current prediction ~20:00. Jul 14 5.55km @ 4:26/km + Mar 31 6km @ 4:21/km show top-end is there.</p>
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-vo2)">
         <h4>🏁 10K: Steady and sharp</h4>
-        <p>Prediction ~41:40 (4:10/km). Regular 10-12km runs at 4:45-5:00/km support this. Add a tempo 10K at 4:15/km to verify.</p>
+        <p>Prediction ~41:40 (4:10/km). Jul 12 Olympic tri 10k @ 5:03/km off bike — race-specific proof.</p>
       </div>
     </div>
     <div class="garmin-row">
       <div class="garmin-card" style="border-left:3px solid var(--accent-race)">
         <h4>🏁 Half Marathon: Track for race day</h4>
-        <p>Predicted 1:32 (4:22/km). Geordieman run target is ~1:52 (5:18/km) — comfortably slower than fresh-legs pace. Key question: what happens to pace off the bike? First brick answered that beautifully (4:54/km).</p>
+        <p>Predicted 1:32 (4:22/km). Geordieman run target ~1:52 (5:18/km). Jul 20 brick @ 4:43/km projects sub-1:45 half off the bike — well ahead of target.</p>
       </div>
       <div class="garmin-card" style="border-left:3px solid var(--accent-run)">
         <h4>🏁 Marathon: Not the target</h4>
-        <p>Predicted ~3:18 — improving as aerobic base grows. Not the focus this block, but it tracks overall endurance.</p>
+        <p>Predicted ~3:18 — improving as aerobic base grows. Not the focus, but tracks overall endurance.</p>
       </div>
     </div>
   </div>
-
   <!-- ========== INSIGHTS ========== -->
   <div id="tab-insights" class="tab-content">
-    <div class="section-title">Key Observations — Mar 16 to Jul 12 Block</div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 12 — FULL OLYMPIC TRI SIM COMPLETE (in heat!)</h4><p>1.47km OW at HR 115 → 43.58km bike at HR 133, 27.7 km/h avg → 10km run at 5:03/km, HR 155. Race gels throughout. Robert felt "comfortable in all three disciplines." Combined splits project 70.3 finish 5:55-6:15 range — cooler race day + taper push toward the fast end. Sub-6h locked, sub-5:30 in play.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌡️ Heat exposure = race-day insurance</h4><p>Jul 12 tri sim was in hot conditions (24-29°C). Race day at Druridge Bay in August is typically 15-18°C — so training in heat gives an adaptation buffer. Warm race day = already rehearsed. Cool race day = 5-10% faster than what you produced Sunday.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 Jul 10 track session — speed reserve confirmed</h4><p>3×800m + 1200m hard + 10×(15s sprints/25s rest). Avg HR 140, max 186. Best pace 2:19/km. Serious short-duration speed reserve = useful for race-day surges (mounting hills, closing kicks, dropping others).</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 2 — RACE-CONDITION BRICK (hills, wind, gels)</h4><p>46.93 km hilly + windy outdoor at HR 128 → 5.46 km @ 4:49/km at HR 166 "comfortable, could hold for a while". Race gels throughout. That off-bike pace is 29 s/km faster than sub-6h target — if repeatable at race distance, sub-5:30 becomes credible.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🚴 Jun 26 — 72.17 km outdoor at HR 130</h4><p>2h 42min, 26.6 km/h avg, 489m ascent, gels throughout. Second-longest ride of the build. Cycle EF 3.42 — strong. With Jun 8 (80km) and Jul 2 (47km brick) this is the third sub-aerobic long ride cluster — bike race-distance fitness genuinely locked in.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>⛽ Gels standard across bike + run</h4><p>Robert reports gels going well on both disciplines (Jun 22 ride, Jun 26 72km, plus run sessions). Gut adaptation builds across repeat exposures — this is the protocol-locking phase of Phase 5. The Apr 17 / Jun 1 brick tests now extended into every long session.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌊 OW SWIM RACE+ DISTANCE — Jun 21 + Jun 23</h4><p>Jun 21: 2,218m at HR 111 (117% race distance). Jun 23: 1,832m at HR 113 (consolidation session). Two race-distance OW sessions in 3 days — confidence locked in. From zero OW 8 weeks ago to comfortably above race distance.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🏆 NEW LONGEST RUN — Jun 12, 18.51 km @ 5:01/km</h4><p>1h 32min at HR 146, TE 4.0. Up from 16.08 km (Apr 24). Pace faster than sub-6h target. EF 1.367 — aerobic engine handled new distance comfortably.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🏆 NEW LONGEST RIDE — Jun 8, 80.60 km easy</h4><p>South Ayrshire outdoor ride: 80.60 km, 3h 36min moving, HR 125 avg, 413 m ascent. Aerobic TE 2.9 (sustainable). "Legs felt absolutely fine after completing" — confirmed by lower HR than the May 8 76.88km despite more distance. 89% of race distance done at easy effort. Plus Jun 17's 60.57km tempo at HR 136 added consistency.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Brick + fuelling test — Jun 1 nailed it</h4><p>"Brick 10k" session: 39.33km Zwift (NP 179W, 1h 13min) → 10.02km run @ 5:05/km, HR 146, TE 3.4. Gel fuelling protocol tested and confirmed working. 5:05/km off the bike is right at sub-6h target pace (5:18/km half marathon split). Massive confidence builder.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌊 OW progression — 7 sessions, cadence set</h4><p>May 31 → Jun 3 → Jun 9 → Jun 16 → Jun 21 (2,218m race+) → Jun 23 → Jun 29 (1,504m). HR always sub-115. Cumulative OW: 11,067m across 30 days. Weekly OW cadence is now habit.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-swim)"><h4>🏊 Jun 2 pool 2,250m at HR 109 — efficient</h4><p>Lowest HR of any swim of the build, matching race distance. Swim aerobic engine is well-developed. SWOLF 44 (range 38-44 holding). Pool fitness no longer a constraint.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 Run engine sharp at multiple paces</h4><p>Jun 7 5km @ 4:25/km (HR 152) shows top-end is sharp. Jun 6 8.82km @ 5:29/km easy aerobic. Jun 1 brick 10k @ 5:05/km off the bike. Three different paces hit in 6 days — full spectrum holding.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>✅ Bike fitness re-established</h4><p>The weather pause from May 27–Jun 7 didn't cost anything — Jun 8's 80.60 km at HR 125 confirms fitness is preserved and growing. Next outdoor goal: 85–90 km within 2 weeks to fully bridge to race distance, with the gel fuelling protocol locked in.</p></div>
-    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>❤️ HR zones stable, Phase 4 in motion</h4><p>Distribution: Z1+Z2 35%, Z3 48%, Z4 17%. Z1 now 4 sessions (OW + swim + strength). Polarisation healthy. With Phase 4 (Peak) underway, expect more high-intensity work to push Z4 share up in coming weeks.</p></div>
-
-    <div class="section-title">Priority Recommendations (Next 4 Weeks)</div>
-    <div class="rec-card"><h4>1. Open water swim — book one this week</h4><p>Biggest single readiness jump available. Loch Ken, Loch Doon, or a coastal session. Start with 15-20 min acclimatisation in a wetsuit. Nothing else moves the swim score more than OW exposure.</p></div>
-    <div class="rec-card"><h4>2. Progress outdoor rides toward 90km</h4><p>60.7km → 70-75km → 80km → 90km over next 4-5 weekends. Practise fuelling: one bottle + one gel per hour. Test race-day nutrition early so adjustments are possible.</p></div>
-    <div class="rec-card"><h4>3. Weekly brick sessions begin</h4><p>One brick per week through Phase 3. Mix formats: long bike + short run (40km + 5km) and medium bike + longer run (25km + 8km). Focus on pace control off the bike.</p></div>
-    <div class="rec-card"><h4>4. Long run toward 18-20km</h4><p>Progressive: 16km → 17km → 18km → 20km with a recovery week between. Keep pace at 5:30-5:45/km, HR Z2 where you can. Aim for a 20km run before Phase 4 begins (late May).</p></div>
-    <div class="rec-card"><h4>5. Protect genuine Z2 on easy runs</h4><p>HR 137-151 on easy runs means Z3 drift. Force easier: slower pace, breathable effort. 80% of aerobic volume should be genuinely easy — this unlocks the next fitness tier.</p></div>
-    <div class="rec-card"><h4>6. Sleep discipline holds the build together</h4><p>Bedtime before 11:30 PM, 8h+ duration. Training stress is climbing with Phase 3 — recovery is where the adaptation happens.</p></div>
+    <div class="section-title">Key Observations — Mar 16 to Jul 20 Block</div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 20 — HILLY BRICK with race fuelling</h4><p>60.14 km outdoor at HR 127, 585 m ascent (hilliest ride of build) → 6.72 km @ 4:43/km at HR 149 with race gels + race hydration strategy. Cycle EF 3.528 — new build best. This is race day rehearsed in tougher terrain than Druridge Bay will present.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🚴 Jul 16 — 76.16 km outdoor at HR 129</h4><p>2h 52min, 26.6 km/h avg, 501 m ascent. Third-longest ride of build. Cycle EF 3.434. Combined with Jul 20's hilly brick that's 136km of race-specific outdoor volume in 5 days.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-swim)"><h4>🌊 Jul 14 — 8th OW swim + Booker Pond tonight</h4><p>Jul 14 OW 1,038m at HR 118 (22:23). Tonight (Jul 21): 9th OW session at Booker Pond, Irvine — new venue. Reps + venue familiarity building toward race day confidence.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-run)"><h4>🏃 Jul 14 — Fast 5.55km @ 4:26/km</h4><p>HR 153, TE 3.3. Top-end speed sharp. Coupled with Jul 20 brick @ 4:43/km and Jul 15 aerobic 7.30km @ 5:28/km = full pace spectrum holding through Phase 5.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-tri)"><h4>🏆 Jul 12 — FULL OLYMPIC TRI SIM (in heat!)</h4><p>1.47km OW at HR 115 → 43.58km bike at HR 133 → 10km run @ 5:03/km at HR 155. Race gels throughout. Robert felt "comfortable in all three disciplines."</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>⛽ Race-day fuelling protocol locked</h4><p>Race gels + race hydration tested successfully on: Jun 22 (40km ride), Jun 26 (72km ride), Jul 2 (brick with gels), Jul 12 (tri sim with heat), Jul 20 (hilly brick). Five successful fuelling reps = protocol proven. No new variables to test on race day.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>🌊 OW progression — 9 sessions, cadence locked</h4><p>From zero OW 8 weeks ago to comfortable weekly cadence with race+ distance hit. Cumulative OW: 13,614m. Tonight's Booker Pond adds venue variety.</p></div>
+    <div class="insight-card" style="border-left:3px solid var(--accent-vo2)"><h4>❤️ HR zones — best polarisation of build</h4><p>Z1+Z2 share 39% (up from 37%). Z3 dropped to 44%. Jul 20 hilly brick pushed some Z3 time but the balance is healthy: hard days hard, easy days easy.</p></div>
+    <div class="section-title">Priority Recommendations — Final Push</div>
+    <div class="rec-card"><h4>1. Tonight — OW at Booker Pond, Irvine</h4><p>20-30 min steady swim. Focus on sighting rhythm every 6 strokes and bilateral breathing. New venue = confidence adaptation.</p></div>
+    <div class="rec-card"><h4>2. Recovery Jul 21-22 after Sunday's brick</h4><p>Yesterday's hilly brick was full-effort. Body needs 48h easy work. Tonight's OW counts as easy Z2. Skip runs Mon/Tue.</p></div>
+    <div class="rec-card"><h4>3. One more 85-90 km outdoor ride Jul 26-27</h4><p>Final volume box before taper. Same race gels + hydration protocol. Ideally in aero position for the last hour.</p></div>
+    <div class="rec-card"><h4>4. Repeat the brick once more before taper</h4><p>Jul 20 hilly brick set the template. One more mid-week brick: 40-50 km bike → 6-8 km run at race pace. Locks T2 leg turnover.</p></div>
+    <div class="rec-card"><h4>5. Taper begins Aug 1 — 20% reduction</h4><p>33 days to race. Aug 1-9: drop one HIIT + one strength. Aug 10-16: reduce 40%. Race week: skill/tune-up only.</p></div>
+    <div class="rec-card"><h4>6. Sleep discipline through taper</h4><p>Bedtime before 11:30 PM, 8h+ duration. Training stress reduces during taper but recovery quality matters more — that's where adaptation locks in.</p></div>
   </div>
 </div>
-
 <button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -952,39 +861,31 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').style.display=window.scrollY>400?'flex':'none'});
-
 Chart.defaults.color='#8a8a9a';Chart.defaults.borderColor='rgba(255,255,255,0.04)';Chart.defaults.font.family="'Outfit',sans-serif";Chart.defaults.font.size=12;
 const RUN='#ff5a3a',CYCLE='#3a8ff0',HIIT='#f0b83a',SWIM='#3af0c7',WALK='#a87cf0',SLEEP='#7c6cf0',VO2='#00e676',RACE='#f0a03a',TRI='#ff9f43';
-
 // GEORDIEMAN: Readiness chart
 new Chart(document.getElementById('readinessChart'),{
   type:'line',
   data:{
-    labels:['W3','W4','W5','W6','W7','W8','W9','W10','W11','W12','W13','W14','W15','W16','W17','W18','W19 Jul 12'],
+    labels:['W3','W4','W5','W6','W7','W8','W9','W10','W11','W12','W13','W14','W15','W16','W17','W18','W19','W20 Jul 20'],
     datasets:[
-      {label:'Swim',data:[57,58,60,62,65,65,65,65,67,68,75,78,80,82,87,88,90],borderColor:SWIM,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:SWIM,borderWidth:2},
-      {label:'Bike',data:[63,64,66,70,72,76,76,76,80,80,81,84,84,86,89,91,93],borderColor:CYCLE,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2},
-      {label:'Run',data:[70,71,73,74,76,80,81,82,84,85,87,88,90,92,93,95,97],borderColor:RUN,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:RUN,borderWidth:2},
-      {label:'Overall',data:[63,64,66,68,70,74,75,75,78,79,83,86,87,88,92,94,97],borderColor:TRI,backgroundColor:'rgba(255,159,67,0.12)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:TRI,borderWidth:3}
+      {label:'Swim',data:[57,58,60,62,65,65,65,65,67,68,75,78,80,82,87,88,90,91],borderColor:SWIM,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:SWIM,borderWidth:2},
+      {label:'Bike',data:[63,64,66,70,72,76,76,76,80,80,81,84,84,86,89,91,93,95],borderColor:CYCLE,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2},
+      {label:'Run',data:[70,71,73,74,76,80,81,82,84,85,87,88,90,92,93,95,97,98],borderColor:RUN,fill:false,tension:0.3,pointRadius:4,pointBackgroundColor:RUN,borderWidth:2},
+      {label:'Overall',data:[63,64,66,68,70,74,75,75,78,79,83,86,87,88,92,94,97,98],borderColor:TRI,backgroundColor:'rgba(255,159,67,0.12)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:TRI,borderWidth:3}
     ]
   },
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:50,max:95,ticks:{stepSize:5,callback:v=>v+'%'}},x:{grid:{display:false}}}}
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:50,max:100,ticks:{stepSize:5,callback:v=>v+'%'}},x:{grid:{display:false}}}}
 });
-
 // OVERVIEW
-new Chart(document.getElementById('pieChart'),{type:'doughnut',data:{labels:['Running (56)','Pool Swim (19)','HIIT (15)','Outdoor Bike (13)','Zwift (10)','OW Swim (8)','Strength (4)'],datasets:[{data:[56,19,15,13,10,8,4],backgroundColor:[RUN,SWIM,HIIT,VO2,CYCLE,'#00b8d9',WALK],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:12,padding:10,font:{size:11}}}}}});
-
-new Chart(document.getElementById('timeBarChart'),{type:'bar',data:{labels:['Running','Outdoor Bike','Pool Swim','HIIT','Zwift','OW Swim','Strength'],datasets:[{data:[2245,1625,887,864,535,304,146],backgroundColor:[RUN,VO2,SWIM,HIIT,CYCLE,'#00b8d9',WALK],borderRadius:6,barThickness:22}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' min ('+Math.round(c.raw/60*10)/10+'h)'}}},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}});
-
-new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['W9','W10','W11','W12','W13','W14','W15','W16','W17','W18','W19 Jul 7-12'],datasets:[{label:'Sessions',data:[7,6,7,4,9,8,5,5,7,7,8],backgroundColor:TRI,borderRadius:4,barPercentage:0.5,yAxisID:'y'},{label:'Minutes',data:[333,487,319,132,423,470,288,354,418,375,355],backgroundColor:CYCLE,borderRadius:4,barPercentage:0.5,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,position:'left',title:{display:true,text:'Sessions'}},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'Minutes'}}}}});
-
-const tlL=['03-16','03-17','03-18','03-20','03-22','03-23','03-25','03-27','03-31','04-01','04-03','04-05','04-06','04-07','04-08','04-10','04-12','04-13','04-14','04-15','04-16','04-17','04-18','04-20','04-21','04-22','04-23','04-24','04-25','04-26','04-27','04-28','04-29','05-01','05-03','05-05','05-06','05-07','05-08','05-10','05-11','05-12','05-13','05-14','05-15','05-17','05-18','05-19','05-21','05-22','05-25','05-26','05-27','05-28','05-29','05-31','06-01','06-02','06-03','06-04','06-06','06-07','06-08','06-09','06-10','06-11','06-12','06-16','06-17','06-18','06-21','06-22','06-23','06-24','06-25','06-26','06-27','06-28','06-29','07-01','07-02','07-03','07-05','07-06','07-07','07-08','07-09','07-10','07-12'];
-const tlC=[178,1207,775,1064,864,619,889,534,454,538,734,1396,1651,2362,539,937,1441,1365,1250,771,619,1005,559,547,1173,823,733,1267,1128,536,990,1070,770,1622,1140,464,1159,735,1664,500,1143,565,769,587,511,628,733,482,418,401,452,607,810,777,648,808,1580,559,788,565,715,535,1716,1007,840,697,1430,186,1384,704,521,878,429,568,646,1433,794,599,352,925,1440,407,495,1108,486,436,858,249,2088];
+new Chart(document.getElementById('pieChart'),{type:'doughnut',data:{labels:['Running (59)','Pool Swim (19)','Outdoor Bike (16)','HIIT (15)','Zwift (10)','OW Swim (9)','Strength (5)','Walking (1)'],datasets:[{data:[59,19,16,15,10,9,5,1],backgroundColor:[RUN,SWIM,VO2,HIIT,CYCLE,'#00b8d9',WALK,'#7c6cf0'],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:12,padding:10,font:{size:11}}}}}});
+new Chart(document.getElementById('timeBarChart'),{type:'bar',data:{labels:['Running','Outdoor Bike','Pool Swim','HIIT','Zwift','OW Swim','Strength','Walking'],datasets:[{data:[2336,1997,887,864,535,326,186,57],backgroundColor:[RUN,VO2,SWIM,HIIT,CYCLE,'#00b8d9',WALK,'#7c6cf0'],borderRadius:6,barThickness:22}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' min ('+Math.round(c.raw/60*10)/10+'h)'}}},scales:{x:{grid:{display:false}},y:{grid:{display:false}}}}});
+new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['W10','W11','W12','W13','W14','W15','W16','W17','W18','W19','W20 Jul 14-20'],datasets:[{label:'Sessions',data:[6,7,4,9,8,5,5,7,7,8,8],backgroundColor:TRI,borderRadius:4,barPercentage:0.5,yAxisID:'y'},{label:'Minutes',data:[487,319,132,423,470,288,354,418,375,355,516],backgroundColor:CYCLE,borderRadius:4,barPercentage:0.5,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,position:'left',title:{display:true,text:'Sessions'}},y1:{beginAtZero:true,position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'Minutes'}}}}});
+const tlL=['03-16','03-17','03-18','03-20','03-22','03-23','03-25','03-27','03-31','04-01','04-03','04-05','04-06','04-07','04-08','04-10','04-12','04-13','04-14','04-15','04-16','04-17','04-18','04-20','04-21','04-22','04-23','04-24','04-25','04-26','04-27','04-28','04-29','05-01','05-03','05-05','05-06','05-07','05-08','05-10','05-11','05-12','05-13','05-14','05-15','05-17','05-18','05-19','05-21','05-22','05-25','05-26','05-27','05-28','05-29','05-31','06-01','06-02','06-03','06-04','06-06','06-07','06-08','06-09','06-10','06-11','06-12','06-16','06-17','06-18','06-21','06-22','06-23','06-24','06-25','06-26','06-27','06-28','06-29','07-01','07-02','07-03','07-05','07-06','07-07','07-08','07-09','07-10','07-12','07-13','07-14','07-15','07-16','07-20'];
+const tlC=[178,1207,775,1064,864,619,889,534,454,538,734,1396,1651,2362,539,937,1441,1365,1250,771,619,1005,559,547,1173,823,733,1267,1128,536,990,1070,770,1622,1140,464,1159,735,1664,500,1143,565,769,587,511,628,733,482,418,401,452,607,810,777,648,808,1580,559,788,565,715,535,1716,1007,840,697,1430,186,1384,704,521,878,429,568,646,1433,794,599,352,925,1440,407,495,1108,486,436,858,249,2088,608,831,570,1440,1874];
 new Chart(document.getElementById('timelineChart'),{type:'bar',data:{labels:tlL,datasets:[{label:'Calories',data:tlC,backgroundColor:tlC.map(c=>c>1500?RUN:c>900?HIIT:c>500?CYCLE:WALK),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,autoSkip:true,maxTicksLimit:14}},y:{beginAtZero:true}}}});
-
 // VO2
-new Chart(document.getElementById('vo2TrendChart'),{type:'line',data:{labels:['Oct','Nov','Dec','Jan','Feb','Mar','Apr'],datasets:[{label:'Running VO₂',data:[52,51.5,51,50,53,54,54],borderColor:VO2,backgroundColor:'rgba(0,230,118,0.08)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:VO2,borderWidth:2},{label:'Cycling VO₂',data:[null,null,null,50,51,52,52],borderColor:CYCLE,borderDash:[5,5],tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:46,max:58,ticks:{stepSize:2}},x:{grid:{display:false}}}}});
-
+new Chart(document.getElementById('vo2TrendChart'),{type:'line',data:{labels:['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul'],datasets:[{label:'Running VO₂',data:[52,51.5,51,50,53,54,54,54,54,54],borderColor:VO2,backgroundColor:'rgba(0,230,118,0.08)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:VO2,borderWidth:2},{label:'Cycling VO₂',data:[null,null,null,50,51,52,52,52,52,52],borderColor:CYCLE,borderDash:[5,5],tension:0.3,pointRadius:4,pointBackgroundColor:CYCLE,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}}},scales:{y:{min:46,max:58,ticks:{stepSize:2}},x:{grid:{display:false}}}}});
 // SWIM
 const swims=[
   {d:'03-17',t:'Pool Swim',m:2125,time:'54:51',swolf:44,hr:125},
@@ -1013,17 +914,14 @@ const swims=[
   {d:'06-23',t:'🌊 OW North Ayrshire',m:1832,time:'44:41',swolf:50,hr:113,ow:true},
   {d:'06-29',t:'🌊 OW North Ayrshire',m:1504,time:'37:03',swolf:51,hr:112,ow:true},
   {d:'07-07',t:'Pyramid 10,8,6,4,2 sets',m:1800,time:'49:59',swolf:45,hr:120},
-  {d:'07-12',t:'🌊 OW tri-sim (Grant+Ryan)',m:1471,time:'36:07',swolf:51,hr:115,ow:true}
+  {d:'07-12',t:'🌊 OW tri-sim (Grant+Ryan)',m:1471,time:'36:07',swolf:51,hr:115,ow:true},
+  {d:'07-14',t:'🌊 OW North Ayrshire',m:1038,time:'22:23',swolf:45,hr:118,ow:true}
 ];
 new Chart(document.getElementById('swimDistChart'),{type:'bar',data:{labels:swims.map(s=>s.d),datasets:[{label:'Distance (m)',data:swims.map(s=>s.m),backgroundColor:swims.map(s=>s.ow?'#00b8d9':(s.m>=1900?SWIM:'rgba(58,240,199,0.35)')),borderRadius:4},{label:'Race distance (1,900m)',data:swims.map(()=>1900),type:'line',borderColor:RACE,borderDash:[5,5],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{title:c=>swims[c[0].dataIndex].t+(swims[c[0].dataIndex].ow?' (OPEN WATER)':''),label:c=>{const s=swims[c.dataIndex];return[s.m+'m in '+s.time,'SWOLF: '+s.swolf+' · HR '+s.hr]}}}},scales:{y:{beginAtZero:true,max:2500,ticks:{callback:v=>v+'m'}},x:{grid:{display:false}}}}});
-
-// SWOLF chart — pool swims only (OW SWOLF not directly comparable: no walls, glide, push-off)
 const poolSwims=swims.filter(s=>!s.ow);
 new Chart(document.getElementById('swolfChart'),{type:'line',data:{labels:poolSwims.map(s=>s.d),datasets:[{label:'SWOLF',data:poolSwims.map(s=>s.swolf),borderColor:SWIM,backgroundColor:'rgba(58,240,199,0.1)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:SWIM,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>poolSwims[c[0].dataIndex].t,label:c=>'SWOLF: '+c.raw}}},scales:{y:{min:35,max:48,reverse:true,ticks:{stepSize:2}},x:{grid:{display:false}}}}});
-
 const swTb=document.getElementById('swimTable');
 swims.slice().reverse().forEach(s=>{const owBadge=s.ow?'<span class="brick-badge" style="background:rgba(0,184,217,0.2);color:#00b8d9">OPEN WATER</span>':'';const distColor=s.ow?'#00b8d9':'var(--accent-swim)';const swolfBg=s.ow?'rgba(0,184,217,0.15)':'rgba(58,240,199,0.15)';const swolfColor=s.ow?'#00b8d9':'var(--accent-swim)';swTb.innerHTML+=`<tr><td class="mono">${s.d}</td><td style="color:var(--text-primary);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${s.t}${owBadge}</td><td class="mono highlight" style="color:${distColor}">${s.m.toLocaleString()}m</td><td class="mono">${s.time}</td><td><span class="te-badge" style="background:${swolfBg};color:${swolfColor}">${s.swolf}</span></td><td class="mono">${s.hr}</td></tr>`});
-
 // RUNNING
 const runs=[
   {d:'03-18',t:'City of Glasgow',dist:10.03,pSec:345,hr:131,te:2.9,brick:false},
@@ -1079,19 +977,18 @@ const runs=[
   {d:'07-06',t:'Easy 1-hour run Z2',dist:11.11,pSec:326,hr:139,te:3.3,brick:false},
   {d:'07-08',t:'East Renfrewshire recovery',dist:5.52,pSec:333,hr:134,te:2.7,brick:false},
   {d:'07-10',t:'Track 3×800m + 1200m + sprints',dist:3.97,pSec:279,hr:140,te:2.7,brick:false},
-  {d:'07-12',t:'★ Olympic tri-sim 10k off bike',dist:10.00,pSec:303,hr:155,te:3.5,brick:true}
+  {d:'07-12',t:'★ Olympic tri-sim 10k off bike',dist:10.00,pSec:303,hr:155,te:3.5,brick:true},
+  {d:'07-14',t:'South Ayrshire fast',dist:5.55,pSec:266,hr:153,te:3.3,brick:false},
+  {d:'07-15',t:'East Renfrewshire',dist:7.30,pSec:328,hr:133,te:2.9,brick:false},
+  {d:'07-20',t:'★ HILLY BRICK Run w/ race gels+hydration',dist:6.72,pSec:283,hr:149,te:3.3,brick:true}
 ];
-
 new Chart(document.getElementById('paceChart'),{type:'line',data:{labels:runs.map(r=>r.d),datasets:[{label:'Avg Pace (sec/km)',data:runs.map(r=>r.pSec),borderColor:RUN,backgroundColor:'rgba(255,90,58,0.08)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:runs.map(r=>r.brick?TRI:RUN),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>runs[c[0].dataIndex].t+(runs[c[0].dataIndex].brick?' (BRICK)':''),label:c=>{const r=runs[c.dataIndex];const m=Math.floor(r.pSec/60),s=String(r.pSec%60).padStart(2,'0');return['Pace: '+m+':'+s+'/km','Distance: '+r.dist+' km','HR: '+r.hr+' bpm']}}}},scales:{y:{reverse:true,ticks:{callback:v=>Math.floor(v/60)+':'+String(v%60).padStart(2,'0')}},x:{grid:{display:false},ticks:{maxRotation:45}}}}});
-
 new Chart(document.getElementById('runDistChart'),{type:'bar',data:{labels:runs.map(r=>r.d),datasets:[{label:'Distance (km)',data:runs.map(r=>r.dist),backgroundColor:runs.map(r=>r.brick?TRI:r.dist>=12?RUN:'rgba(255,90,58,0.5)'),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>runs[c[0].dataIndex].t+(runs[c[0].dataIndex].brick?' (BRICK)':''),label:c=>c.raw+' km'}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'km'}},x:{grid:{display:false},ticks:{maxRotation:45}}}}});
-
 const rTb=document.getElementById('runTable');
 runs.slice().reverse().forEach(r=>{
   const pm=Math.floor(r.pSec/60),ps=String(r.pSec%60).padStart(2,'0');
   const tc=r.te>=3.5?'background:rgba(255,90,58,0.15);color:#ff5a3a':'background:rgba(255,255,255,0.05);color:#8a8a9a';
   rTb.innerHTML+=`<tr><td class="mono">${r.d}</td><td style="color:var(--text-primary);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.t}${r.brick?'<span class="brick-badge">BRICK</span>':''}</td><td class="mono highlight" style="color:var(--accent-run)">${r.dist.toFixed(2)} km</td><td class="mono highlight">${pm}:${ps}</td><td class="mono" style="color:${r.hr>=155?'var(--accent-run)':'var(--text-secondary)'}">${r.hr}</td><td><span class="te-badge" style="${tc}">${r.te}</span></td></tr>`});
-
 // CYCLING
 const rides=[
   {d:'03-22',t:'Zwift Alpecin workout',dist:16.77,ap:142,np:163,hr:124,te:2.4,outdoor:false,brick:false},
@@ -1116,21 +1013,20 @@ const rides=[
   {d:'06-22',t:'South Ayrshire (race gel test)',dist:40.79,ap:null,np:null,hr:133,te:3.1,outdoor:true,speed:28.3,brick:false},
   {d:'06-26',t:'South Ayrshire 72km (gels)',dist:72.17,ap:null,np:null,hr:130,te:3.1,outdoor:true,speed:26.6,brick:false},
   {d:'07-02',t:'★ BRICK bike hilly+windy',dist:46.93,ap:null,np:null,hr:128,te:3.0,outdoor:true,speed:25.4,brick:true},
-  {d:'07-12',t:'★ Tri-sim bike 43.58km (heat)',dist:43.58,ap:null,np:null,hr:133,te:3.0,outdoor:true,speed:27.7,brick:true}
+  {d:'07-12',t:'★ Tri-sim bike 43.58km (heat)',dist:43.58,ap:null,np:null,hr:133,te:3.0,outdoor:true,speed:27.7,brick:true},
+  {d:'07-13',t:'South Ayrshire 30km',dist:30.44,ap:null,np:null,hr:123,te:2.2,outdoor:true,speed:27.5,brick:false},
+  {d:'07-16',t:'South Ayrshire 76km LONG',dist:76.16,ap:null,np:null,hr:129,te:3.0,outdoor:true,speed:26.6,brick:false},
+  {d:'07-20',t:'★ HILLY BRICK bike 60km (585m)',dist:60.14,ap:null,np:null,hr:127,te:2.9,outdoor:true,speed:26.9,brick:true}
 ];
-
 new Chart(document.getElementById('rideDistChart'),{type:'bar',data:{labels:rides.map(r=>r.d),datasets:[{label:'Distance (km)',data:rides.map(r=>r.dist),backgroundColor:rides.map(r=>r.outdoor?VO2:r.brick?TRI:CYCLE),borderRadius:4},{label:'Race distance (90km)',data:rides.map(()=>90),type:'line',borderColor:RACE,borderDash:[5,5],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{title:c=>rides[c[0].dataIndex].t+(rides[c[0].dataIndex].outdoor?' · outdoor':'')+(rides[c[0].dataIndex].brick?' · BRICK':''),label:c=>c.raw+' km'}}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'km'}},x:{grid:{display:false},ticks:{maxRotation:45}}}}});
-
 const zrides=rides.filter(r=>!r.outdoor);
 new Chart(document.getElementById('powerChart'),{type:'line',data:{labels:zrides.map(r=>r.d),datasets:[{label:'Avg Power (W)',data:zrides.map(r=>r.ap),borderColor:CYCLE,backgroundColor:'rgba(58,143,240,0.1)',fill:true,tension:0.3,pointRadius:5,pointBackgroundColor:CYCLE,borderWidth:2},{label:'NP (W)',data:zrides.map(r=>r.np),borderColor:'#7cb8f0',borderDash:[5,5],tension:0.3,pointRadius:4,pointBackgroundColor:'#7cb8f0',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:c=>zrides[c[0].dataIndex].t,label:c=>{const r=zrides[c.dataIndex];return[c.dataset.label+': '+c.raw+'W','HR: '+r.hr+' · TE '+r.te]}}}},scales:{y:{min:130},x:{grid:{display:false},ticks:{maxRotation:45}}}}});
-
 const cTb=document.getElementById('cycleTable');
 rides.slice().reverse().forEach(r=>{
   const powerDisp=r.outdoor?`${r.speed} km/h`:`${r.ap}W / NP ${r.np}`;
   const distCol=r.outdoor?VO2:CYCLE;
   cTb.innerHTML+=`<tr><td class="mono">${r.d}</td><td style="color:var(--text-primary);max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.t}${r.outdoor?'<span class="outdoor-badge">OUTDOOR</span>':''}${r.brick?'<span class="brick-badge">BRICK</span>':''}</td><td class="mono highlight" style="color:${distCol}">${r.dist.toFixed(2)} km</td><td class="mono">${powerDisp}</td><td class="mono">${r.hr}</td><td><span class="te-badge" style="background:rgba(58,143,240,0.15);color:var(--accent-cycle)">${r.te}</span></td></tr>`});
-
-// SLEEP (existing 12-month series)
+// SLEEP
 const sleepData=[
   {w:'Mar 5-11 \'25',s:83,d:462},{w:'Mar 12-18',s:83,d:467},{w:'Mar 19-25',s:78,d:502},{w:'Mar 26-Apr 1',s:77,d:503},
   {w:'Apr 2-8',s:80,d:464},{w:'Apr 9-15',s:83,d:484},{w:'Apr 16-22',s:77,d:453},{w:'Apr 23-29',s:82,d:492},
@@ -1147,159 +1043,43 @@ const sleepData=[
   {w:'Feb 4-10',s:85,d:496},{w:'Feb 11-17',s:74,d:464},{w:'Feb 18-24',s:80,d:494},{w:'Feb 25-Mar 3',s:83,d:504}
 ];
 const sLabels=sleepData.map((_,i)=>i%4===0?sleepData[i].w.split(',')[0]:'');
-
 new Chart(document.getElementById('sleepScoreChart'),{type:'line',data:{labels:sLabels,datasets:[{label:'Sleep Score',data:sleepData.map(d=>d.s),borderColor:SLEEP,backgroundColor:'rgba(124,108,240,0.08)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:sleepData.map(d=>d.s>=80?SLEEP:'#ff4060'),borderWidth:2},{label:'Good Threshold (80)',data:sleepData.map(()=>80),borderColor:'rgba(124,108,240,0.3)',borderDash:[5,5],borderWidth:1,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:(c)=>sleepData[c[0].dataIndex].w,label:c=>'Score: '+c.raw}}},scales:{y:{min:55,max:95,ticks:{stepSize:5}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
-
 new Chart(document.getElementById('sleepDurationChart'),{type:'bar',data:{labels:sLabels,datasets:[{label:'Duration (min)',data:sleepData.map(d=>d.d),backgroundColor:sleepData.map(d=>d.d>=480?'rgba(0,230,118,0.4)':d.d>=450?'rgba(240,184,58,0.4)':'rgba(255,64,96,0.4)'),borderRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>sleepData[c[0].dataIndex].w,label:c=>{const m=c.raw;return Math.floor(m/60)+'h '+m%60+'min'}}}},scales:{y:{min:360,max:560,ticks:{callback:v=>Math.floor(v/60)+'h'}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
-
 const bedtimes=[-56,-18,-12,-11,-23,-54,-16,-17,-5,-22,-12,-25,-1,-22,-10,-17,-15,-26,-28,-20,-14,34,2,-21,-13,-24,1,62,-11,-19,2,-4,-19,9,-58,3,12,-28,0,16,44,-32,-8,0,15,-14,10,-28,-26,11,-30,-16];
 new Chart(document.getElementById('bedtimeChart'),{type:'line',data:{labels:sLabels,datasets:[{label:'Bedtime (mins from midnight)',data:bedtimes,borderColor:SLEEP,backgroundColor:'rgba(124,108,240,0.06)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:bedtimes.map(b=>b<=0?VO2:RACE),borderWidth:2},{label:'11:30 PM Target',data:bedtimes.map(()=>-30),borderColor:'rgba(0,230,118,0.3)',borderDash:[5,5],borderWidth:1,pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:16}},tooltip:{callbacks:{title:c=>sleepData[c[0].dataIndex].w,label:c=>{const v=c.raw;if(v<0)return Math.abs(v)+' min before midnight';if(v===0)return'Midnight';return v+' min after midnight'}}}},scales:{y:{reverse:true,ticks:{callback:v=>{if(v<=-60)return'11:00 PM';if(v===-30)return'11:30 PM';if(v===0)return'12:00 AM';if(v===30)return'12:30 AM';if(v>=60)return'1:00 AM';return''}}},x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}}}}});
-
 // RACE
 const raceLabels=['Oct','Nov','Dec','Jan','Feb','Mar','Apr'];
 const r5k=[237,244,250,253,241,240,240];
 const r10k=[250,260,262,255,253,251,250];
 const rHalf=[270,282,290,288,275,265,262];
 const rMar=[308,315,320,312,305,284,282];
-
 new Chart(document.getElementById('raceTrendChart'),{type:'line',data:{labels:raceLabels,datasets:[
   {label:'5K pace',data:r5k,borderColor:CYCLE,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:CYCLE},
   {label:'10K pace',data:r10k,borderColor:VO2,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:VO2},
   {label:'Half pace',data:rHalf,borderColor:RACE,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:RACE},
   {label:'Marathon pace',data:rMar,borderColor:RUN,borderWidth:2,tension:0.3,pointRadius:5,pointBackgroundColor:RUN}
 ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:12,padding:14}},tooltip:{callbacks:{label:c=>{const v=c.raw;const m=Math.floor(v/60),s=String(v%60).padStart(2,'0');const dist=c.dataset.label.split(' ')[0];const times={'5K':v*5,'10K':v*10,'Half':v*21.1,'Marathon':v*42.2};const t=times[dist];const th=Math.floor(t/3600),tm=Math.floor((t%3600)/60),ts=Math.floor(t%60);return dist+': '+m+':'+s+'/km → '+(th?th+'h ':'')+tm+'m '+ts+'s'}}}},scales:{y:{reverse:true,ticks:{callback:v=>Math.floor(v/60)+':'+String(v%60).padStart(2,'0')+'/km'}},x:{grid:{display:false}}}}});
-
 // ===== STRAVA LIVE DATA =====
 async function loadStravaData() {
   const statusEl = document.getElementById('stravaStatus');
   const refreshBtn = document.getElementById('stravaRefreshBtn');
-
   if (refreshBtn) { refreshBtn.disabled = true; refreshBtn.innerHTML = '<span class="spinning">↻</span> Refreshing…'; }
   if (statusEl) statusEl.textContent = 'Fetching from Intervals.icu…';
-
   try {
     const res = await fetch('/api/activities');
-
     if (!res.ok) throw new Error('API error ' + res.status);
-
     const d = await res.json();
-
     if (refreshBtn) { refreshBtn.disabled = false; refreshBtn.innerHTML = '↻ Refresh Data'; }
-
     const updated = new Date(d.meta.lastUpdated).toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
     if (statusEl) statusEl.textContent = `Live · Intervals.icu · updated ${updated}`;
-
-    // ── Header ──────────────────────────────────────────────────────────────
-    const countdown = document.getElementById('liveCountdown');
-    if (countdown) countdown.textContent = `⏱ ${d.meta.daysToRace} DAYS TO RACE DAY · 23 AUGUST 2026`;
-
-    const overallPct = document.getElementById('liveOverallPct');
-    if (overallPct) overallPct.textContent = d.readiness.overall + '%';
-
-    // ── Geordieman hero ──────────────────────────────────────────────────────
-    const readinessEl = document.getElementById('liveReadiness');
-    if (readinessEl) readinessEl.innerHTML = d.readiness.overall + '<span class="tri-unit">% ready</span>';
-
-    const badge = document.getElementById('liveBadge');
-    if (badge) badge.textContent = `WEEK ${d.meta.weekNumber} OF 24 · ${d.meta.daysToRace} DAYS TO GO`;
-
-    // Headline: most recent activity
-    const h = d.headlines[0];
-    const headline = document.getElementById('liveHeadline');
-    if (headline && h) headline.textContent = `Latest: ${h.name} — ${h.distanceKm} km on ${h.date}`;
-
-    const desc = document.getElementById('liveDesc');
-    if (desc && d.headlines.length) {
-      const lines = d.headlines.slice(0, 3).map(a =>
-        `${a.date}: ${a.name} — ${a.distanceKm} km${a.avgHR ? ', HR ' + a.avgHR : ''}`
-      );
-      desc.innerHTML = `<strong>Last ${d.headlines.length} activities (7 days):</strong><br>${lines.join('<br>')}`;
-    }
-
-    // ── Readiness cards ──────────────────────────────────────────────────────
-    function setReadiness(pctId, barId, subId, pct, subText) {
-      const pctEl = document.getElementById(pctId);
-      const barEl = document.getElementById(barId);
-      const subEl = document.getElementById(subId);
-      if (pctEl) pctEl.innerHTML = pct + '<small>%</small>';
-      if (barEl) barEl.style.width = pct + '%';
-      if (subEl && subText) subEl.textContent = subText;
-    }
-
-    setReadiness('liveSwimPct', 'liveSwimBar', 'liveSwimSub', d.readiness.swim,
-      `${d.totals.swims} swims · ${d.totals.swimM.toLocaleString()} m total · longest ${d.bests.longestSwimM} m`);
-
-    setReadiness('liveBikePct', 'liveBikeBar', 'liveBikeSub', d.readiness.bike,
-      `${d.totals.rides} rides · ${d.totals.rideKm.toLocaleString()} km total · longest ${d.bests.longestRideKm} km`);
-
-    setReadiness('liveRunPct', 'liveRunBar', 'liveRunSub', d.readiness.run,
-      `${d.totals.runs} runs · ${d.totals.runKm.toLocaleString()} km total · best pace ${d.bests.fastestRunPace}`);
-
-    setReadiness('liveTransPct', 'liveTransBar', 'liveTransSub', d.readiness.transitions,
-      `${d.totals.bricks} brick session${d.totals.bricks !== 1 ? 's' : ''} detected`);
-
-    // ── Overview stats ───────────────────────────────────────────────────────
-    const sessions = document.getElementById('liveSessions');
-    if (sessions) sessions.innerHTML = d.meta.totalActivities + '';
-    const sessionsSub = document.getElementById('liveSessionsSub');
-    if (sessionsSub) sessionsSub.textContent = `Week ${d.meta.weekNumber} of 24`;
-
-    const runKm = document.getElementById('liveTotalRunKm');
-    if (runKm) runKm.innerHTML = d.totals.runKm.toLocaleString() + '<span style="font-size:18px;color:var(--text-muted)">km</span>';
-    const runSub = document.getElementById('liveTotalRunSub');
-    if (runSub) runSub.textContent = d.totals.runs + ' runs';
-
-    const rideKm = document.getElementById('liveTotalRideKm');
-    if (rideKm) rideKm.innerHTML = d.totals.rideKm.toLocaleString() + '<span style="font-size:18px;color:var(--text-muted)">km</span>';
-    const rideSub = document.getElementById('liveTotalRideSub');
-    if (rideSub) rideSub.textContent = d.totals.rides + ' rides';
-
-    const swimM = document.getElementById('liveTotalSwimM');
-    if (swimM) swimM.textContent = d.totals.swimM.toLocaleString();
-    const swimSub = document.getElementById('liveTotalSwimSub');
-    if (swimSub) swimSub.textContent = d.totals.swims + ' swims';
-
-    // ── Weekly volume bar chart (Strava live) ────────────────────────────────
-    const weeklyCanvas = document.getElementById('weeklyChart');
-    if (weeklyCanvas && d.weeklyVolume && Chart.getChart(weeklyCanvas)) {
-      Chart.getChart(weeklyCanvas).destroy();
-    }
-    if (weeklyCanvas && d.weeklyVolume) {
-      new Chart(weeklyCanvas, {
-        type: 'bar',
-        data: {
-          labels: d.weeklyVolume.map(w => w.label),
-          datasets: [
-            { label: 'Run km', data: d.weeklyVolume.map(w => w.runKm), backgroundColor: RUN, borderRadius: 4, stack: 'vol' },
-            { label: 'Ride km', data: d.weeklyVolume.map(w => w.rideKm), backgroundColor: CYCLE, borderRadius: 4, stack: 'vol' },
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { labels: { boxWidth: 12, padding: 16 } } },
-          scales: {
-            x: { grid: { display: false }, stacked: true },
-            y: { beginAtZero: true, stacked: true, ticks: { callback: v => v + 'km' } }
-          }
-        }
-      });
-    }
-
   } catch (err) {
     console.error('Strava fetch error:', err);
-    if (statusEl) statusEl.textContent = 'Could not load data — check API key in Vercel';
+    if (statusEl) statusEl.textContent = 'Static data — CSV updated 21 Jul 2026';
     if (refreshBtn) { refreshBtn.disabled = false; refreshBtn.innerHTML = '↻ Refresh Data'; }
   }
 }
-
-// Auto-load on page open
 loadStravaData();
-
-// ===== END STRAVA LIVE DATA =====
-
 // AEROBIC EFFICIENCY
-// EF = (distance_metres / time_minutes) / avg_HR  →  m/min/bpm
-// Higher = more pace produced per heartbeat = better aerobic engine.
 const longRuns=[
   {d:'03-08',t:'Long run with run club',dist:13.59,timeMin:74.25,hr:146},
   {d:'03-14',t:'Weekend long run',dist:20.01,timeMin:102.23,hr:146},
@@ -1314,9 +1094,7 @@ const longRuns=[
   {d:'07-06',t:'Easy 1-hour 11.11k @ HR 139',dist:11.11,timeMin:60.30,hr:139}
 ];
 longRuns.forEach(r=>r.ef=+(r.dist*1000/r.timeMin/r.hr).toFixed(3));
-
 new Chart(document.getElementById('runEFChart'),{type:'line',data:{labels:longRuns.map(r=>r.d),datasets:[{label:'Run EF',data:longRuns.map(r=>r.ef),borderColor:RUN,backgroundColor:'rgba(255,90,58,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:RUN,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>longRuns[c[0].dataIndex].t,label:c=>{const r=longRuns[c.dataIndex];const m=Math.floor(r.timeMin),s=String(Math.round((r.timeMin%1)*60)).padStart(2,'0');return['EF: '+r.ef+' (m/min ÷ bpm)',r.dist+'km in '+m+':'+s,'Avg HR: '+r.hr]}}}},scales:{y:{min:1.20,max:1.42,ticks:{stepSize:0.02,callback:v=>v.toFixed(2)}},x:{grid:{display:false}}}}});
-
 const longCyclesOut=[
   {d:'04-07',t:'South Ayrshire 42km',dist:42.05,timeMin:99.18,hr:134},
   {d:'04-13',t:'South Ayrshire 60km',dist:60.74,timeMin:149.42,hr:129},
@@ -1330,21 +1108,20 @@ const longCyclesOut=[
   {d:'06-22',t:'South Ayrshire 41km (gel test)',dist:40.79,timeMin:86.58,hr:133},
   {d:'06-26',t:'South Ayrshire 72km (gels)',dist:72.17,timeMin:162.58,hr:130},
   {d:'07-02',t:'BRICK bike 47km hilly+windy',dist:46.93,timeMin:110.87,hr:128},
-  {d:'07-12',t:'Tri-sim bike 43.58km in heat',dist:43.58,timeMin:94.53,hr:133}
+  {d:'07-12',t:'Tri-sim bike 43.58km in heat',dist:43.58,timeMin:94.53,hr:133},
+  {d:'07-13',t:'South Ayrshire 30km',dist:30.44,timeMin:66.33,hr:123},
+  {d:'07-16',t:'South Ayrshire 76km LONG',dist:76.16,timeMin:171.92,hr:129},
+  {d:'07-20',t:'★ HILLY BRICK 60km 585m ascent',dist:60.14,timeMin:134.22,hr:127}
 ];
 longCyclesOut.forEach(r=>r.ef=+(r.dist*1000/r.timeMin/r.hr).toFixed(3));
-
-new Chart(document.getElementById('cycleOutEFChart'),{type:'line',data:{labels:longCyclesOut.map(r=>r.d),datasets:[{label:'Outdoor Cycle EF',data:longCyclesOut.map(r=>r.ef),borderColor:VO2,backgroundColor:'rgba(0,230,118,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:VO2,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>longCyclesOut[c[0].dataIndex].t,label:c=>{const r=longCyclesOut[c.dataIndex];const m=Math.floor(r.timeMin),s=String(Math.round((r.timeMin%1)*60)).padStart(2,'0');return['EF: '+r.ef+' (m/min ÷ bpm)',r.dist+'km in '+m+':'+s,'Avg HR: '+r.hr]}}}},scales:{y:{min:2.95,max:3.6,ticks:{stepSize:0.05,callback:v=>v.toFixed(2)}},x:{grid:{display:false}}}}});
-
+new Chart(document.getElementById('cycleOutEFChart'),{type:'line',data:{labels:longCyclesOut.map(r=>r.d),datasets:[{label:'Outdoor Cycle EF',data:longCyclesOut.map(r=>r.ef),borderColor:VO2,backgroundColor:'rgba(0,230,118,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:VO2,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>longCyclesOut[c[0].dataIndex].t,label:c=>{const r=longCyclesOut[c.dataIndex];const m=Math.floor(r.timeMin),s=String(Math.round((r.timeMin%1)*60)).padStart(2,'0');return['EF: '+r.ef+' (m/min ÷ bpm)',r.dist+'km in '+m+':'+s,'Avg HR: '+r.hr]}}}},scales:{y:{min:2.95,max:3.8,ticks:{stepSize:0.10,callback:v=>v.toFixed(2)}},x:{grid:{display:false}}}}});
 const longZwift=[
   {d:'03-12',t:'Alpecin Workout 1',dist:30.40,timeMin:60.17,hr:126,np:173},
   {d:'03-13',t:'Zwift Games race',dist:30.81,timeMin:64.67,hr:144,np:199},
   {d:'04-10',t:'ZTPL 100km Wintertal',dist:50.30,timeMin:90.82,hr:110,np:196}
 ];
 longZwift.forEach(r=>r.ef=+(r.np/r.hr).toFixed(3));
-
 new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels:longZwift.map(r=>r.d),datasets:[{label:'Zwift NP ÷ HR',data:longZwift.map(r=>r.ef),borderColor:CYCLE,backgroundColor:'rgba(58,143,240,0.1)',fill:true,tension:0.3,pointRadius:6,pointBackgroundColor:CYCLE,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:c=>longZwift[c[0].dataIndex].t,label:c=>{const r=longZwift[c.dataIndex];return['EF: '+r.ef+' (W ÷ bpm)','NP '+r.np+'W · HR '+r.hr,r.dist+'km']}}}},scales:{y:{min:1.30,max:1.90,ticks:{stepSize:0.1,callback:v=>v.toFixed(2)}},x:{grid:{display:false}}}}});
-
 // ===== LIVE COUNTDOWN to 23 Aug 2026 07:00 BST =====
 (function(){
   const raceTs = new Date('2026-08-23T07:00:00+01:00').getTime();
@@ -1373,7 +1150,6 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
   tick();
   setInterval(tick,1000);
 })();
-
 // ===== RING GAUGE ANIMATION =====
 (function(){
   function animate(){
@@ -1388,23 +1164,17 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
       }));
     });
   }
-  // Initial animation
   setTimeout(animate, 100);
-  // Re-animate when Geordieman tab clicked
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       if (btn.dataset.tab === 'geordieman') setTimeout(animate, 350);
     });
   });
 })();
-
 // ===== ACTIVITY HEATMAP =====
 (function(){
-  // Activity colours
-  const C = { run:'#ff5a3a', bike:'#00e676', zwift:'#3a8ff0', pool:'#3af0c7', ow:'#00b8d9', hiit:'#f0b83a', strength:'#a87cf0', brick:'#ff9f43' };
-  const LABEL = { run:'Run', bike:'Outdoor Bike', zwift:'Zwift', pool:'Pool Swim', ow:'OW Swim', hiit:'HIIT', strength:'Strength', brick:'BRICK' };
-
-  // Per-day primary activity + note (longest/highlight session that day)
+  const C = { run:'#ff5a3a', bike:'#00e676', zwift:'#3a8ff0', pool:'#3af0c7', ow:'#00b8d9', hiit:'#f0b83a', strength:'#a87cf0', brick:'#ff9f43', walk:'#7c6cf0' };
+  const LABEL = { run:'Run', bike:'Outdoor Bike', zwift:'Zwift', pool:'Pool Swim', ow:'OW Swim', hiit:'HIIT', strength:'Strength', brick:'BRICK', walk:'Walk' };
   const A = {
     '2026-03-16':{t:'strength',n:'Strength + HIIT + TM Run'},
     '2026-03-17':{t:'pool',n:'Pool 2,125m + HIIT'},
@@ -1490,7 +1260,7 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
     '2026-06-28':{t:'run',n:'Easy Z2 7.61km @ HR 127'},
     '2026-06-29':{t:'ow',n:'OW 1,504m at HR 112'},
     '2026-07-01':{t:'run',n:'Z2 11.57km @ HR 132'},
-    '2026-07-02':{t:'brick',n:'★ RACE-CONDITION BRICK 47km hilly+windy → 5.46km @ 4:49/km comfortable (race gels)'},
+    '2026-07-02':{t:'brick',n:'★ RACE-CONDITION BRICK 47km hilly+windy → 5.46km @ 4:49/km (race gels)'},
     '2026-07-03':{t:'run',n:'Track 8×400m intervals — speed work'},
     '2026-07-05':{t:'run',n:'South Ayrshire 6.08km @ 5:29/km'},
     '2026-07-06':{t:'run',n:'Easy 1-hour Z2 run 11.11km + Strength'},
@@ -1498,33 +1268,28 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
     '2026-07-08':{t:'run',n:'East Renfrewshire recovery 5.52km'},
     '2026-07-09':{t:'hiit',n:'HIIT 44min + Strength 30min'},
     '2026-07-10':{t:'run',n:'Track: 3×800m + 1200m hard + 10×15s sprints'},
-    '2026-07-12':{t:'brick',n:'★ FULL OLYMPIC TRI SIM — 1,471m OW + 43.58km bike + 10km run @ 5:03/km (race gels, heat)'}
+    '2026-07-12':{t:'brick',n:'★ FULL OLYMPIC TRI SIM — 1,471m OW + 43.58km bike + 10km run @ 5:03/km (race gels, heat)'},
+    '2026-07-13':{t:'bike',n:'Outdoor 30.44km @ 27.5 km/h'},
+    '2026-07-14':{t:'ow',n:'OW 1,038m + fast 5.55km @ 4:26/km + Strength'},
+    '2026-07-15':{t:'run',n:'East Renfrewshire 7.30km @ 5:28/km'},
+    '2026-07-16':{t:'bike',n:'★ 76.16km outdoor @ HR 129 (501m ascent)'},
+    '2026-07-20':{t:'brick',n:'★ HILLY BRICK 60.14km (585m!) → 6.72km @ 4:43/km (race gels + hydration)'}
   };
-
-  // Build grid Mar 16 → Aug 23 (race day)
-  const start = new Date(2026,2,16); // Mar 16
-  const race  = new Date(2026,7,23); // Aug 23
+  const start = new Date(2026,2,16);
+  const race  = new Date(2026,7,23);
   const today = new Date();
-
-  // Adjust start to previous Monday (ISO week starts Mon)
-  const startDow = (start.getDay()+6)%7; // 0=Mon..6=Sun
+  const startDow = (start.getDay()+6)%7;
   const gridStart = new Date(start); gridStart.setDate(start.getDate() - startDow);
-  // Pad end to next Sunday after race
   const raceDow = (race.getDay()+6)%7;
   const gridEnd = new Date(race); gridEnd.setDate(race.getDate() + (6 - raceDow));
-
   const grid = document.getElementById('heatmapGrid');
   const tip  = document.getElementById('heatmapTip');
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   let activeCount=0, brickCount=0, owCount=0, longestStreak=0, currentStreak=0;
-
-  // Plan W1 = week starting Mar 3, 2026. So Mar 16 = W3
-  const planStart = new Date(2026,2,3); // Mar 3
+  const planStart = new Date(2026,2,3);
   function weekNum(d){ return Math.floor((d - planStart)/(86400000*7)) + 1; }
-  // Identify "current week" = the week containing today
   const todayWeek = weekNum(today);
-  const recentThreshold = todayWeek - 4; // last 4 weeks get bolder label
-
+  const recentThreshold = todayWeek - 4;
   const cur = new Date(gridStart);
   let currentMonth = -1;
   let colIndex = 0;
@@ -1532,7 +1297,6 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
     const col = document.createElement('div'); col.className='heatmap-col';
     const colWeek = weekNum(cur);
     if (colWeek === todayWeek) col.classList.add('current-week');
-    // Month label row at top
     const monthLabel = document.createElement('div'); monthLabel.className='heatmap-month-label';
     const wkMonth = cur.getMonth();
     if (wkMonth !== currentMonth){
@@ -1575,7 +1339,6 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
       col.appendChild(cell);
       cur.setDate(cur.getDate()+1);
     }
-    // Week label at bottom
     const weekLabel = document.createElement('div');
     weekLabel.className = 'heatmap-week-label';
     if (colWeek === todayWeek) weekLabel.classList.add('current');
@@ -1587,8 +1350,6 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
   }
   grid.style.display='flex';
   grid.style.gap='3px';
-
-  // Summary stats
   const totalDays = Math.floor((today - start)/86400000)+1;
   const restDays = totalDays - activeCount;
   const consistency = Math.round(activeCount/totalDays*100);
@@ -1600,12 +1361,10 @@ new Chart(document.getElementById('cycleZwiftEFChart'),{type:'line',data:{labels
     <div class="heatmap-summary-stat"><strong>${owCount}</strong><span>OW Swims</span></div>
     <div class="heatmap-summary-stat"><strong>${brickCount}</strong><span>Bricks</span></div>
   `;
-
   function formatDate(d){
     return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
   }
 })();
-
 // Combined long-session table
 const allLong=[
   ...longRuns.map(r=>({d:r.d,type:'Run',name:r.t,dist:r.dist,unit:'km',timeMin:r.timeMin,hr:r.hr,ef:r.ef,color:RUN})),
