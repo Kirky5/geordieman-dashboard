@@ -1,69 +1,57 @@
 # Geordieman 70.3 Training Dashboard
 
-Live dashboard: https://kirky5.github.io/geordieman-dashboard/
+Interactive training insights dashboard tracking progress towards the **Geordieman 70.3 triathlon** on **23 August 2026** at Druridge Bay Country Park, Northumberland.
 
-## Current Status — Week 19 of 24
+**1.2 mile Swim** (Ladyburn Lake) · **56 mile Cycle** (Northumberland coast) · **13.1 mile Run** (flat paths)
 
-**Date range covered:** 16 Mar – 12 Jul 2026 (123 activities)
-**Phase:** Phase 5 — Sharpen
-**Race day:** 23 August 2026, Druridge Bay, Northumberland
-**Weeks remaining:** ~6 (41 days)
+## 📊 Live Dashboard
 
-## Overall Readiness — 97% (up from 95%)
+👉 **[View Dashboard](https://kirky5.github.io/geordieman-dashboard/)**
 
-| Discipline | Readiness | Change | Key Stat |
-|---|---|---|---|
-| Swim | **90%** | +1 | 19 pool + 8 OW. Jul 12 tri-sim OW 1,471m at HR 115 |
-| Bike | **93%** | +2 | 13 outdoor, 684 km. Jul 12 tri-sim 43.58km @ 27.7 km/h |
-| Run | **97%** | +1 | 56 runs, 445 km. Jul 12 Olympic 10k @ 5:03/km off bike |
-| Transitions | **92%** | +7 | Full tri-sim + race gels + heat = final race-day rehearsal |
+## Current Status — Week 21 · Phase 5 (Sharpen)
 
-## 🏆 The Headline — Sunday Jul 12 Olympic Tri Sim
+- **Overall race readiness:** 98% (vs sub-6h primary target)
+- **Weeks to race:** ~4 (30 days)
+- **Discipline readiness:** 🏊 Swim 92% · 🚴 Bike 95% · 🏃 Run 98% · 🏁 T1/T2 + Fuel 95%
 
-Full run-through with Grant & Ryan (both doing Geordieman 70.3) in hot conditions with race-day fuelling protocol.
+## 🏅 This Week's Achievements (Jul 21-23)
 
-**Swim leg** — 1,471 m OW, 36:07 at HR 115
-**Bike leg** — 43.58 km outdoor, 1h 34min at HR 133, **27.7 km/h avg**
-**Run leg** — 10.00 km at **5:03/km** at HR 155
+- **Jul 21 — Booker Pond, Irvine OW swim ✓** — 1,781 m at HR 121, SWOLF 51 (44:30). 10th OW session of the build across 2 venues. Race-day swim leg fully locked.
+- **Jul 22 — Fast 10 km @ 4:49/km** at HR 150, TE 3.7 — race pace confirmed at 10k distance. Sub-6h target (5:18/km) comfortably beaten.
+- **Jul 23 — Double session** — Strength 25 min + Pool pyramid 1,600 m at HR 118, SWOLF 42.
 
-Robert's note: **"Used my race gels and fuelling strategy. Was very hot — good practice if it's warm on race day. Felt comfortable in all three disciplines."**
+## Recent Highlights (5–20 Jul)
 
-## 70.3 Projection From Tri-Sim Data
+- **Jul 20 — HILLY BRICK with race gels + hydration** — 60.14 km outdoor at HR 127 with **585 m ascent** → 6.72 km @ 4:43/km at HR 149. Cycle EF 3.53 — new build best.
+- **Jul 16 — 76.16 km outdoor** at HR 129, 501 m ascent. Third-longest ride of build.
+- **Jul 12 — Full Olympic tri sim** with Grant + Ryan in heat with race gels.
 
-Scaling Jul 12 pace to 70.3 distances (with realistic slow-down at longer distance):
+## Priorities — Next Week
 
-- **Swim** (1.9 km): ~46 min
-- **T1**: ~4 min
-- **Bike** (90 km at 26 km/h): ~3:28
-- **T2**: ~3 min
-- **Run** (21.1 km at 5:15/km): ~1:51
+1. **Final 85-90 km outdoor ride this weekend (Jul 26-27)** — last volume box before taper. Full race-day fuelling protocol.
+2. **One more brick mid-week** — 40-50 km bike → 6-8 km run at race pace. Locks T2 leg turnover memory.
+3. **Weekly OW maintenance** — 10 OW sessions banked. Hold 1× per week through end of July.
+4. **Taper begins Aug 1** — reduce ~20% early Aug, ~40% mid Aug. Trust the training.
+5. **Sleep discipline** — 8h+ nightly through taper. Recovery quality is where adaptation locks in.
 
-**Projected total: ~6:12** in heat. Cool race day + taper effect = **5:55-6:05 range achievable**. Sub-6h locked, sub-5:30 within reach if everything comes together.
+## What's Tracked
 
-## This Week's Wins (Jul 10-12)
+- **Geordieman 70.3** — race-specific readiness rings, live countdown, 24-week phase tracker
+- **Overview** — sessions, calories, HR zones, weekly volume
+- **VO₂ Max** — trend, classification, path to Superior
+- **Running** — pace trends, all runs table
+- **Cycling** — outdoor + Zwift, distance vs race target, power trend
+- **Swim** — pool + open water distance, SWOLF, race-distance milestones
+- **Aerobic** — Efficiency Factor tracking for long sessions
+- **Sleep** — 12 months of sleep score, duration, bedtime patterns
+- **Race Predictor** — Garmin predicted race times
+- **Insights** — key observations and priority recommendations
+- **Activity Heatmap** — every training day Mar 16 → race day, coloured by discipline
 
-**Jul 10 — Track speed session**
-- 3×800m + 1200m hard + 10×(15s sprints/25s rest)
-- Avg HR 140, max 186, best pace 2:19/km
-- Serious speed reserve for race-day surges
+## Data Sources
 
-**Jul 12 — Full Olympic tri sim with friends**
-- All three disciplines in one session
-- Race gels + fuelling strategy tested end-to-end
-- Heat rehearsal for warm race day possibility
-- "Comfortable in all three disciplines"
+- Garmin Connect activity exports (CSV)
+- Garmin Connect sleep exports (CSV)
+- Garmin Training Status screenshots
 
-## This Week's Priorities (Week 20)
-
-1. **Recovery Mon/Tue** — swim OR walk only, skip runs/rides
-2. **One more 85-90 km outdoor ride** mid-July (final long-ride box)
-3. **Weekly OW maintenance** — race distance session ~10 days out
-4. **Taper begins Aug 1** — reduce ~20% early Aug, ~40% mid Aug
-5. **Sub-6h locked in — Sub-5:30 target upgrade in play**
-
-## Files
-
-- `index.html` — full interactive dashboard (upload to GitHub Pages root)
-- `README.md` — this file
-
-_Last updated: 13 July 2026_
+*Last updated: 24 July 2026 — CSV block through 23 Jul.*
