@@ -8,37 +8,49 @@ Interactive training insights dashboard tracking progress towards the **Geordiem
 
 👉 **[View Dashboard](https://kirky5.github.io/geordieman-dashboard/)**
 
-## Current Status — Week 21 · Phase 5 (Sharpen)
+## Current Status — Week 23 · Phase 6 (Taper) 🎯
 
 - **Overall race readiness:** 98% (vs sub-6h primary target)
-- **Weeks to race:** ~4 (30 days)
-- **Discipline readiness:** 🏊 Swim 92% · 🚴 Bike 95% · 🏃 Run 98% · 🏁 T1/T2 + Fuel 95%
+- **Days to race:** 18
+- **Discipline readiness:** 🏊 Swim 93% · 🚴 Bike 95% · 🏃 Run 98% · 🏁 T1/T2 + Fuel 95%
 
-## 🏅 This Week's Achievements (Jul 21-23)
+## 🏅 Recent Achievements (24 Jul – 4 Aug)
 
-- **Jul 21 — Booker Pond, Irvine OW swim ✓** — 1,781 m at HR 121, SWOLF 51 (44:30). 10th OW session of the build across 2 venues. Race-day swim leg fully locked.
-- **Jul 22 — Fast 10 km @ 4:49/km** at HR 150, TE 3.7 — race pace confirmed at 10k distance. Sub-6h target (5:18/km) comfortably beaten.
-- **Jul 23 — Double session** — Strength 25 min + Pool pyramid 1,600 m at HR 118, SWOLF 42.
+- **Aug 4 — 11th OW + swim-run mini-brick** — 1,515 m OW at HR 127 → 5.04 km run @ 4:54/km at HR 148. Real transition rehearsal at 19 days out.
+- **Jul 30 — Pool SWOLF 40 (build best!)** — 1,800 m pyramid at HR 116. Best pool efficiency of the entire build, right at the sharpest point of taper.
+- **Jul 31 — Track speed session** — 800m + 200m float + 200m walk × 4 + 400m. Top-end speed reserve preserved.
+- **Jul 26 — Fast 8 km @ 4:48/km** — HR 149, TE 3.5.
+- **Jul 27 — 34.21 km outdoor tempo** — HR 137, 26.6 km/h.
+- **Aug 3 — Aerobic 9.38 km @ 5:21/km** — HR 143, TE 3.2.
+- **Aug 2 — Long recovery walk** — 7.03 km / 88 min at HR 76.
 
-## Recent Highlights (5–20 Jul)
+## Taper Progress
 
-- **Jul 20 — HILLY BRICK with race gels + hydration** — 60.14 km outdoor at HR 127 with **585 m ascent** → 6.72 km @ 4:43/km at HR 149. Cycle EF 3.53 — new build best.
-- **Jul 16 — 76.16 km outdoor** at HR 129, 501 m ascent. Third-longest ride of build.
-- **Jul 12 — Full Olympic tri sim** with Grant + Ryan in heat with race gels.
+- **W21** (Jul 21-27): 7 sessions / 5.1h — final tune-up
+- **W22** (Jul 28-Aug 3): 6 sessions / 4.5h — first true taper week
+- **W23** (Aug 4-10, in progress): deep taper — 40-50% below peak weeks
 
-## Priorities — Next Week
+Volume is down ~30% vs peak weeks (~8-10h/week), quality holding, freshness building. Textbook taper.
 
-1. **Final 85-90 km outdoor ride this weekend (Jul 26-27)** — last volume box before taper. Full race-day fuelling protocol.
-2. **One more brick mid-week** — 40-50 km bike → 6-8 km run at race pace. Locks T2 leg turnover memory.
-3. **Weekly OW maintenance** — 10 OW sessions banked. Hold 1× per week through end of July.
-4. **Taper begins Aug 1** — reduce ~20% early Aug, ~40% mid Aug. Trust the training.
-5. **Sleep discipline** — 8h+ nightly through taper. Recovery quality is where adaptation locks in.
+## Priorities — This Week (Aug 5-10)
+
+1. **Deep taper — 4-5 sessions total** — 1 easy swim, 1 easy ride 45-60 min with a few race-pace efforts, 2-3 short runs (30-40 min) with strides. Skip HIIT + strength.
+2. **Optional race-distance OW** — Aug 5-9, Z2 only. Sighting + wetsuit comfort rehearsal.
+3. **Kit + nutrition rehearsal** — Lay out all kit weekend. Test wetsuit. T1/T2 mental drill.
+4. **Sleep 8h+ nightly** — bedtime before 11:30 PM. Two weeks of quality sleep = measurable race-day boost.
+5. **Trust the training** — no fitness to gain now, only freshness to add.
+
+## Race Week (Aug 17-22)
+
+- **Mon-Thu**: 15-25 min sessions with 3-5 race-pace pings each
+- **Fri-Sat**: Rest / travel / kit prep. Carb-load Thu-Sat.
+- **Sunday Aug 23 — RACE DAY**: 07:00 BST, Druridge Bay
 
 ## What's Tracked
 
 - **Geordieman 70.3** — race-specific readiness rings, live countdown, 24-week phase tracker
 - **Overview** — sessions, calories, HR zones, weekly volume
-- **VO₂ Max** — trend, classification, path to Superior
+- **VO₂ Max** — trend, classification
 - **Running** — pace trends, all runs table
 - **Cycling** — outdoor + Zwift, distance vs race target, power trend
 - **Swim** — pool + open water distance, SWOLF, race-distance milestones
@@ -52,6 +64,5 @@ Interactive training insights dashboard tracking progress towards the **Geordiem
 
 - Garmin Connect activity exports (CSV)
 - Garmin Connect sleep exports (CSV)
-- Garmin Training Status screenshots
 
-*Last updated: 24 July 2026 — CSV block through 23 Jul.*
+*Last updated: 5 August 2026 — CSV block through 4 Aug. 18 days to race.*
