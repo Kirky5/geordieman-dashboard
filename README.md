@@ -8,6 +8,8 @@ Interactive training insights dashboard tracking progress towards the **Geordiem
 
 👉 **[View Dashboard](https://kirky5.github.io/geordieman-dashboard/)**
 
+New: a **📋 Race Info** tab with a search box covering the full official race-day briefing from Wild Deer Events — timeline, parking, registration, transition, kit list, swim/bike/run course rules, feed stations, finish, spectators, camping, safety, and results. Type any keyword (e.g. "feed stations", "parking", "headphones") to jump straight to the relevant section.
+
 ## 🏁 Current Status — Week 24 · RACE WEEK NEXT · 8 DAYS TO RACE
 
 - **Overall race readiness:** 98% (vs sub-6h primary target)
@@ -67,4 +69,13 @@ Interactive training insights dashboard tracking progress towards the **Geordiem
 - `index.html` — full interactive dashboard
 - `README.md` — this file
 
-*Last updated: 15 August 2026 — CSV block through 13 Aug. 🏁 8 days to Geordieman 70.3.*
+## 🎫 Race Weekend Essentials
+
+- **Bib number:** 255 · **Wave:** Half Geordieman
+- **Venue:** Druridge Bay Country Park, A1068, Red Row, Morpeth, NE61 5BX (`///grant.bunk.innovator`)
+- **Parking:** PayByPhone app, location code 804150 (~£4/24h) — required for all participants and spectators
+- **Sat 22 Aug:** Registration 3-7pm (no racking) · shakeout run 2pm
+- **Sun 23 Aug:** Registration/transition opens 5am · transition closes 6:30am · **Half Geordieman start 6:50am (Wave 1) / 6:55am (Wave 2)**
+- Full details — swim/bike/run course rules, feed stations, kit list, finish line, awards — now live and searchable in the dashboard's **Race Info** tab
+
+*Last updated: 19 August 2026 — added searchable Race Info tab from Wild Deer Events' race weekend briefing email. 🏁 4 days to Geordieman 70.3.*
